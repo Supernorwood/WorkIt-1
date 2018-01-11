@@ -10,6 +10,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import entities.Job;
+
 public class JobTest {
 	private EntityManagerFactory emf;
 	private EntityManager em;
@@ -36,7 +38,7 @@ public class JobTest {
 	@Test
 	public void userScalarTypes() {
 		Job u = em.find(Job.class, 1);
-		assertEquals("test", u.getTitle); //title depends on how it's named in the entity
+		assertEquals("test", u.getTitle()); //title depends on how it's named in the entity
 		
 		//need to create a user to test for in db
 		//do assertEquals for the entity stuff in the entity that aren't relationships

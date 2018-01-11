@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `active` TINYINT(1) NOT NULL DEFAULT 1,
   `created_date` TIMESTAMP(2) NULL,
   `last_update` TIMESTAMP(2) NULL,
-  PRIMARY KEY (`id`, `email`),
+  PRIMARY KEY (`id`),
   CONSTRAINT `fk_user_address_id`
     FOREIGN KEY (`address_id`)
     REFERENCES `address` (`id`)
