@@ -1,5 +1,9 @@
 package data;
 
+import java.util.List;
+
+import entities.Job;
+
 public class JobsDAOImpl implements JobsDAO {
 
 	@Override
