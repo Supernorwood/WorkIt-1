@@ -1,0 +1,67 @@
+<h1>Show all Jobs</h1>
+
+
+
+
+
+
+
+<!-- 
+
+
+<h1 ng-class="vm.incompleteWarning()">To Do List {{vm.countTasks()}}</h1>
+
+<form>
+	Show All Tasks <input type="checkbox" ng-model="vm.showAll"/>
+</form>
+
+	SHOW DETAIL VIEW 
+<div ng-show="vm.selected && !vm.editTodo">
+	<table class="show-detail">
+		<tr>Task: {{vm.selected.task}}</tr><br />
+		<tr>Description: {{vm.selected.description}}</tr><br />
+		<tr><input type="submit" ng-click="vm.setEditTodo()" value="Edit"/></tr>
+	</table>
+	
+	<button type="button" ng-click="vm.displayTable()">Go Back</button>
+</div>
+
+	SHOW EDIT VIEW
+<div ng-show="vm.editTodo">
+	<form class="edit-form">
+		Task: <input type="text" ng-model="vm.editTodo.task" placeholder="Task" /><br />
+		Description: <input type="text" ng-model="vm.editTodo.description" placeholder="Description"/><br />
+		Due Date: <input type="text" ng-model="vm.editTodo.dueDate" placeholder="Due Date"/><br />
+		Date Completed: <input type="text" ng-model="vm.editTodo.completeDate" placeholder="Date Completed"/><br />
+		Completed: <input type="checkbox" ng-model="vm.editTodo.completed"/>
+	</form>
+	
+	<button type="button" ng-click="vm.updateTodo(vm.editTodo)">Save</button>
+	<button type="button" ng-click="vm.editTodo=null">Cancel</button>
+</div>
+
+ADD FORM and LIST OF TODOs are shown on main page
+
+<form ng-show="!vm.selected">
+	<input type="text" ng-model="todo.task" placeholder="Task"/><br />
+	<input type="submit" ng-click="vm.addTask(todo); todo = {}" value="Add Task"/>
+</form>
+
+<table ng-show="!vm.selected">
+	<tr>
+		<th>Task</th>
+		<th>Check</th>
+		<th>Completed</th>
+	</tr>
+
+	<tr ng-repeat="todo in vm.todos | incompleteFilter: vm.showAll | orderBy: id">
+		<td ng-class="(todo.completed) ? 'strike' : '';" ng-click="vm.displayTodo(todo)"/>{{todo.task}}</td>
+		
+		 OR ng-class="vm.crossOut(todo)"
+		
+		<td><input type="checkbox" ng-model="todo.completed" ng-change="vm.updateTodo(todo)" /></td>
+		<td>{{todo.completed}}</td>
+		<td><button class="red" ng-click="vm.deleteTodo(todo.id)">x</button>
+	</tr>
+</table>
+ -->

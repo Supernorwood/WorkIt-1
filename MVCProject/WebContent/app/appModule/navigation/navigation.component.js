@@ -1,6 +1,6 @@
 angular.module('appModule')
 	.component('navigation', {
-		templateUrl : 'app/appModule/navigation.component.html',
+		templateUrl : 'app/appModule/navigation/navigation.component.html',
 		controllerAs : 'vm',
 		controller : function(authService, $location){	
 			

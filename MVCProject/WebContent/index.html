@@ -17,11 +17,13 @@
 	<script src= "app/authModule/logout/logout.component.js"></script>
 	<!-- App module stuff -->
 	<script src= "app/appModule/app.module.js"></script>
-	<script src= "app/appModule/navigation.component.js"></script>
+	<script src= "app/appModule/jobs/jobs.component.js"></script>
+	<script src= "app/appModule/navigation/navigation.component.js"></script>
 	<script src= "app/appModule/home/home.component.js"></script>
-	<script src= "app/appModule/incomplete.filter.js"></script>
+	<script src= "app/appModule/jobs/incomplete.filter.js"></script>
 	<script src= "app/appModule/about/about.component.js"></script>
-	<script src= "app/appModule/error.component.js"></script>
+	<script src= "app/appModule/error/error.component.js"></script>
+	
 	
 	<link rel="stylesheet" href="jobs.css">
 </head>
@@ -30,6 +32,7 @@
   <navigation></navigation>
   <h1>This is the index</h1>
   <ng-view></ng-view>
+  <jobs>Loading...</jobs>
   
 </body>
 </html>

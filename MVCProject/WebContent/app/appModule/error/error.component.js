@@ -1,6 +1,6 @@
 angular.module('appModule')
 	.component('error', {
-		templateUrl : 'app/appModule/error.component.html',
+		templateUrl : 'app/appModule/error/error.component.html',
 		controllerAs : 'vm',
 		controller : function(){}	
 	})
