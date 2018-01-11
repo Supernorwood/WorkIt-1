@@ -7,15 +7,35 @@ import entities.Job;
 public class JobsDAOImpl implements JobsDAO {
 
 	@Override
-	public List<Job> getAllJobs() {
+	public List<Job> index(int uid) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Job getJobById(int id) {
+	public Job show(int uid, int jid) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Job create(int uid, String jobJson) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Job update(int uid, int jid, String jobJson) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean destroy(int uid, int jid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
 }
