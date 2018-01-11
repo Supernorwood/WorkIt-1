@@ -71,8 +71,8 @@ CREATE INDEX `fk_user-address-id_address-id_idx` ON `user` (`address_id` ASC);
 DROP TABLE IF EXISTS `job` ;
 
 CREATE TABLE IF NOT EXISTS `job` (
-  `id` INT UNSIGNED NOT NULL,
-  `user_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `user_id` INT UNSIGNED NOT NULL,
   `company` VARCHAR(100) NOT NULL,
   `title` VARCHAR(100) NOT NULL,
   `link` TEXT NULL,
