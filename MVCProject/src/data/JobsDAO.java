@@ -2,16 +2,14 @@ package data;
 
 import java.util.List;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import entities.Job;
 
 public interface JobsDAO {
 
 
-	public List<Job> getAllJobs();
-	public Job getJobById(int id);
-	public Job addNewJob(String json);
-	public Job updateJob(int id, String json);
-	public Boolean destroyJob(int id);
+	public List<Job> getAllJobs(int uid);
+	public Job getJobById(int uid, int jid);
+	public Job addNewJob(int uid, String json);
+	public Job updateJob(int uid, int jid, String json);
+	public Boolean destroyJob(int uid, int jid);
 }
