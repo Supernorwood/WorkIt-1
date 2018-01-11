@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Address {
@@ -20,6 +21,9 @@ public class Address {
 	  	private String state;
 	  	private String zip;
 	  	private String country;
+	  	
+	    @OneToOne(mappedBy="address")
+	     private User user;
 	  	
 	  	
 	  	
@@ -68,11 +72,21 @@ public class Address {
 		}
 		
 		
+		public User getUser() {
+			return user;
+		}
+		public void setUser(User user) {
+			this.user = user;
+		}
+		
+		
 		//TOSTRING
 		@Override
 		public String toString() {
 			return "Address [id=" + id + ", street=" + street + ", street2=" + street2 + ", city=" + city + ", state="
-					+ state + ", zip=" + zip + ", country=" + country + "]";
+					+ state + ", zip=" + zip + ", country=" + country + ", user=" + user + "]";
+		}
+		
 		}
 	  	
 	  	
