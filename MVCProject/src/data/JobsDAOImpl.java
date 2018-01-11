@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import entities.Job;
+import entities.User;
 
 	@Transactional
 	@Repository
@@ -20,44 +21,49 @@ import entities.Job;
 		private EntityManager em;
 		
 		@Override
-		public List<Job> getAllJobs() {
-			String query = "SELECT j from Job j"; 
+		public List<Job> getAllJobs(int uid) {
+			String query = "SELECT j from Job j WHERE j.user.id = :uid"; 
 			List<Job> jobs = em.createQuery(query, Job.class)
+					.setParameter("uid", uid)
 					.getResultList();
 			return jobs;
 		}
 
 		@Override
-		public Job getJobById(int id) {
-			Job job = em.find(Job.class, id);
+		public Job getJobById(int uid, int jid) {
+			Job job = em.find(Job.class, jid);
+			if(job == null || job.getUser().getId() != uid) {
+				return null;
+			}
 			return job;
 		}
 
 		@Override
-		public Job addNewJob(String json) {
+		public Job addNewJob(int uid, String json) {
 			ObjectMapper mapper = new ObjectMapper();
 			Job newJob = null;
 			try {
 				newJob = mapper.readValue(json, Job.class);
+				User u = em.find(User.class, uid);
+				newJob.setUser(u);
 				em.persist(newJob);
 				em.flush();
-				return newJob;
 			}
 			catch(Exception e) {
 				e.printStackTrace();
 			}
-			return null;
+			return newJob;
 		}
 
 		//May need to add additional fields
 		@Override
-		public Job updateJob(int id, String json) {
+		public Job updateJob(int uid, int jid, String json) {
 			ObjectMapper mapper = new ObjectMapper();
 			Job job = null;
 			Job ogJob = null;
 			try {
 				job = mapper.readValue(json, Job.class);
-				ogJob = em.find(Job.class, id);
+				ogJob = em.find(Job.class, jid);
 				ogJob.setTitle(job.getTitle());
 				ogJob.setCompany(job.getCompany());
 				ogJob.setLink(job.getLink());
@@ -70,8 +76,8 @@ import entities.Job;
 		}
 
 		@Override
-		public Boolean destroyJob(int id) {
-			Job job = em.find(Job.class, id);
+		public Boolean destroyJob(int uid, int jid) {
+			Job job = em.find(Job.class, jid);
 			try {
 				em.remove(job);
 				return true;
