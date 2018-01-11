@@ -17,6 +17,13 @@
 	<bean id="myTransactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="myEntityManagerFactory" />
 	</bean>
+	
+	<mvc:interceptors>
+    		<mvc:interceptor>
+    		  <mvc:mapping path="/user/*/job/**" />
+    		  <bean id="myInterceptor" class="security.DataSecurityInterceptor" />
+    		</mvc:interceptor>
+  	</mvc:interceptors>
 
 	<tx:annotation-driven transaction-manager="myTransactionManager" />
 	<mvc:annotation-driven />
