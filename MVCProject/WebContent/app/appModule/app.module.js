@@ -2,10 +2,10 @@ angular.module('appModule',['ngRoute', 'authModule'])
 .config(function($routeProvider){
 	$routeProvider
 		.when('/home', {
-			template : '<home-component></home-component>'
+			template : '<home></home>'
 		})
 		.when ('/about', {
-			template : '<about-component></about-component>'
+			template : '<about></about>'
 		})
 		.when ('/register', {
 			template : '<register></register>'
@@ -18,7 +18,10 @@ angular.module('appModule',['ngRoute', 'authModule'])
 		})
 		.when ('/jobs', {
 			template : '<jobs></jobs>'
-		}
+		})
+		.when('/error', {
+			template: '<error></error>'
+		})
 		.otherwise ({
 			template : '<error></error>'
 		})
