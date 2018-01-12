@@ -10,7 +10,7 @@ angular.module('authModule')
 			.then(function(response){
 				var current = $location.path();
 				if (current === '/jobs') {
-					$location,path('/home')
+					$location.path('/home')
 				}
 			})
 		}
