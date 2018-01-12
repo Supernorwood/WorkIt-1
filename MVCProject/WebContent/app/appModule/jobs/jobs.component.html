@@ -1,38 +1,76 @@
 <h1>Show all Jobs</h1>
 
+<!-- ADD JOB FORM -->
 <form ng-show="!vm.selected">
 	<input type="text" ng-model="job.title" placeholder="Job Title"/></br>
 	<input type="text" ng-model="job.company" placeholder="Company"/></br>
 	<input type="submit" ng-click="vm.addJob(job); job = {}" value="Add Job"/></br>
 </form>
 
+<!-- INDEX LIST OF JOBS -->
 <div ng-show="!vm.selected">
-	
+	<span>
 		<div class="title">Job Title</div>
 		<div class="company">Company</div>
 		<div class="applyDate">Date Applied</div>  <!-- Or does date updated make more sense? -->
-	
+	</span>
 
 <div>Junior Developer / CACI / Jan 12, 2018</div>
 
-	<div ng-repeat="job in vm.jobs | incompleteFilter: vm.showAll | orderBy: id">
-		<div ng-click="vm.displayJob(job)"/>{{job.title}}</div>
-		 / {{job.company}} / {{job.created_date}}</td>
-		</div>
-		
-		
-<!-- 		<td><input type="checkbox" ng-model="todo.completed" ng-change="vm.updateTodo(todo)" /></td>
-		<td>{{todo.completed}}</td> -->
-		<!-- <td><button class="red" ng-click="vm.deleteTodo(todo.id)">x</button> -->
+<div ng-repeat="job in vm.jobs | incompleteFilter: vm.showAll | orderBy: id">
+	<div ng-click="vm.displayJob(job)"/>
+		<div>{{job.title}}</div>
+		<div>{{job.company}}</div>
+		<div>{job.created_date}}</div>		 	
 	</div>
+	<span> 
+<!-- ******* EITHER NEED "completed" PROPERTY OR LOGIC AROUND "closingDate"  -->
+		<input type="checkbox" ng-model="job.closingDate" ng-change="vm.updateJob(job)" />
+		<button class="red" ng-click="vm.deleteJob(job.id)">x</button>
+	</span>
 
+</div>
 
+<!-- SHOW DETAIL VIEW -->
+<div ng-show="vm.selected && !vm.editJob">
+	<table class="show-detail">
+		<tr>Job Title: {{vm.selected.title}}</tr><br />
+		<tr>Company: {{vm.selected.company}}</tr><br />
+		<tr>Job Posting URL: {{vm.selected.link}}</tr><br />
+		<tr>Address: {{vm.selected.address}}</tr><br />
+		<tr>Date Applied: {{vm.selected.createdDate}}</tr><br />
+		<tr>Last Updated: {{vm.selected.lastUpdate}}</tr><br />
+		
+		<tr><input type="submit" ng-click="vm.setEditJob()" value="Edit"/></tr>
+	</table>
+	<button type="button" ng-click="vm.displayTable()">Back to Jobs</button>
+</div>
+
+<!-- SHOW EDIT VIEW -->
+<div ng-show="vm.editJob">
+	<form class="edit-form">
+		Job Title: <input type="text" ng-model="vm.editJob.title" placeholder="Job Title" /><br />
+		Company <input type="text" ng-model="vm.editJob.company" placeholder="Company"/><br />
+		Job Posting URL: <input type="text" ng-model="vm.editJob.link" placeholder="URL"/><br />
+		Address: <input type="text" ng-model="vm.editJob.address" placeholder="Address"/><br />
+		Date Applied: <input type="text" ng-model="vm.editJob.dueDate" placeholder="Date Applied"/><br />
+		Last Updated: <input type="text" ng-model="vm.editJob.lastUpdate" placeholder="Last Updated"/><br />
+<!-- ****** SAME "completed" CHECKBOX ISSUE ... Completed: <input type="checkbox" ng-model="vm.editTodo.completed"/>  -->
+	</form>
+	
+	<button type="button" ng-click="vm.updateJob(vm.editJob)">Save</button>
+	<button type="button" ng-click="vm.editJob=null">Cancel</button>
+</div>
 
 
 <!-- 
+<h1 ng-class="vm.incompleteWarning()">To Do List {{vm.countTasks()}}</h1>
 
-ADD FORM and LIST OF TODOs are shown on main page
+<form>
+	Show All Tasks <input type="checkbox" ng-model="vm.showAll"/>
+</form>
 
+TABLE INDEX OF TODOS
 <table ng-show="!vm.selected">
 	<tr>
 		<th>Task</th>
@@ -50,38 +88,6 @@ ADD FORM and LIST OF TODOs are shown on main page
 		<td><button class="red" ng-click="vm.deleteTodo(todo.id)">x</button>
 	</tr>
 </table>
-
-
-<h1 ng-class="vm.incompleteWarning()">To Do List {{vm.countTasks()}}</h1>
-
-<form>
-	Show All Tasks <input type="checkbox" ng-model="vm.showAll"/>
-</form>
-
-	SHOW DETAIL VIEW 
-<div ng-show="vm.selected && !vm.editTodo">
-	<table class="show-detail">
-		<tr>Task: {{vm.selected.task}}</tr><br />
-		<tr>Description: {{vm.selected.description}}</tr><br />
-		<tr><input type="submit" ng-click="vm.setEditTodo()" value="Edit"/></tr>
-	</table>
-	
-	<button type="button" ng-click="vm.displayTable()">Go Back</button>
-</div>
-
-	SHOW EDIT VIEW
-<div ng-show="vm.editTodo">
-	<form class="edit-form">
-		Task: <input type="text" ng-model="vm.editTodo.task" placeholder="Task" /><br />
-		Description: <input type="text" ng-model="vm.editTodo.description" placeholder="Description"/><br />
-		Due Date: <input type="text" ng-model="vm.editTodo.dueDate" placeholder="Due Date"/><br />
-		Date Completed: <input type="text" ng-model="vm.editTodo.completeDate" placeholder="Date Completed"/><br />
-		Completed: <input type="checkbox" ng-model="vm.editTodo.completed"/>
-	</form>
-	
-	<button type="button" ng-click="vm.updateTodo(vm.editTodo)">Save</button>
-	<button type="button" ng-click="vm.editTodo=null">Cancel</button>
-</div>
 
 
  -->
