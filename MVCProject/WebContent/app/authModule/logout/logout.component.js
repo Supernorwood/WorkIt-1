@@ -8,10 +8,7 @@ angular.module('authModule')
 		vm.logout = function() {
 			authService.logout()
 			.then(function(response){
-				var current = $location.path();
-				if (current === '/jobs') {
-					$location.path('/home')
-				}
+				$location.path('/home')
 			})
 		}
 	}
