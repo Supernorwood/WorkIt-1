@@ -7,7 +7,7 @@ angular.module('appModule')
   var checkLogin = function(user) {
 	  var user = authService.getToken()
 	  if (!user) {
-		  $location.path('/login');
+		  $location.path('/home');
 		  return;
 	  }
 	  else {

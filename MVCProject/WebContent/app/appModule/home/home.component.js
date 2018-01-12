@@ -3,4 +3,7 @@ angular.module('appModule')
 		templateUrl : 'app/appModule/home/home.component.html',
 		controllerAs : 'vm',
 		controller : function(){}	
+	
+	
+	
 	})
