@@ -3,6 +3,7 @@ package data;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,19 @@ public class AuthDAOImpl implements AuthDAO {
 				}
 			return null;
 		}
+		
+		@Override
+		public User authenticateUser(User user) throws NoResultException {
+			  // find the User by username/email (a unique field)
+			  String query = "SELECT u FROM User u WHERE u.email = :email";
+			  User managedUser = em.createQuery(query, User.class)
+			                        .setParameter("email", user.getEmail())
+			                        .getSingleResult();
+			  	if (encoder.matches(user.getPassword(), managedUser.getPassword())) {
+			    return managedUser;
+			  	}
+			  return null;
+			}
 	
 	
 }
