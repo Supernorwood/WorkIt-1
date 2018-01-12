@@ -1,12 +1,51 @@
 <h1>Show all Jobs</h1>
 
+<form ng-show="!vm.selected">
+	<input type="text" ng-model="job.title" placeholder="Job Title"/></br>
+	<input type="text" ng-model="job.company" placeholder="Company"/></br>
+	<input type="submit" ng-click="vm.addJob(job); job = {}" value="Add Job"/></br>
+</form>
 
+<table ng-show="!vm.selected">
+	<tr>
+		<th>Job Title</th>
+		<th>Company</th>
+		<th>Date Applied</th>  <!-- Or does date updated make more sense? -->
+	</tr>
 
-
+	<tr ng-repeat="job in vm.jobs | incompleteFilter: vm.showAll | orderBy: id">
+		<td ng-click="vm.displayJob(job)"/>{{job.title}}{{job.company}}</td>
+		
+		
+<!-- 		<td><input type="checkbox" ng-model="todo.completed" ng-change="vm.updateTodo(todo)" /></td>
+		<td>{{todo.completed}}</td> -->
+		<!-- <td><button class="red" ng-click="vm.deleteTodo(todo.id)">x</button> -->
+	</tr>
+</table>
 
 
 
 <!-- 
+
+ADD FORM and LIST OF TODOs are shown on main page
+
+<table ng-show="!vm.selected">
+	<tr>
+		<th>Task</th>
+		<th>Check</th>
+		<th>Completed</th>
+	</tr>
+
+	<tr ng-repeat="todo in vm.todos | incompleteFilter: vm.showAll | orderBy: id">
+		<td ng-class="(todo.completed) ? 'strike' : '';" ng-click="vm.displayTodo(todo)"/>{{todo.task}}</td>
+		
+		 OR ng-class="vm.crossOut(todo)"
+		
+		<td><input type="checkbox" ng-model="todo.completed" ng-change="vm.updateTodo(todo)" /></td>
+		<td>{{todo.completed}}</td>
+		<td><button class="red" ng-click="vm.deleteTodo(todo.id)">x</button>
+	</tr>
+</table>
 
 
 <h1 ng-class="vm.incompleteWarning()">To Do List {{vm.countTasks()}}</h1>
@@ -40,28 +79,5 @@
 	<button type="button" ng-click="vm.editTodo=null">Cancel</button>
 </div>
 
-ADD FORM and LIST OF TODOs are shown on main page
 
-<form ng-show="!vm.selected">
-	<input type="text" ng-model="todo.task" placeholder="Task"/><br />
-	<input type="submit" ng-click="vm.addTask(todo); todo = {}" value="Add Task"/>
-</form>
-
-<table ng-show="!vm.selected">
-	<tr>
-		<th>Task</th>
-		<th>Check</th>
-		<th>Completed</th>
-	</tr>
-
-	<tr ng-repeat="todo in vm.todos | incompleteFilter: vm.showAll | orderBy: id">
-		<td ng-class="(todo.completed) ? 'strike' : '';" ng-click="vm.displayTodo(todo)"/>{{todo.task}}</td>
-		
-		 OR ng-class="vm.crossOut(todo)"
-		
-		<td><input type="checkbox" ng-model="todo.completed" ng-change="vm.updateTodo(todo)" /></td>
-		<td>{{todo.completed}}</td>
-		<td><button class="red" ng-click="vm.deleteTodo(todo.id)">x</button>
-	</tr>
-</table>
  -->

@@ -1,80 +1,85 @@
 angular.module('appModule')
 	.component('jobs', {
 		templateUrl : 'app/appModule/jobs/jobs.component.html',
-		controller : function (jobsService, $filter, $routeParams, $location) {
+		controller : function (jobsService, $filter, $routeParams, $location, $cookies) {
 			var vm = this;
 			
-			vm.jobs = []
+			vm.selected = null;
 			
-			var reload = function() {
-				jobeService.index()
+			vm.editJob = null;
+			
+			vm.jobs = [];
+			
+			vm.showAllJobs = false;
+			
+			var reloadJobs = function() {
+				jobsService.index()
 				.then(function(response) {
 					vm.jobs = response.data;
 				}) 
 				.catch(console.error)
 
 			}
-			reload();
+			reloadJobs();
 			
-			vm.selected = null;
-			
-			vm.displayJob = function(jobs){
-				return vm.selected = jobs
+			vm.addJob = function(job) {
+				jobsService.create(job)
+				.then(function(response){
+					reloadJobs();
+				})
+				.catch(console.error)
 			}
 			
-			vm.displayTable = function() {
+			vm.displayJob = function(job){
+				return vm.selected = job;
+			}
+			
+			vm.displayAllJobs = function() {
 	            vm.selected = null;
 	        }
+			
+			vm.updateJob = function(edittedJob) {
+				jobsService.update(edittedJob)
+				.then(function(response){
+					reloadJobs();
+				})
+				.catch(console.error)
+			}
+			
+			vm.destroyJob = function(id) {
+				jobsService.destroy(id)
+				.then(function(response){
+					reloadJobs();
+				})
+				.catch(console.error)
+			}
 			
 			vm.setEditJob= function() {
                 vm.editJob = angular.copy(vm.selected);
 			}
 			
-			vm.addJob = function(jobs) {
-				jobsService.create(jobs)
-				.then(function(response){
-					reload()
-				})
-				.catch(console.error)
-			}
-			
-			vm.destroyJob = function(jobs) {
-				jobsService.destroy(jobs)
-				.then(function(response){
-					reload()
-				})
-				.catch(console.error)
-			}
-			
-			vm.updateJobs = function(jobs) {
-				jobsService.update(jobs)
-				.then(function(response){
-					reload()
-				})
-				.catch(console.error)
-			}
-			
-			vm.selectedJob = function(id) {
-				jobsService.show(id)
-				.then(function(response){
-					console.log(response)
-					  vm.selected = response.data
-				})
-				.catch(function(response){
-					$location.path('/fjfjfjf');
-				}) 
-			}
-
-			if (!vm.selected && parseInt($routeParams.id)) {
-				  vm.selectedJob(parseInt($routeParams.id));
-				  
-			}
-			
 			var incomplete = $filter('incompleteFilter')(vm.jobs);
 			
-			vm.getJobNumber = function(jobs) {
-				return $filter('incompleteFilter')(vm.jobs).length
-			}
+//			vm.selectedJob = function(id) {
+//				jobsService.show(id)
+//				.then(function(response){
+//					console.log(response)
+//					  vm.selected = response.data
+//				})
+//				.catch(function(response){
+//					$location.path('/fjfjfjf');
+//				}) 
+//			}
+//
+//			if (!vm.selected && parseInt($routeParams.id)) {
+//				  vm.selectedJob(parseInt($routeParams.id));
+//				  
+//			}
+			
+			
+//			vm.getJobNumber = function(jobs) {
+//				return $filter('incompleteFilter')(vm.jobs).length
+//			}
 			
 		},
 		controllerAs : "vm"

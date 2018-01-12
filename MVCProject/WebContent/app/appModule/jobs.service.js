@@ -46,10 +46,6 @@ angular.module('appModule')
 			},
 			data : jobs
 		})
-		else {
-			return;
-		}
-	
 	};
 	
 	service.destroy = function(jobs) {
@@ -60,7 +56,6 @@ angular.module('appModule')
 				url : 'rest/user/' + user.id + '/jobs/' + jobs.id
 			});
 		}
-	}
 	
 	service.update = function(jobs) {
 		if (checkLogin()) {
