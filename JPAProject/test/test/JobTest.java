@@ -21,6 +21,7 @@ public class JobTest {
 	public void set_up() {
 		emf = Persistence.createEntityManagerFactory("YourPU");
 		em = emf.createEntityManager();
+//		j = em.find(Job.class, 1);
 	}
 	
 	@After
@@ -37,13 +38,22 @@ public class JobTest {
 	
 	@Test
 	public void userScalarTypes() {
-		Job u = em.find(Job.class, 1);
-		assertEquals("test", u.getTitle()); //title depends on how it's named in the entity
-		
-		//need to create a user to test for in db
-		//do assertEquals for the entity stuff in the entity that aren't relationships
-		//write a separate method that tests for each relationship
-		//user2 = test for job
+		Job j = em.find(Job.class, 1);
+		assertEquals("Developer II", j.getTitle()); //title depends on how it's named in the entity
+	}
+	
+	
+	@Test
+	public void test_job_to_user_id() {
 		
 	}
+	
 }
+
+
+
+
+//need to create a user to test for in db
+//do assertEquals for the entity stuff in the entity that aren't relationships
+//write a separate method that tests for each relationship
+//user2 = test for job

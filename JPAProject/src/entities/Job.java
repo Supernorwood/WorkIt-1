@@ -42,11 +42,6 @@ public class Job {
 	  
 	  private double salary;
 	  
-	  @Column(name = "contact_phone")
-	  private int contactPhone;
-	  
-	  @Column(name = "contact_email")
-	  private String contactEmail;
 	  
 	  @Column(name = "closing_date")
 	  private Date closingDate;
@@ -126,21 +121,6 @@ public class Job {
 		this.salary = salary;
 	}
 
-	public int getContactPhone() {
-		return contactPhone;
-	}
-
-	public void setContactPhone(int contactPhone) {
-		this.contactPhone = contactPhone;
-	}
-
-	public String getContactEmail() {
-		return contactEmail;
-	}
-
-	public void setContactEmail(String contactEmail) {
-		this.contactEmail = contactEmail;
-	}
 
 	public Date getClosingDate() {
 		return closingDate;
@@ -166,18 +146,16 @@ public class Job {
 		this.lastUpdate = lastUpdate;
 	}
 
+	
+	
 	@Override
 	public String toString() {
 		return "Job [id=" + id + ", user=" + user + ", active=" + active + ", company=" + company + ", title=" + title
-				+ ", link=" + link + ", address=" + address + ", salary=" + salary + ", contactPhone=" + contactPhone
-				+ ", contactEmail=" + contactEmail + ", closingDate=" + closingDate + ", createdDate=" + createdDate
-				+ ", lastUpdate=" + lastUpdate + "]";
+				+ ", link=" + link + ", address=" + address + ", salary=" + salary + ", closingDate=" + closingDate
+				+ ", createdDate=" + createdDate + ", lastUpdate=" + lastUpdate + "]";
+	}
+
+
 	}
 	
 	  
-	
-	
-	  
-	  
-
-}

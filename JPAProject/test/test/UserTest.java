@@ -38,9 +38,9 @@ public class UserTest {
 	@Test
 	public void userScalarTypes() {
 		User u = em.find(User.class, 1);
-		assertEquals("Vivian", u.getFirstName());
+		assertEquals("Vivian", u.getFirstName());//need to create a user to test for in db
 		
-		//need to create a user to test for in db
+		
 		//do assertEquals for the entity stuff in the entity that aren't relationships
 		//write a separate method that tests for each relationship
 		//user2 = test for job
