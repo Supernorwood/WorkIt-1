@@ -40,8 +40,19 @@ public class AuthController {
   }
   
   @RequestMapping(path = "/auth/login", method = RequestMethod.POST)
-  public User login(HttpSession session, HttpServletResponse res, @RequestBody User user) {
-	  User loggedInUser = authDAO.login(user);
+  public User login(HttpSession session, HttpServletResponse res, @RequestBody String userJson) {
+	  ObjectMapper mapper = new ObjectMapper();
+	  User loggedInUser = null;
+	  
+	  try {
+		  loggedInUser = mapper.readValue(userJson, User.class);
+	  }
+	  catch (Exception e) {
+		  e.printStackTrace();
+	  }
+	  System.out.println(loggedInUser);
+	  loggedInUser = authDAO.login(loggedInUser);
+	  System.out.println(loggedInUser);
 	  if (loggedInUser == null) {
 		  res.setStatus(401);
 		  return null;

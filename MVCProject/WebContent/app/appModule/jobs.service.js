@@ -34,17 +34,17 @@ angular.module('appModule')
 	  });
   };
   
-  service.create = function(jobs) {
+  service.create = function(job) {
 	  var user = checkLogin();
 	  if (!user) return;
-	  job.status=false;
+	  job.active = 1;
 	  return $http({
 			method : 'POST',
 			url : 'rest/user/' + user.id + '/jobs',
 			headers : {
 				'Content-Type' : 'application/json'
 			},
-			data : jobs
+			data : job
 		})
 	};
 	
