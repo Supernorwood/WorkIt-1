@@ -23,11 +23,11 @@
 	<div ng-click="vm.displayJob(job)"/>
 		<div>{{job.title}}</div>
 		<div>{{job.company}}</div>
-		<div>{job.created_date}}</div>		 	
+		<div>{{job.created_date}}</div>		 	
 	</div>
 	<span> 
 <!-- ******* EITHER NEED "completed" PROPERTY OR LOGIC AROUND "closingDate"  -->
-		<input type="checkbox" ng-model="job.closingDate" ng-change="vm.updateJob(job)" />
+		<input type="checkbox" ng-model="job.active" ng-change="vm.updateJob(job)" />
 		<button class="red" ng-click="vm.deleteJob(job.id)">x</button>
 	</span>
 
@@ -57,7 +57,7 @@
 		Address: <input type="text" ng-model="vm.editJob.address" placeholder="Address"/><br />
 		Date Applied: <input type="text" ng-model="vm.editJob.dueDate" placeholder="Date Applied"/><br />
 		Last Updated: <input type="text" ng-model="vm.editJob.lastUpdate" placeholder="Last Updated"/><br />
-<!-- ****** SAME "completed" CHECKBOX ISSUE ... Completed: <input type="checkbox" ng-model="vm.editTodo.completed"/>  -->
+		Active: <input type="checkbox" ng-model="vm.editTodo.active"/>  -->
 	</form>
 	
 	<button type="button" ng-click="vm.updateJob(vm.editJob)">Save</button>
