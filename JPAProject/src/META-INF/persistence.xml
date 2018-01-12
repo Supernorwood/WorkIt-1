@@ -9,6 +9,7 @@
         <class>entities.Address</class> 
         <class>entities.Job</class> 
         <class>entities.User</class> 
+        <class>entities.Contact</class> 
 
         <properties>
         		<!-- Configure your connection to the database -->
