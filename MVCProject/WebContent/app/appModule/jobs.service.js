@@ -37,7 +37,9 @@ angular.module('appModule')
   service.create = function(job) {
 	  var user = checkLogin();
 	  if (!user) return;
+	  job.createDate = $filter('date')(Date.now(), 'yyyy-MM-dd');
 	  job.active = 1;
+	  job.userId = user.id;
 	  return $http({
 			method : 'POST',
 			url : 'rest/user/' + user.id + '/jobs',
@@ -58,9 +60,10 @@ angular.module('appModule')
 		}
 	
 	service.update = function(jobs) {
-		if (checkLogin()) {
-			if(jobs.completed) {
-			completeDate = $filter('date')(Date.now(), 'MM/dd/yyyy');
+		var user = checkLogin();
+		if (user) {
+			if(jobs.active) {
+			jobs.lastUpdate = $filter('date')(Date.now(), 'yyyy-MM-dd');
 			}
 			console.log(jobs);
 			return $http({
