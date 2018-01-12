@@ -10,6 +10,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import entities.Address;
+import entities.Contact;
+import entities.User;
+
 
 public class ContactTest {
 	private EntityManagerFactory emf;
@@ -35,7 +39,23 @@ public class ContactTest {
 	}
 	
 	@Test
-	public void test() {
+	public void test_connection() {
+		Contact c = em.find(Contact.class, 1);
+		assertEquals("Benji", c.getFirstName());
+	}
+	
+	@Test
+	public void test_contact_has_user() {
+		Contact c = em.find(Contact.class, 1);
+		User u = c.getUser();
+		assertEquals("Jen", u.getFirstName());
+	}
+	
+	@Test
+	public void test_contact_has_address() {
+		Contact c = em.find(Contact.class, 1);
+		Address a = c.getAddress();
+		assertEquals("Boise", a.getCity());
 	}
 	
 }

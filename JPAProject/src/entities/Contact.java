@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Contact {
@@ -17,6 +18,7 @@ public class Contact {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
 	
@@ -34,6 +36,7 @@ public class Contact {
 	
 	private String email;
 
+	@ManyToOne
 	@JoinColumn(name = "address_id")
 	private Address address;
 	
