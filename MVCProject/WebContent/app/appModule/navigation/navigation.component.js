@@ -6,7 +6,6 @@ angular.module('appModule').component('navigation', {
 
 		vm.loggedIn = function() {
 			if (authService.getToken().id) {
-				console.log('returning true')
 				return true;
 			}
 			return false;
