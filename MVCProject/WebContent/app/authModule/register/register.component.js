@@ -8,6 +8,8 @@ angular.module('authModule')
 		vm.registerUser = function(user) {
 			console.log(user);
 			if (user.password === user.confirm) {
+				delete user.confirm;
+				user.active = 1;
 				authService.register(user)
 				.then(function(response){
 					$location.path('/jobs')

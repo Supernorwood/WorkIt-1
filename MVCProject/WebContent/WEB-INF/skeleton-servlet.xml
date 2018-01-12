@@ -18,6 +18,8 @@
 		<property name="entityManagerFactory" ref="myEntityManagerFactory" />
 	</bean>
 	
+	<bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+	
 	<mvc:interceptors>
     		<mvc:interceptor>
     		  <mvc:mapping path="/user/*/job/**" />
@@ -27,5 +29,7 @@
 
 	<tx:annotation-driven transaction-manager="myTransactionManager" />
 	<mvc:annotation-driven />
+	
+	<bean id="authDAO" class="data.AuthDAOImpl"/>
 
 </beans>

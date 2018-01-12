@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import data.AuthDAO;
 import entities.User;
 
@@ -19,8 +21,16 @@ public class AuthController {
   private AuthDAO authDAO;
 
   @RequestMapping(path = "/auth/register", method = RequestMethod.POST)
-  public User register(HttpSession session, HttpServletResponse res, @RequestBody User user) {
-    User registeredUser = authDAO.register(user);
+  public User register(HttpSession session, HttpServletResponse res, @RequestBody String userJson) {
+	  ObjectMapper mapper = new ObjectMapper();
+	  User registeredUser = null;
+	  try {
+		  registeredUser = mapper.readValue(userJson, User.class);
+	  }
+	  catch (Exception e) {
+		  e.printStackTrace();
+	  }
+    registeredUser = authDAO.register(registeredUser);
     if (registeredUser == null) {
     		res.setStatus(400);
     		return null;
