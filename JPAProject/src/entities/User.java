@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class User {
@@ -29,7 +29,7 @@ public class User {
 	  @Column(name = "last_name")
 	  private String lastName;
 	  
-	  @OneToOne
+	  @ManyToOne
 	  @JoinColumn(name="address_id")
 	  private Address address;
 	  
@@ -38,7 +38,7 @@ public class User {
 	  
 	  private Boolean active;
 	  
-	  @Column(name = "permission_level_id")
+	  @Column(name = "permission_level")
 	  private int permissionLevelId;
 
 	  
