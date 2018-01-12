@@ -11,12 +11,14 @@
 
 <!-- INDEX LIST OF JOBS -->
 <div ng-show="!vm.selected">
-	<span>
+	<div>
 		<div class="title">Job Title</div>
 		<div class="company">Company</div>
 		<div class="applyDate">Date Applied</div>  <!-- Or does date updated make more sense? -->
-	</span>
-
+	</div>
+</br>
+Hard-coded example below v v v
+</br>
 <div>Junior Developer / CACI / Jan 12, 2018</div>
 
 <div ng-repeat="job in vm.jobs | incompleteFilter: vm.showAll | orderBy: id">
@@ -26,7 +28,6 @@
 		<div>{{job.created_date}}</div>		 	
 	</div>
 	<span> 
-<!-- ******* EITHER NEED "completed" PROPERTY OR LOGIC AROUND "closingDate"  -->
 		<input type="checkbox" ng-model="job.active" ng-change="vm.updateJob(job)" />
 		<button class="red" ng-click="vm.deleteJob(job.id)">x</button>
 	</span>
