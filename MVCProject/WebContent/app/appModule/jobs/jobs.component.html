@@ -13,9 +13,13 @@
 		<th>Date Applied</th>  <!-- Or does date updated make more sense? -->
 	</tr>
 
+<td>Junior Developer / CACI / Jan 12, 2018</td>
+
 	<tr ng-repeat="job in vm.jobs | incompleteFilter: vm.showAll | orderBy: id">
-		<td ng-click="vm.displayJob(job)"/>{{job.title}}{{job.company}}</td>
+	<div>
+		<td ng-click="vm.displayJob(job)"/>{{job.title}} / {{job.company}} / {{job.created_date}}</td>
 		
+		</div>
 		
 <!-- 		<td><input type="checkbox" ng-model="todo.completed" ng-change="vm.updateTodo(todo)" /></td>
 		<td>{{todo.completed}}</td> -->
