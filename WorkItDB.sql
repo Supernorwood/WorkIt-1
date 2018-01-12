@@ -48,8 +48,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `address_id` INT UNSIGNED NULL,
   `permission_level` INT UNSIGNED NOT NULL DEFAULT 1,
   `active` TINYINT(1) NOT NULL DEFAULT 1,
-  `created_date` TIMESTAMP(2) NULL,
-  `last_update` TIMESTAMP(2) NULL,
+  `created_date` DATE NULL,
+  `last_update` DATE NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_user_address_id`
     FOREIGN KEY (`address_id`)
@@ -79,9 +79,9 @@ CREATE TABLE IF NOT EXISTS `job` (
   `address_id` INT UNSIGNED NULL,
   `salary` INT UNSIGNED NULL,
   `active` TINYINT(1) NOT NULL DEFAULT 1,
-  `created_date` TIMESTAMP(2) NULL,
+  `created_date` DATE NULL,
   `closing_date` DATE NULL,
-  `last_update` TIMESTAMP(2) NULL,
+  `last_update` DATE NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_job_user_id`
     FOREIGN KEY (`user_id`)
@@ -276,8 +276,8 @@ CREATE TABLE IF NOT EXISTS `contact` (
   `address_id` INT UNSIGNED NOT NULL,
   `contact_count` INT UNSIGNED NOT NULL DEFAULT 0,
   `last_contact_date` DATE NULL,
-  `create_date` TIMESTAMP(2) NULL,
-  `last_update` TIMESTAMP(2) NULL,
+  `create_date` DATE NULL,
+  `last_update` DATE NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_contact_address_id`
     FOREIGN KEY (`address_id`)
