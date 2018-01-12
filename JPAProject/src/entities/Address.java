@@ -24,8 +24,8 @@ public class Address {
 	  	private String zip;
 	  	private String country;
 	  	
-	    @OneToMany(mappedBy="address")
-	    private Set <User> user;
+//	    @OneToMany(mappedBy="address")
+//	    private Set <User> user;
 	  	
 	  	
 	  	
@@ -74,19 +74,19 @@ public class Address {
 		}
 		
 		
-		public Set<User> getUser() {
-			return user;
-		}
-		public void setUser(Set<User> user) {
-			this.user = user;
-		}
+//		public Set<User> getUser() {
+//			return user;
+//		}
+//		public void setUser(Set<User> user) {
+//			this.user = user;
+//		}
 		
 		
 		//TOSTRING
 		@Override
 		public String toString() {
 			return "Address [id=" + id + ", street=" + street + ", street2=" + street2 + ", city=" + city + ", state="
-					+ state + ", zip=" + zip + ", country=" + country + ", user=" + user + "]";
+					+ state + ", zip=" + zip + ", country=" + country + "]";
 		}
 		
 		}
