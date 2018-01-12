@@ -28,6 +28,7 @@ public class JobsController {
 			HttpServletResponse res, 
 			@PathVariable int uid
 			){
+		System.out.println(jobsdao.getAllJobs(uid));
 		return jobsdao.getAllJobs(uid);
 	}
 	

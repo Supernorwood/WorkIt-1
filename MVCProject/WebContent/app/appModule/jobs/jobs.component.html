@@ -21,7 +21,7 @@ Hard-coded example below v v v
 </br>
 <div>Junior Developer / CACI / Jan 12, 2018</div>
 
-<div ng-repeat="job in vm.jobs | incompleteFilter: vm.showAll | orderBy: id">
+<div ng-repeat="job in vm.jobs | orderBy:'id'">
 	<div ng-click="vm.displayJob(job)"/>
 		<div>{{job.title}}</div>
 		<div>{{job.company}}</div>
