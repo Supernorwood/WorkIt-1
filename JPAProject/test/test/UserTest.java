@@ -46,5 +46,14 @@ public class UserTest {
 		//user2 = test for job
 	}
 	
+	@Test
+	public void user_to_job() {
+		//need to use SELECT j from Job WHERE User user.id = 1
 	
+	}
+	
+	@Test
+	public void user_to_address() {
+		//need to use SELECT a from Address WHERE User user.id = 1
+	}
 }

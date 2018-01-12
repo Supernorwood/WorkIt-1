@@ -37,9 +37,9 @@ public class JobTest {
 	}
 	
 	@Test
-	public void userScalarTypes() {
+	public void test_job_to_database() {
 		Job j = em.find(Job.class, 1);
-		assertEquals("Developer II", j.getTitle()); //title depends on how it's named in the entity
+		assertEquals("Developer II", j.getTitle());
 	}
 	
 	
@@ -48,6 +48,15 @@ public class JobTest {
 		
 	}
 	
+	@Test
+	public void test_job_to_contact() {
+		//test SELECT c FROM Contact c WHERE c.id = 1 something something 
+	}
+	
+	@Test
+	public void test_job_to_address() {
+		//test SELECT a from ADDRESS WHERE j.id = something something
+	}
 }
 
 
