@@ -35,16 +35,12 @@ public class AuthDAOImpl implements AuthDAO {
 	public User login(User u) {
 		String queryString = "Select u from User u Where u.email = :email";
 		List<User> users = em.createQuery(queryString, User.class).setParameter("email", u.getEmail()).getResultList();
-		System.out.println(users.size());
-		System.out.println(users);
 		if (users.size() > 0) {
-			System.out.println("inside if statement");
 			User managedUser = users.get(0);
 			if (encoder.matches(u.getPassword(), managedUser.getPassword())) {
 				return managedUser;
 			}
 		}
-		System.out.println("about to return null");
 		return null;
 	}
 
