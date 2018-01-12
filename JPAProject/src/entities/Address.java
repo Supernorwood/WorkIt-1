@@ -1,10 +1,12 @@
 package entities;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Address {
@@ -22,8 +24,8 @@ public class Address {
 	  	private String zip;
 	  	private String country;
 	  	
-	    @OneToOne(mappedBy="address")
-	     private User user;
+	    @OneToMany(mappedBy="address")
+	    private Set <User> user;
 	  	
 	  	
 	  	
@@ -72,10 +74,10 @@ public class Address {
 		}
 		
 		
-		public User getUser() {
+		public Set<User> getUser() {
 			return user;
 		}
-		public void setUser(User user) {
+		public void setUser(Set<User> user) {
 			this.user = user;
 		}
 		

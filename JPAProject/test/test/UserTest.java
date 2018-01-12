@@ -10,6 +10,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import entities.User;
+
 public class UserTest {
 	private EntityManagerFactory emf;
 	private EntityManager em;
@@ -36,12 +38,13 @@ public class UserTest {
 	@Test
 	public void userScalarTypes() {
 		User u = em.find(User.class, 1);
-		assertEquals("test", u.getFname); //fname depends on how it's named in the entity
+		assertEquals("Vivian", u.getFirstName());
 		
 		//need to create a user to test for in db
 		//do assertEquals for the entity stuff in the entity that aren't relationships
 		//write a separate method that tests for each relationship
 		//user2 = test for job
-		
 	}
+	
+	
 }
