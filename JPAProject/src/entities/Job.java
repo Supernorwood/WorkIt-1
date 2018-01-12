@@ -15,48 +15,41 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Job {
-	
-	
-	  //FIELDS
-	  @Id
-	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    private int id;
-	  
-	  
-	  @JsonBackReference
-	  @ManyToOne
-	  @JoinColumn(name = "user_id")
-	  private User user;
-	  
-	  private Boolean active;
-	  
-	  private String company;
-	  
-	  private String title;
-	  
-	  private String link;
-	  
-	  @OneToOne
-	  @JoinColumn(name="address_id")
-	  private Address address;
-	  
-	  private double salary;
-	  
-	  
-	  @Column(name = "closing_date")
-	  private Date closingDate;
-	  
-	  @Column(name = "created_date")
-	  private Date createdDate;
-	  
-	  @Column(name = "last_update")
-	  private Date lastUpdate;
 
-	  
-	  
-	  
-	  
-	//GETS AND SETS  
+	// FIELDS
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+
+	@JsonBackReference
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
+
+	private Boolean active;
+
+	private String company;
+
+	private String title;
+
+	private String link;
+
+	@OneToOne
+	@JoinColumn(name = "address_id")
+	private Address address;
+
+	private double salary;
+
+	@Column(name = "closing_date")
+	private Date closingDate;
+
+	@Column(name = "created_date")
+	private Date createdDate;
+
+	@Column(name = "last_update")
+	private Date lastUpdate;
+
+	// GETS AND SETS
 	public int getId() {
 		return id;
 	}
@@ -121,7 +114,6 @@ public class Job {
 		this.salary = salary;
 	}
 
-
 	public Date getClosingDate() {
 		return closingDate;
 	}
@@ -146,8 +138,6 @@ public class Job {
 		this.lastUpdate = lastUpdate;
 	}
 
-	
-	
 	@Override
 	public String toString() {
 		return "Job [id=" + id + ", user=" + user + ", active=" + active + ", company=" + company + ", title=" + title
@@ -155,7 +145,4 @@ public class Job {
 				+ ", createdDate=" + createdDate + ", lastUpdate=" + lastUpdate + "]";
 	}
 
-
-	}
-	
-	  
+}
