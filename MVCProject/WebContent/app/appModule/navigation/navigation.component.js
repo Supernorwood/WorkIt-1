@@ -6,12 +6,11 @@ angular.module('appModule')
 			
 			var vm = this;
 	
-			vm.loggedIn = function(){
-				if(!authService.getToken().id){
-					$location.path('/login')
-					return false;
-				}
+		vm.loggedIn = function() {
+			if (authService.getToken()){
 				return true;
+			}
+			return false;
 			}
 		}
 	})
