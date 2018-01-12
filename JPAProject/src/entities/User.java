@@ -1,6 +1,7 @@
 package entities;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,42 +10,46 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class User {
 
-	  //FIELDS
-	  @Id
-	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    private int id;
-	  
-	  private String email;
-	  
-	  @Column(name = "pwd")
-	  private String password;
-	  
-	  @Column(name = "first_name")
-	  private String firstName;
-	  
-	  @Column(name = "last_name")
-	  private String lastName;
-	  
-	  @ManyToOne
-	  @JoinColumn(name="address_id")
-	  private Address address;
-	  
-	  @Column(name = "created_date")
-	  private Date createdDate;
-	  
-	  private Boolean active;
-	  
-	  @Column(name = "permission_level")
-	  private int permissionLevelId;
+	// FIELDS
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 
-	  
-	  
-	  
-	//GETS AND SETS  
+	private String email;
+
+	@Column(name = "pwd")
+	private String password;
+
+	@Column(name = "first_name")
+	private String firstName;
+
+	@Column(name = "last_name")
+	private String lastName;
+
+	@ManyToOne
+	@JoinColumn(name = "address_id")
+	private Address address;
+
+	@Column(name = "created_date")
+	private Date createdDate;
+
+	private Boolean active;
+
+	@Column(name = "permission_level")
+	private int permissionLevelId;
+
+	@JsonManagedReference
+	@OneToMany(mappedBy = "user")
+	List<Job> jobs;
+
+	// GETS AND SETS
 	public int getId() {
 		return id;
 	}
@@ -117,8 +122,15 @@ public class User {
 		this.permissionLevelId = permissionLevelId;
 	}
 
-	
-	//TOSTRING
+	public List<Job> getJobs() {
+		return jobs;
+	}
+
+	public void setJobs(List<Job> jobs) {
+		this.jobs = jobs;
+	}
+
+	// TOSTRING
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", email=" + email + ", password=" + password + ", firstName=" + firstName
@@ -130,9 +142,5 @@ public class User {
 				+ getPermissionLevelId() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
 				+ super.toString() + "]";
 	}
-	  
-	
-	
-	  
-	    
+
 }

@@ -45,6 +45,10 @@ public class JobTest {
 	
 	@Test
 	public void test_job_to_user_id() {
+		Job j = em.find(Job.class, 104);
+		assertEquals("Literally just stand there", j.getTitle());
+		assertEquals("Lamps Inc", j.getCompany());
+		assertEquals("a", j.getUser().getFirstName()); //fails because the front end isn't saving the user into the job
 		
 	}
 	
@@ -56,6 +60,8 @@ public class JobTest {
 	@Test
 	public void test_job_to_address() {
 		//test SELECT a from ADDRESS WHERE j.id = something something
+		Job j = em.find(Job.class, 1);
+		assertEquals("Paramus", j.getAddress().getCity());
 	}
 }
 

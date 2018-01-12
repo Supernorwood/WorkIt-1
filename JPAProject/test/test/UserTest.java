@@ -2,6 +2,8 @@ package test;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -10,6 +12,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import entities.Address;
+import entities.Job;
 import entities.User;
 
 public class UserTest {
@@ -49,11 +53,20 @@ public class UserTest {
 	@Test
 	public void user_to_job() {
 		//need to use SELECT j from Job WHERE User user.id = 1
+		User u = em.find(User.class, 151);
+		List<Job> jobs = u.getJobs();
+		assertEquals("no", jobs.get(0).getTitle());
 	
 	}
 	
 	@Test
 	public void user_to_address() {
 		//need to use SELECT a from Address WHERE User user.id = 1
+		User u = em.find(User.class, 151);
+		Address a = u.getAddress();
+		assertEquals(null, a);
+		u = em.find(User.class, 15);
+		a = u.getAddress();
+		assertEquals("Chevy Chase", a.getCity());
 	}
 }
