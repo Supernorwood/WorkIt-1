@@ -47,6 +47,7 @@ angular.module('appModule')
 			}
 			
 			vm.destroyJob = function(id) {
+				console.log(id);
 				jobsService.destroy(id)
 				.then(function(response){
 					reloadJobs();

@@ -37,9 +37,10 @@ angular.module('appModule')
   service.create = function(job) {
 	  var user = checkLogin();
 	  if (!user) return;
-	  job.createDate = $filter('date')(Date.now(), 'yyyy-MM-dd');
+	  job.createdDate = $filter('date')(Date.now(), 'yyyy-MM-dd');
+	  console.log(job.createdDate);
 	  job.active = 1;
-	  job.userId = user.id;
+	  job.user = user;
 	  return $http({
 			method : 'POST',
 			url : 'rest/user/' + user.id + '/jobs',
@@ -50,12 +51,13 @@ angular.module('appModule')
 		})
 	};
 	
-	service.destroy = function(jobs) {
+	service.destroy = function(jobId) {
 		var user = checkLogin();
+		console.log(jobId);
 		  if (!user) return;
 			return $http({
 				method : 'DELETE',
-				url : 'rest/user/' + user.id + '/jobs/' + jobs.id
+				url : 'rest/user/' + user.id + '/jobs/' + jobId
 			});
 		}
 	

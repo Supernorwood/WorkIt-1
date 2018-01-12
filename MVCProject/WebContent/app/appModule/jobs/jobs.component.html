@@ -29,7 +29,7 @@ Hard-coded example below v v v
 	</div>
 	<span> 
 		<input type="checkbox" ng-model="job.active" ng-change="vm.updateJob(job)" />
-		<button class="red" ng-click="vm.deleteJob(job.id)">x</button>
+		<button ng-click="vm.destroyJob(job.id)">x</button>
 	</span>
 
 </div>
