@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `job` (
   `company` VARCHAR(100) NOT NULL,
   `title` VARCHAR(100) NOT NULL,
   `link` TEXT NULL,
-  `address_id` INT UNSIGNED NOT NULL,
+  `address_id` INT UNSIGNED NULL,
   `salary` INT UNSIGNED NULL,
   `active` TINYINT(1) NOT NULL DEFAULT 1,
   `created_date` TIMESTAMP(2) NULL,
