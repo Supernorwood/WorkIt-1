@@ -14,7 +14,6 @@ angular.module('appModule')
 		  return user;
 	  }
   }
-
   
   service.index = function() {
 	  var user = checkLogin();
@@ -30,7 +29,7 @@ angular.module('appModule')
 	  if (!user) return;
 	  return $http({
 		  method : 'GET',
-		  url : 'rest/user/' + user.id + '/jobs/'
+		  url : 'rest/user/' + user.id + '/jobs/' + id //do we need the id of the job after /jobs/ since it's passed in?
 	  });
   };
   
