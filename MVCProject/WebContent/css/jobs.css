@@ -22,6 +22,18 @@ body {
  	text-align: center;
 }
 
+ul.topnav li a, ul.nav li a:visited {
+    color: black !important;
+}
+
+ul.topnav li a:hover, ul.nav li a:active {
+    color: gray !important;
+}
+
+ul.topnav li.active a {
+    color: white !important;
+}
+
 ul.topnav {
 	list-style-type: none;
 	margin: 1px;
@@ -35,7 +47,7 @@ ul.topnav li {
 ul.topnav li a {
 	display: block;
 	text-align: center;
-	padding: 2px 8px 0px 8px;
+	padding: 7px 8px 0px 8px;
 	text-decoration: none;
 }
 
@@ -45,9 +57,9 @@ ul.topnav li.btnright {
 
 .btn {
 	border-radius: 10%;
-	padding: 1px;
+	padding: 0px;
 	text-align: center;
-	margin: auto;
+	
 }
 
 
