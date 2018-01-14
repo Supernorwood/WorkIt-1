@@ -10,22 +10,34 @@ body {
 .navdiv {
 	background-color: #BFB4FE;
 	list-style: none;
-  	margin: 0 1px;
- 	padding: 0;
+  	margin: 1px 0px 0px 0px;
+ 	padding: 1px 0px 0px 0px;
  	display: inline-block;
  	justify-content: space-around;
  	border: 2px grey;
  	border: outset;
  	border-radius: 5px;
- 	height: 25px;
+ 	height: 10%;
  	width: 100%;
  	text-align: center;
 }
 
+ul.topnav li a, ul.nav li a:visited {
+    color: black !important;
+}
+
+ul.topnav li a:hover, ul.nav li a:active {
+    color: gray !important;
+}
+
+ul.topnav li.active a {
+    color: white !important;
+}
+
 ul.topnav {
 	list-style-type: none;
-	margin: 0;
-	padding: 0;
+	margin: 1px;
+	padding: 1px;
 }
 
 ul.topnav li {
@@ -35,13 +47,22 @@ ul.topnav li {
 ul.topnav li a {
 	display: block;
 	text-align: center;
-	padding: 1px 8px 0px 8px;
+	padding: 7px 8px 0px 8px;
 	text-decoration: none;
 }
 
 ul.topnav li.btnright {
 	float: right;
-	padding: 1px;
 }
+
+.btn {
+	border-radius: 10%;
+	padding: 0px;
+	text-align: center;
+	
+}
+
+
+
 
 /* dark purple #813370 */
