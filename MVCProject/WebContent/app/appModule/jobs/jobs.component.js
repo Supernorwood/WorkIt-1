@@ -31,7 +31,10 @@
 			}
 			
 			vm.displayJob = function(job){
-				return vm.selected = job;
+				jobsService.show(job.id).then(function(response) {
+					vm.selected = job;
+					console.log(vm.selected);
+				})
 			}
 			
 			vm.displayAllJobs = function() {
