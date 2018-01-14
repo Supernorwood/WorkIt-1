@@ -31,10 +31,7 @@
 			}
 			
 			vm.displayJob = function(job){
-				jobsService.show(job.id).then(function(response) {
-					vm.selected = job;
-					console.log(vm.selected);
-				})
+				return vm.selected = job;
 			}
 			
 			vm.displayAllJobs = function() {
@@ -76,7 +73,7 @@
 					$location.path('/error');
 				}) 
 			}
-//
+
 //			if (!vm.selected && parseInt($routeParams.id)) {
 //				  vm.selectedJob(parseInt($routeParams.id));
 //				  
