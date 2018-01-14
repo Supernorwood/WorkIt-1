@@ -1,4 +1,4 @@
-angular.module('appModule')
+ angular.module('appModule')
 	.component('jobs', {
 		templateUrl : 'app/appModule/jobs/jobs.component.html',
 		controller : function (jobsService, $filter, $routeParams, $location, $cookies) {
