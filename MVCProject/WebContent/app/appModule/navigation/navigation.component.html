@@ -1,10 +1,15 @@
-<span>
-	<a href = "#/about">About </a>
-	<a href = "#/contacts">Contacts </a>
-	<a href = "#/home">Home </a>
-	<a href = "#/jobs">Jobs </a>
-	<a href = "#/error">Error </a>
-	<a ng-hide = "vm.loggedIn()" href = "#/register">Register </a>
-	<a ng-hide = "vm.loggedIn()" href = "#/login">Log In </a>
-	<logout ng-show = "vm.loggedIn()"></logout>  
-</span>
+
+<div class="navdiv">
+	<span>
+		<ul class="topnav">
+			<li><a href="#/about">About </a></li>
+			<li><a href="#/contacts">Contacts </a></li>
+			<li><a href="#/home">Home </a></li>
+			<li><a href="#/jobs">Jobs </a></li>
+			<li><a href="#/error">Error </a></li>
+			<li><a ng-hide="vm.loggedIn()" href="#/register">Register </a></li>
+			<li><a ng-hide="vm.loggedIn()" href="#/login">Log In </a></li>
+			<li class="btnright"><logout ng-show="vm.loggedIn()"></logout></li>
+		</ul>
+	</span>
+</div>
