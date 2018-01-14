@@ -45,6 +45,8 @@
 				jobsService.update(edittedJob)
 				.then(function(response){
 					reloadJobs();
+					vm.selected = vm.editJob;
+					vm.editJob = null;
 				})
 				.catch(console.error)
 			}
@@ -64,16 +66,16 @@
 			
 			var incomplete = $filter('incompleteFilter')(vm.jobs);
 			
-//			vm.selectedJob = function(id) {
-//				jobsService.show(id)
-//				.then(function(response){
-//					console.log(response)
-//					  vm.selected = response.data
-//				})
-//				.catch(function(response){
-//					$location.path('/fjfjfjf');
-//				}) 
-//			}
+			if (!vm.selected && parseInt($routeParams.jobId)){
+					jobsService.show($routeParams.jobId)
+						.then(function(response){
+							console.log(response)
+							vm.selected = response.data;
+				})
+				.catch(function(response){
+					$location.path('/error');
+				}) 
+			}
 //
 //			if (!vm.selected && parseInt($routeParams.id)) {
 //				  vm.selectedJob(parseInt($routeParams.id));

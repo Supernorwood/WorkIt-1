@@ -18,9 +18,6 @@
 	</div>
 </div>
 <br>
-Hard-coded example below v v v
-<br>
-<div>Junior Developer / CACI / Jan 12, 2018</div>
 
 <div ng-repeat="job in vm.jobs | orderBy:'id'">
 	<div ng-click="vm.displayJob(job)">
@@ -38,6 +35,8 @@ Hard-coded example below v v v
 <!-- SHOW DETAIL VIEW -->
 <h1 ng-show="vm.selected">Job Details</h1>
 <div ng-show="vm.selected && !vm.editJob">
+<h1>Job Details</h1>
+
 	<table class="show-detail">
 		<tr><td>Job Title: {{vm.selected.title}}</td></tr>
 		<tr><td>Company: {{vm.selected.company}}</td></tr>
@@ -48,7 +47,7 @@ Hard-coded example below v v v
 		
 		<tr><td><input type="submit" ng-click="vm.setEditJob()" value="Edit"/></td></tr>
 	</table>
-	<button type="button" ng-click="vm.displayTable()">Back to Jobs</button>
+	<button type="button" ng-click="vm.displayAllJobs()">Back to Jobs</button>
 </div>
 
 <!-- SHOW EDIT VIEW -->
@@ -76,24 +75,6 @@ Hard-coded example below v v v
 	Show All Tasks <input type="checkbox" ng-model="vm.showAll"/>
 </form>
 
-TABLE INDEX OF TODOS
-<table ng-show="!vm.selected">
-	<tr>
-		<th>Task</th>
-		<th>Check</th>
-		<th>Completed</th>
-	</tr>
-
-	<tr ng-repeat="todo in vm.todos | incompleteFilter: vm.showAll | orderBy: id">
-		<td ng-class="(todo.completed) ? 'strike' : '';" ng-click="vm.displayTodo(todo)"/>{{todo.task}}</td>
-		
-		 OR ng-class="vm.crossOut(todo)"
-		
-		<td><input type="checkbox" ng-model="todo.completed" ng-change="vm.updateTodo(todo)" /></td>
-		<td>{{todo.completed}}</td>
-		<td><button class="red" ng-click="vm.deleteTodo(todo.id)">x</button>
-	</tr>
-</table>
 
 
  -->
