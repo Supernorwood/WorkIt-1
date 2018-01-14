@@ -53,6 +53,7 @@ public class AddressDAOImpl implements AddressDAO {
 			managedAddress.setState(updateAddress.getState());
 			managedAddress.setZip(updateAddress.getZip());
 			managedAddress.setCountry(updateAddress.getCountry());
+			return managedAddress;
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -62,8 +63,8 @@ public class AddressDAOImpl implements AddressDAO {
 
 	@Override
 	public Boolean destroyAddress(int addressId) {
-		String query = "DELETE FROM Address WHERE address.id = :addressId";
-		em.createQuery(query).setParameter("addressId", addressId);
+		String query = "DELETE FROM Address WHERE id = :addressId";
+		em.createQuery(query).setParameter("addressId", addressId).executeUpdate();
 		return !em.contains(em.find(Address.class, addressId));
 	}
 
