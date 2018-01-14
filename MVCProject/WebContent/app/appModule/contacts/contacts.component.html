@@ -1,0 +1,13 @@
+<h1 ng-show="!vm.selectedContact">Contacts</h1>
+
+<!-- New contact form -->
+<form ng-show="!vm.selectedContact">
+	<input type="text" ng-model="contact.firstName" placeholder="First name"><br>
+	<input type="text" ng-model="contact.lastName" placeholder="Last name"><br>
+	<input type="text" ng-model="contact.title" placeholder="Title"><br>
+	<input type="text" ng-model="contact.company" placeholder="Company"><br>
+	<input type="text" ng-model="contact.phone" placeholder="Phone"><br>
+	<input type="text" ng-model="contact.email" placeholder="Email"><br>
+</form>
+
+<!-- Display list of contacts -->
