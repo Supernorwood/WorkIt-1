@@ -16,6 +16,10 @@
 		<div class="company">Company</div>
 		<div class="applyDate">Date Applied</div>  <!-- Or does date updated make more sense? -->
 	</div>
+</br>
+Hard-coded example below v v v
+</br>
+<div>Junior Developer / CACI / Jan 12, 2018</div>
 
 <div ng-repeat="job in vm.jobs | orderBy:'id'">
 	<div ng-click="vm.displayJob(job)"/>
@@ -45,7 +49,7 @@
 		
 		<tr><input type="submit" ng-click="vm.setEditJob()" value="Edit"/></tr>
 	</table>
-	<button type="button" ng-click="vm.displayAllJobs()">Back to Jobs</button>
+	<button type="button" ng-click="vm.displayTable()">Back to Jobs</button>
 </div>
 
 <!-- SHOW EDIT VIEW -->

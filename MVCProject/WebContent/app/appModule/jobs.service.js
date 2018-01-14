@@ -26,6 +26,7 @@ angular.module('appModule')
   
   service.show = function(id) {
 	  var user = checkLogin();
+	  
 	  if (!user) return;
 	  return $http({
 		  method : 'GET',
