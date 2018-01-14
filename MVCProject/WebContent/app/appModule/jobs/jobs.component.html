@@ -1,6 +1,6 @@
 
 
-<h1>Show all Jobs</h1>
+<h1 ng-show="!vm.selected">Show all Jobs</h1>
 
 <!-- ADD JOB FORM -->
 <form ng-show="!vm.selected">
@@ -35,6 +35,7 @@ Hard-coded example below v v v
 </div>
 
 <!-- SHOW DETAIL VIEW -->
+<h1 ng-show="vm.selected && !vm.editJob">Job Details</h1>
 <div ng-show="vm.selected && !vm.editJob">
 	<table class="show-detail">
 		<tr>Job Title: {{vm.selected.title}}</tr><br />
@@ -50,6 +51,7 @@ Hard-coded example below v v v
 </div>
 
 <!-- SHOW EDIT VIEW -->
+<h1 ng-show="vm.editJob">Edit Job Details</h1>
 <div ng-show="vm.editJob">
 	<form class="edit-form">
 		Job Title: <input type="text" ng-model="vm.editJob.title" placeholder="Job Title" /><br />
@@ -58,7 +60,7 @@ Hard-coded example below v v v
 		Address: <input type="text" ng-model="vm.editJob.address" placeholder="Address"/><br />
 		Date Applied: <input type="text" ng-model="vm.editJob.dueDate" placeholder="Date Applied"/><br />
 		Last Updated: <input type="text" ng-model="vm.editJob.lastUpdate" placeholder="Last Updated"/><br />
-		Active: <input type="checkbox" ng-model="vm.editTodo.active"/>  
+		Active: <input type="checkbox" ng-model="vm.editJob.active"/>  
 	</form>
 	
 	<button type="button" ng-click="vm.updateJob(vm.editJob)">Save</button>
