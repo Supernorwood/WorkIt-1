@@ -10,8 +10,8 @@ body {
 .navdiv {
 	background-color: #BFB4FE;
 	list-style: none;
-  	margin: 0 1px;
- 	padding: 0;
+  	margin: 1px 0px 0px 0px;
+ 	padding: 1px 0px 0px 0px;
  	display: inline-block;
  	justify-content: space-around;
  	border: 2px grey;
@@ -24,8 +24,8 @@ body {
 
 ul.topnav {
 	list-style-type: none;
-	margin: 0;
-	padding: 0;
+	margin: 1px;
+	padding: 1px;
 }
 
 ul.topnav li {
@@ -42,6 +42,21 @@ ul.topnav li a {
 ul.topnav li.btnright {
 	float: right;
 	padding: 1px;
+	
 }
+
+.button {
+	background-color: #813370;
+	border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	
+}
+
+
 
 /* dark purple #813370 */
