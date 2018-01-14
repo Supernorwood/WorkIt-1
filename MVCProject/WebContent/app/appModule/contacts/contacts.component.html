@@ -10,13 +10,22 @@
 	<input type="text" ng-model="contact.email" placeholder="Email"><br>
 	<input type="submit" ng-click="vm.addContact(contact); contact = {}" value="Add Contact"/><br>
 </form>
+<br>
 
 <!-- Display list of contacts -->
 
-<div ng-repeat="contact in vm.contacts | orderBy:'lastName'">
+
+
+<div>
+***This orderBy section doesn't work yet*** <br>
+<span ng-repeat="contacts in vm.sortContacts" ng-click="vm.sortContacts = contacts">{{contacts}} | </span><br>
+</div>
+<br>
+***Default orderBy is by Company name***
+<div ng-repeat="contact in vm.contacts | orderBy:'company'">
 	<div ng-click="vm.displayContact(contact)">
 		<div>Company: {{contact.company}}</div>		 	
-		<div>Name: {{contact.firstName}} {{contact.lastName}}</div>
+		<div>Name: {{contact.firstName}} {{contact.lastName}}</div><br>
 	</div>
 <!-- 	<span> 
 		<input type="checkbox" ng-model="job.active" ng-change="vm.updateJob(job)" />

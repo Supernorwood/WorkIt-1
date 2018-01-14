@@ -9,6 +9,12 @@ angular.module('appModule')
 			vm.editContact = null;
 			vm.showAllContacts = false;
 			
+			vm.sortContacts = [
+				'Company',
+				'Last Name',
+				'First Name'
+			];
+			
 			var reloadContacts = function() {
 				contactsService.index().then(function(response) {
 					vm.contacts = response.data;
