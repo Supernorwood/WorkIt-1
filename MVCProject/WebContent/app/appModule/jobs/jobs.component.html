@@ -17,7 +17,6 @@
 		<div class="applyDate">Date Applied</div>  <!-- Or does date updated make more sense? -->
 	</div>
 </div>
-<br>
 
 <div ng-repeat="job in vm.jobs | orderBy:'id'">
 	<div ng-click="vm.displayJob(job)">
@@ -47,7 +46,7 @@
 		
 		<tr><td><input type="submit" ng-click="vm.setEditJob()" value="Edit"/></td></tr>
 	</table>
-	<button type="button" ng-click="vm.displayAllJobs()">Back to Jobs</button>
+	<button type="button" ng-click="vm.displayTable()">Back to Jobs</button>
 </div>
 
 <!-- SHOW EDIT VIEW -->
