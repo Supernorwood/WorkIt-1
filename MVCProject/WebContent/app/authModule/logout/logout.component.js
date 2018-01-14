@@ -8,7 +8,7 @@ angular.module('authModule')
 		vm.logout = function() {
 			authService.logout()
 			.then(function(response){
-				$location.path('/home')
+				$location.path('/')
 			})
 		}
 	}
