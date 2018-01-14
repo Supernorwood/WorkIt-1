@@ -4,9 +4,9 @@
 
 <!-- ADD JOB FORM -->
 <form ng-show="!vm.selected">
-	<input type="text" ng-model="job.title" placeholder="Job Title"/></br>
-	<input type="text" ng-model="job.company" placeholder="Company"/></br>
-	<input type="submit" ng-click="vm.addJob(job); job = {}" value="Add Job"/></br>
+	<input type="text" ng-model="job.title" placeholder="Job Title"/><br>
+	<input type="text" ng-model="job.company" placeholder="Company"/><br>
+	<input type="submit" ng-click="vm.addJob(job); job = {}" value="Add Job"/><br>
 </form>
 
 <!-- INDEX LIST OF JOBS -->
@@ -16,13 +16,14 @@
 		<div class="company">Company</div>
 		<div class="applyDate">Date Applied</div>  <!-- Or does date updated make more sense? -->
 	</div>
-</br>
+</div>
+<br>
 Hard-coded example below v v v
-</br>
+<br>
 <div>Junior Developer / CACI / Jan 12, 2018</div>
 
 <div ng-repeat="job in vm.jobs | orderBy:'id'">
-	<div ng-click="vm.displayJob(job)"/>
+	<div ng-click="vm.displayJob(job)">
 		<div>{{job.title}}</div>
 		<div>{{job.company}}</div>
 		<div>{{job.createdDate}}</div>		 	
@@ -35,17 +36,17 @@ Hard-coded example below v v v
 </div>
 
 <!-- SHOW DETAIL VIEW -->
-<h1 ng-show="vm.selected && !vm.editJob">Job Details</h1>
+<h1 ng-show="vm.selected">Job Details</h1>
 <div ng-show="vm.selected && !vm.editJob">
 	<table class="show-detail">
-		<tr>Job Title: {{vm.selected.title}}</tr><br />
-		<tr>Company: {{vm.selected.company}}</tr><br />
-		<tr>Job Posting URL: {{vm.selected.link}}</tr><br />
-		<tr>Address: {{vm.selected.address}}</tr><br />
-		<tr>Date Applied: {{vm.selected.createdDate}}</tr><br />
-		<tr>Last Updated: {{vm.selected.lastUpdate}}</tr><br />
+		<tr><td>Job Title: {{vm.selected.title}}</td></tr>
+		<tr><td>Company: {{vm.selected.company}}</td></tr>
+		<tr><td>Job Posting URL: {{vm.selected.link}}</td></tr>
+		<tr><td>Address: {{vm.selected.address}}</td></tr>
+		<tr><td>Date Applied: {{vm.selected.createdDate}}</td></tr>
+		<tr><td>Last Updated: {{vm.selected.lastUpdate}}</td></tr>
 		
-		<tr><input type="submit" ng-click="vm.setEditJob()" value="Edit"/></tr>
+		<tr><td><input type="submit" ng-click="vm.setEditJob()" value="Edit"/></td></tr>
 	</table>
 	<button type="button" ng-click="vm.displayTable()">Back to Jobs</button>
 </div>
