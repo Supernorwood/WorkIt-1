@@ -16,7 +16,6 @@
 		<div class="company">Company</div>
 		<div class="applyDate">Date Applied</div>  <!-- Or does date updated make more sense? -->
 	</div>
-</div>
 
 <div ng-repeat="job in vm.jobs | orderBy:'id'">
 	<div ng-click="vm.displayJob(job)">
@@ -28,11 +27,11 @@
 		<input type="checkbox" ng-model="job.active" ng-change="vm.updateJob(job)" />
 		<button ng-click="vm.destroyJob(job.id)">x</button>
 	</span>
-
+</div>
 </div>
 
 <!-- SHOW DETAIL VIEW -->
-<h1 ng-show="vm.selected">Job Details</h1>
+
 <div ng-show="vm.selected && !vm.editJob">
 <h1>Job Details</h1>
 
@@ -46,7 +45,7 @@
 		
 		<tr><td><input type="submit" ng-click="vm.setEditJob()" value="Edit"/></td></tr>
 	</table>
-	<button type="button" ng-click="vm.displayTable()">Back to Jobs</button>
+	<button type="button" ng-click="vm.displayAllJobs()">Back to Jobs</button>
 </div>
 
 <!-- SHOW EDIT VIEW -->
