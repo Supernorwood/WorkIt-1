@@ -1,7 +1,7 @@
 angular.module('appModule',['ngRoute', 'authModule'])
 .config(function($routeProvider){
 	$routeProvider
-		.when('/home', {
+		.when('/', {
 			template : '<home></home>'
 		})
 		.when ('/about', {
@@ -18,6 +18,9 @@ angular.module('appModule',['ngRoute', 'authModule'])
 		})
 		.when ('/jobs', {
 			template : '<jobs></jobs>'
+		})
+		.when ('/contacts', {
+			template : '<contacts></contacts>'
 		})
 		.when('/error', {
 			template: '<error></error>'

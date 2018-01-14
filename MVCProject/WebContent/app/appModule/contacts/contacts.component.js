@@ -1,6 +1,6 @@
 angular.module('appModule')
 	.component('contacts', {
-		templateUrl : 'app/appModule/contact.component.html',
+		templateUrl : 'app/appModule/contacts/contacts.component.html',
 		controller : function (contactsService, $filter, $routeParams, $location, $cookies) {
 			var vm = this;
 			
