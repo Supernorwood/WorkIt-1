@@ -79,8 +79,8 @@ public class ContactDAOImpl implements ContactDAO {
 
 	@Override
 	public Boolean destroyContact(int userId, int contactId) {
-		String query = "DELETE FROM Contact WHERE contact.id = :contactId";
-		em.createQuery(query);
+		String query = "DELETE FROM Contact WHERE id = :contactId";
+		em.createQuery(query).setParameter("contactId", contactId).executeUpdate();
 		return !em.contains(em.find(Contact.class, contactId));
 	}
 
