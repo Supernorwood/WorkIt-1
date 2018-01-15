@@ -51,9 +51,7 @@ public class AuthController {
 	  catch (Exception e) {
 		  e.printStackTrace();
 	  }
-	  System.out.println(loggedInUser);
 	  loggedInUser = authDAO.login(loggedInUser);
-	  System.out.println(loggedInUser);
 	  if (loggedInUser == null) {
 		  res.setStatus(401);
 		  return null;
