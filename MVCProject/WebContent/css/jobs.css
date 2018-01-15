@@ -1,3 +1,10 @@
+
+.error {
+   background-image: url("../images/errorpageimg.jpg");
+   background-color: #cccccc;
+
+}
+
 h1 {
 	color:darkgreen;
 }
@@ -59,10 +66,6 @@ ul.topnav li.btnright {
 	border-radius: 10%;
 	padding: 0px;
 	text-align: center;
-	
 }
-
-
-
 
 /* dark purple #813370 */
