@@ -27,7 +27,7 @@ public class AddressController {
 	}
 	
 	//POST /address/{addressId}
-	@RequestMapping(path = "/address/", method = RequestMethod.POST)
+	@RequestMapping(path = "/address/{addressId}", method = RequestMethod.POST)
 	public Address createAddress(HttpServletRequest req, HttpServletResponse res, @RequestBody String addressJson) {
 		return addressDao.createAddress(addressJson);
 	}

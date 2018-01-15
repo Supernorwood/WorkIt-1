@@ -14,18 +14,19 @@
 
 <!-- Display list of contacts -->
 
-
-
-<div>
-***This orderBy section doesn't work yet*** <br>
-<span ng-repeat="contacts in vm.sortContacts" ng-click="vm.sortContacts = contacts">{{contacts}} | </span><br>
+<div class="sortTypeHeadings">
+	<span> 
+		<a ng-click="vm.sortType = 'company'"><strong>Sort Contacts By:</strong>  Company  |</a>
+ 		<a ng-click="vm.sortType = 'lastName'">Last Name  |</a>
+ 		<a ng-click="vm.sortType = 'firstName'">First Name  </a>
+	</span>
 </div>
 <br>
-***Default orderBy is by Company name***
-<div ng-repeat="contact in vm.contacts | orderBy:'company'">
+
+
+<div ng-repeat="contact in vm.contacts | orderBy: vm.sortType">
 	<div ng-click="vm.displayContact(contact)">
-		<div>Company: {{contact.company}}</div>		 	
-		<div>Name: {{contact.firstName}} {{contact.lastName}}</div><br>
+		<div>Company: <strong>{{contact.company}}</strong> Name: <strong>{{contact.firstName}} {{contact.lastName}}</strong></div><br>
 	</div>
 <!-- 	<span> 
 		<input type="checkbox" ng-model="job.active" ng-change="vm.updateJob(job)" />

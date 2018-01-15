@@ -9,11 +9,13 @@ angular.module('appModule')
 			vm.editContact = null;
 			vm.showAllContacts = false;
 			
-			vm.sortContacts = [
-				'Company',
-				'Last Name',
-				'First Name'
+			vm.orderByTypes = [
+				'company',
+				'lastName',
+				'firstName'
 			];
+			
+			vm.sortType = 'company';  //default sort type
 			
 			var reloadContacts = function() {
 				contactsService.index().then(function(response) {
@@ -56,6 +58,7 @@ angular.module('appModule')
 			vm.setEditContact = function() {
 				vm.editContact = angular.copy(vm.selectedContact);
 			}
+			
 			
 		},
 		controllerAs : "vm"
