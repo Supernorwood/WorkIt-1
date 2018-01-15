@@ -23,7 +23,7 @@ angular.module('appModule')
 			}
 			
 			vm.deleteUser = function() {
-				authService.destroy(currentUser.id).then(function(response) {
+				authService.destroy(vm.currentUser.id).then(function(response) {
 					
 				})
 				.catch(console.error)
