@@ -59,7 +59,7 @@ ul.topnav li.btnright {
 }
 
 /* Home Page Styling */
-#homePageTitle {
+#homePageTitle, h1 {
 	color: #813370;
 	position: absolute;
     top: 20%;
@@ -100,4 +100,39 @@ ul.topnav li.btnright {
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%)
+}
+
+/* Job Page Styling */
+.jobAdd {
+	position: absolute;
+	top: 33%;
+	left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.jobAddButton{
+	position: absolute;
+	top: 43%;
+	left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+	
+}
+
+.jobShow {
+	position: absolute;
+	top: 50%;
+	width: 83%;
+	
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+table {
+    border: 1px solid black;
+    font-size: 12px;
+    width: 100%;
 }
