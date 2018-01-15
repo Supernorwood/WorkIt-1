@@ -34,4 +34,16 @@ public class QuotesController {
 	}
 	
 	//PUT /quotes/{quoteId}
+	@RequestMapping(path = "/quotes/{quoteId}", method = RequestMethod.PUT)
+	public Quotes updateQuote(HttpServletRequest req, HttpServletResponse res,
+			@PathVariable int quoteId, @RequestBody String quoteJson) {
+		return quotesDao.updateQuote(quoteId, quoteJson);
+	}
+	
+	//DELETE /quotes/{quoteId}
+	@RequestMapping(path = "/quotes/{quoteId}", method = RequestMethod.DELETE)
+	public Boolean destroyQuote(HttpServletRequest req, HttpServletResponse res,
+			@PathVariable int quoteId) {
+	return quotesDao.destroyQuote(quoteId);
+	}
 }
