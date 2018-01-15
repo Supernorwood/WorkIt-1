@@ -10,8 +10,9 @@ angular.module('appModule').component('home', {
 			return false;
 		}
 		
-		vm.showQuote = function(quoteId){
-			quoteId = Math.floor(Math.random()*25);
+		vm.showQuote = function(){
+			authService.getQuote().id
+				return quotes.quote
 		}
 	},
 
