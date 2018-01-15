@@ -92,7 +92,7 @@ angular.module('authModule')
     			url: 'rest/auth/' + userId
     		})
     		.then(function(response) {
-    			removeToken()
+    			service.logout();
     		})
     		.catch(console.error)
     }
