@@ -33,9 +33,13 @@ angular.module('appModule')
 				.catch(console.error)
 			}
 			
-			vm.displayContact = function(contact) {
-				return vm.selectedContact = contact; 
-			}
+			
+// *** MOVED functionality to setEditContact because we want to skip display and go straight to edit
+// *** WHY? because all the main info is included in main table display already
+			
+//			vm.displayContact = function(contact) {
+//				return vm.selectedContact = contact; 
+//			}
 			
 			vm.displayAllContacts = function() {
 				vm.selectedContact = null;
@@ -44,6 +48,8 @@ angular.module('appModule')
 			vm.updateContact = function(contact) {
 				contactsService.update(contact).then(function(response) {
 					reloadContacts();
+					vm.selectedContact = null;
+					vm.editContact = null;
 				})
 				.catch(console.error)
 			}
@@ -58,6 +64,11 @@ angular.module('appModule')
 			vm.setEditContact = function(contact) {
 				vm.selectedContact = contact;
 				vm.editContact = angular.copy(vm.selectedContact);
+			}
+			
+			vm.cancel = function(){
+				vm.selectedContact = null;
+				vm.editContact = null
 			}
 			
 			
