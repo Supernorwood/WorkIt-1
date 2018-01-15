@@ -55,7 +55,8 @@ angular.module('appModule')
 				.catch(console.error)
 			}
 			
-			vm.setEditContact = function() {
+			vm.setEditContact = function(contact) {
+				vm.selectedContact = contact;
 				vm.editContact = angular.copy(vm.selectedContact);
 			}
 			
