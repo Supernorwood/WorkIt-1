@@ -421,6 +421,20 @@ ENGINE = InnoDB;
 
 CREATE INDEX `fk_job_interviews_interview_id_idx` ON `job_interviews` (`interview_id` ASC);
 
+
+-- -----------------------------------------------------
+-- Table `quotes`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `quotes` ;
+
+CREATE TABLE IF NOT EXISTS `quotes` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `quote` TEXT NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+CREATE UNIQUE INDEX `id_UNIQUE` ON `quotes` (`id` ASC);
+
 SET SQL_MODE = '';
 GRANT USAGE ON *.* TO workit@localhost;
  DROP USER workit@localhost;
@@ -3687,6 +3701,37 @@ INSERT INTO `job_interviews` (`job_id`, `interview_id`) VALUES (10, 97);
 INSERT INTO `job_interviews` (`job_id`, `interview_id`) VALUES (7, 98);
 INSERT INTO `job_interviews` (`job_id`, `interview_id`) VALUES (16, 99);
 INSERT INTO `job_interviews` (`job_id`, `interview_id`) VALUES (17, 100);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `quotes`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `workitdb`;
+INSERT INTO `quotes` (`id`, `quote`) VALUES (1, '“Talk is cheap. Show me the code.”  - Linus Torvalds');
+INSERT INTO `quotes` (`id`, `quote`) VALUES (2, '“That\'s the thing about people who think they hate computers. What they really hate is lousy programmers.” - Larry Niven');
+INSERT INTO `quotes` (`id`, `quote`) VALUES (3, '“Programs must be written for people to read, and only incidentally for machines to execute.” - Harold Abelson, Structure and Interpretation of Computer Programs');
+INSERT INTO `quotes` (`id`, `quote`) VALUES (4, '“I\'m not a great programmer; I\'m just a good programmer with great habits.” - Kent Beck');
+INSERT INTO `quotes` (`id`, `quote`) VALUES (5, '“Truth can only be found in one place: the code.” - Robert C. Martin, Clean Code: A Handbook of Agile Software Craftsmanship');
+INSERT INTO `quotes` (`id`, `quote`) VALUES (6, '“Walking on water and developing software from a specification are easy if both are frozen.” - Edward Berard');
+INSERT INTO `quotes` (`id`, `quote`) VALUES (7, '“On two occasions, I have been asked [by members of Parliament], \'Pray, Mr. Babbage, if you put into the machine wrong figures, will the right answers come out?\' I am not able to rightly apprehend the kind of confusion of ideas that could provoke such a question.” - Charles Babbage');
+INSERT INTO `quotes` (`id`, `quote`) VALUES (8, '“The most important property of a program is whether it accomplishes the intention of its user.” - C.A.R. Hoare ');
+INSERT INTO `quotes` (`id`, `quote`) VALUES (9, '“Progress is possible only if we train ourselves to think about programs without thinking of them as pieces of executable code. ” - Edsger W. Dijkstra');
+INSERT INTO `quotes` (`id`, `quote`) VALUES (10, '“Simple things should be simple, complex things should be possible.” - Alan Kay');
+INSERT INTO `quotes` (`id`, `quote`) VALUES (11, '“For all the robots who question their programming.” - Annalee Newitz, Autonomous');
+INSERT INTO `quotes` (`id`, `quote`) VALUES (12, '“Health and programming should go together like a horse and carriage. You can\'t have one without the other. In our sedentary office work, we often forget that an absence of health is as bad as a lack of programming skills.” - Staffan Noteberg');
+INSERT INTO `quotes` (`id`, `quote`) VALUES (13, '“Einstein repeatedly argued that there must be simplified explanations of nature, because God is not capricious or arbitrary. No such faith comforts the software engineer.” - Frederick P. Brooks Jr., The Mythical Man-Month: Essays on Software Engineering');
+INSERT INTO `quotes` (`id`, `quote`) VALUES (14, '“AI is the transformer of civilization.” - Toba Beta');
+INSERT INTO `quotes` (`id`, `quote`) VALUES (15, '“Programming isn\'t about what you know; it\'s about what you can figure out.” - Chris Pine, Learn to Program');
+INSERT INTO `quotes` (`id`, `quote`) VALUES (16, '“The happiest moment i felt; is that moment when i realized my ability to create.” - Dr. Hazem Ali');
+INSERT INTO `quotes` (`id`, `quote`) VALUES (17, '“Think twice, code once.” - Waseem Latif');
+INSERT INTO `quotes` (`id`, `quote`) VALUES (18, '“The perfect kind of architecture decision is the one which never has to be made.” - Robert C Martin');
+INSERT INTO `quotes` (`id`, `quote`) VALUES (19, '“Programming is breaking of one big impossible task into several very small possible tasks.” - Jazzwant');
+INSERT INTO `quotes` (`id`, `quote`) VALUES (20, '“Measuring programming progress by lines of code is like measuring aircraft building progress by weight.” - Bill Gates');
+INSERT INTO `quotes` (`id`, `quote`) VALUES (21, '“The best way to prepare [to be a programmer] is to write programs, and to study great programs that other people have written. In my case, I went to the garbage cans at the Computer Science Center and fished out listings of their operating system.” - Bill Gates');
+INSERT INTO `quotes` (`id`, `quote`) VALUES (22, '“Everybody in this country should learn to program a computer, because it teaches you how to think.” - Steve Jobs');
 
 COMMIT;
 
