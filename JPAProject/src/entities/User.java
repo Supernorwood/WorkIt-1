@@ -35,9 +35,9 @@ public class User {
 	@Column(name = "last_name")
 	private String lastName;
 
-	@ManyToOne
-	@JoinColumn(name = "address_id")
-	private Address address;
+//	@ManyToOne
+//	@JoinColumn(name = "address_id")
+//	private Address address;
 
 	@Column(name = "created_date")
 	private Date createdDate;
@@ -92,13 +92,13 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
+//	public Address getAddress() {
+//		return address;
+//	}
+//
+//	public void setAddress(Address address) {
+//		this.address = address;
+//	}
 
 	public Date getCreatedDate() {
 		return createdDate;
@@ -136,10 +136,10 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", email=" + email + ", password=" + password + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", address=" + address + ", createdDate=" + createdDate + ", active="
+				+ ", lastName=" + lastName + ", createdDate=" + createdDate + ", active="
 				+ active + ", permissionLevelId=" + permissionLevelId + ", getId()=" + getId() + ", getEmail()="
 				+ getEmail() + ", getPassword()=" + getPassword() + ", getFirstName()=" + getFirstName()
-				+ ", getLastName()=" + getLastName() + ", getAddress()=" + getAddress() + ", getCreatedDate()="
+				+ ", getLastName()=" + getLastName() + ", getCreatedDate()="
 				+ getCreatedDate() + ", getActive()=" + getActive() + ", getPermissionLevelId()="
 				+ getPermissionLevelId() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
 				+ super.toString() + "]";
