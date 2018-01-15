@@ -41,14 +41,14 @@
 			</tr>
 		</thead>	
 	
-			<tr ng-repeat="contact in vm.contacts | orderBy: vm.sortType" ng-click="vm.displayContact(contact)">
-				<td id="ctcData">{{contact.lastName}} </td>
-				<td id="ctcData">{{contact.firstName}} </td>
-				<td id="ctcData">{{contact.company}} </td>
-				<td id="ctcData">{{contact.title}} </td>
-				<td id="ctcData">{{contact.email}} </td>
-				<td id="ctcData">{{contact.phone}} </td>
-				<td><button ng-click="vm.destroyContact(contactId)">X</button></td>
+			<tr ng-repeat="contact in vm.contacts | orderBy: vm.sortType">
+				<td ng-click="vm.displayContact(contact)" id="ctcData">{{contact.lastName}} </td>
+				<td ng-click="vm.displayContact(contact)" id="ctcData">{{contact.firstName}} </td>
+				<td ng-click="vm.displayContact(contact)" id="ctcData">{{contact.company}} </td>
+				<td ng-click="vm.displayContact(contact)" id="ctcData">{{contact.title}} </td>
+				<td ng-click="vm.displayContact(contact)" id="ctcData">{{contact.email}} </td>
+				<td ng-click="vm.displayContact(contact)" id="ctcData">{{contact.phone}} </td>
+				<td><button ng-click="vm.destroyContact(contact.id)">X</button></td>
 			</tr>
 		</table>
 	</div>
