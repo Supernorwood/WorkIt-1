@@ -14,15 +14,27 @@
 
 <!-- Display list of contacts -->
 
+<div>
+<span ng-repeat="type in vm.types" ng-click="vm.selectedType = type">{{type}} | </span>
+</div>
+
+<div>
+ SORT BY: <span ng-click="vm.sortCriteria = 'pokeId'">PokeId</span> <span ng-click="vm.sortCriteria = 'name'">Name</span>
+</div>
+
+
+
 
 
 <div>
 ***This orderBy section doesn't work yet*** <br>
-<span ng-repeat="contacts in vm.sortContacts" ng-click="vm.sortContacts = contacts">{{contacts}} | </span><br>
+<span ng-repeat="type in vm.orderByTypes" ng-click="vm.sortType = type">{{type}} | </span><br>
 </div>
 <br>
+
+
 ***Default orderBy is by Company name***
-<div ng-repeat="contact in vm.contacts | orderBy:'company'">
+<div ng-repeat="contact in vm.contacts | orderBy: vm.sortType">
 	<div ng-click="vm.displayContact(contact)">
 		<div>Company: {{contact.company}}</div>		 	
 		<div>Name: {{contact.firstName}} {{contact.lastName}}</div><br>
