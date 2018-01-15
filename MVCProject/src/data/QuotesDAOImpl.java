@@ -25,7 +25,7 @@ public class QuotesDAOImpl implements QuotesDAO {
 	}
 
 	@Override
-	public Quotes addQuote(int quoteId, String quoteJson) {
+	public Quotes addQuote(String quoteJson) {
 		ObjectMapper mapper = new ObjectMapper();
 		Quotes newQuote = null;
 		

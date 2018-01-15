@@ -6,7 +6,7 @@ public interface QuotesDAO {
 	
 	public Quotes getQuoteById(int quoteId);
 	
-	public Quotes addQuote(int quoteId, String quoteJson);
+	public Quotes addQuote(String quoteJson);
 	
 	public Quotes updateQuote(int quoteId, String quoteJson);
 	
