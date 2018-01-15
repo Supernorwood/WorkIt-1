@@ -1,6 +1,6 @@
 angular.module('appModule')
-	.component('about', {
-		templateUrl : 'app/appModule/about/about.component.html',
+	.component('profile', {
+		templateUrl : 'app/appModule/profile/profile.component.html',
 		controllerAs : 'vm',
 		controller : function(){}
 	
