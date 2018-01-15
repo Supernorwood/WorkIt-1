@@ -60,5 +60,31 @@ angular.module('authModule')
     		.catch(console.error)
     }
     
+    service.update = function(user) {
+    		return $http({
+    			method: 'PUT',
+    			url: 'rest/auth/' + user.id,
+    			headers: {
+    				'Content-Type': 'application/json'
+    			},
+    			data: user
+    		})
+    		.then(function(response) {
+    			saveToken(response.data)
+    		})
+    		.catch(console.error)
+    }
+    
+    service.destroy = function(userId) {
+    		return $http({
+    			method: 'DELETE',
+    			url: 'rest/auth/' + user.id
+    		})
+    		.then(function(response) {
+    			removeToken()
+    		})
+    		.catch(console.error)
+    }
+    
     return service;
 })
