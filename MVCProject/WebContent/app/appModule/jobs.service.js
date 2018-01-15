@@ -3,6 +3,8 @@ angular.module('appModule')
   var service = {};
 
   var jobs = [];
+  
+  var quote = [];
 
   var checkLogin = function(user) {
 	  var user = authService.getToken()
@@ -78,6 +80,15 @@ angular.module('appModule')
 				
 			})
 		}
+	}
+	
+	service.getQuote = function(quote) {
+		var randoQuote = quote[Math.floor(quote.length * Math.random())];
+		return $http({
+			  method : 'GET',
+			  url : 'rest/quotes/' + randoQuote
+		  });
+		
 	}
   return service;
 })
