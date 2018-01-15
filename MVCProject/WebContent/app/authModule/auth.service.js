@@ -16,6 +16,7 @@ angular.module('authModule')
     var removeToken = function() {
     		$cookies.remove('uid');
     		$cookies.remove('userEmail');
+    		$location.path('/');
     }    
         
     service.register = function(user) {
@@ -55,6 +56,32 @@ angular.module('authModule')
 
     		})
     		.then(function(response){
+    			removeToken();
+    		})
+    		.catch(console.error)
+    }
+    
+    service.update = function(user) {
+    		return $http({
+    			method: 'PUT',
+    			url: 'rest/auth/' + user.id,
+    			headers: {
+    				'Content-Type': 'application/json'
+    			},
+    			data: user
+    		})
+    		.then(function(response) {
+    			saveToken(response.data)
+    		})
+    		.catch(console.error)
+    }
+    
+    service.destroy = function(userId) {
+    		return $http({
+    			method: 'DELETE',
+    			url: 'rest/auth/' + userId
+    		})
+    		.then(function(response) {
     			removeToken()
     		})
     		.catch(console.error)

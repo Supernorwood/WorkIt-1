@@ -1,5 +1,6 @@
-h1 {
-	color:darkgreen;
+.error {
+	background-image: url("../images/errorpageimg.jpg");
+	background-color: #cccccc;
 }
 
 body {
@@ -10,28 +11,28 @@ body {
 .navdiv {
 	background-color: #BFB4FE;
 	list-style: none;
-  	margin: 1px 0px 0px 0px;
- 	padding: 1px 0px 0px 0px;
- 	display: inline-block;
- 	justify-content: space-around;
- 	border: 2px grey;
- 	border: outset;
- 	border-radius: 5px;
- 	height: 10%;
- 	width: 100%;
- 	text-align: center;
+	margin: 1px 0px 0px 0px;
+	padding: 1px 0px 0px 0px;
+	display: inline-block;
+	justify-content: space-around;
+	border: 2px grey;
+	border: outset;
+	border-radius: 5px;
+	height: 10%;
+	width: 100%;
+	text-align: center;
 }
 
 ul.topnav li a, ul.nav li a:visited {
-    color: black !important;
+	color: black !important;
 }
 
 ul.topnav li a:hover, ul.nav li a:active {
-    color: gray !important;
+	color: gray !important;
 }
 
 ul.topnav li.active a {
-    color: white !important;
+	color: white !important;
 }
 
 ul.topnav {
@@ -59,10 +60,21 @@ ul.topnav li.btnright {
 	border-radius: 10%;
 	padding: 0px;
 	text-align: center;
-	
 }
 
+/* Home Page Styling */
+#homePageTitle {
+	color: #813370;
+	margin-left: auto;
+	margin-right: auto;
+	width: 200px;
+}
 
-
-
+#homePageButtons {
+	position: absolute;
+    top: 40%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+} 
 /* dark purple #813370 */

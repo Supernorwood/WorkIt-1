@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -74,5 +75,15 @@ public class AuthController {
   public String unauth(HttpServletResponse response) {
     response.setStatus(401);
     return "unauthorized";
+  }
+  
+  @RequestMapping(path = "/auth/{userId}", method = RequestMethod.PUT)
+  public User updateUser(HttpSession session, HttpServletResponse res, @PathVariable int userId, @RequestBody String userJson) {
+	  return authDAO.updateUser(userId, userJson);
+  }
+  
+  @RequestMapping(path = "/auth/{userId}", method = RequestMethod.DELETE)
+  public Boolean destroyUser(HttpSession session, HttpServletResponse res, @PathVariable int userId) {
+	  return authDAO.destroyUser(userId);
   }
 }
