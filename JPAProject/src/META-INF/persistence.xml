@@ -10,6 +10,7 @@
         <class>entities.Job</class> 
         <class>entities.User</class> 
         <class>entities.Contact</class> 
+        <class>entities.Skill</class> 
 
         <properties>
         		<!-- Configure your connection to the database -->

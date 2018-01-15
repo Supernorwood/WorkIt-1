@@ -1,7 +1,9 @@
 package entities;
 
 import java.sql.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,9 +11,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Job {
@@ -21,7 +28,7 @@ public class Job {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@JsonBackReference
+	@JsonBackReference(value="userToJob")
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
@@ -48,7 +55,12 @@ public class Job {
 
 	@Column(name = "last_update")
 	private Date lastUpdate;
-
+	
+	@JsonManagedReference(value="jobToSkill")
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany(mappedBy = "skillJob", cascade = CascadeType.PERSIST)
+	private List<Skill> jobSkills;
+	
 	// GETS AND SETS
 	public int getId() {
 		return id;
@@ -136,6 +148,14 @@ public class Job {
 
 	public void setLastUpdate(Date lastUpdate) {
 		this.lastUpdate = lastUpdate;
+	}
+	
+	public List<Skill> getJobSkills() {
+		return jobSkills;
+	}
+
+	public void setJobSkills(List<Skill> jobSkills) {
+		this.jobSkills = jobSkills;
 	}
 
 	@Override

@@ -6,13 +6,14 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -46,9 +47,15 @@ public class User {
 
 	@Column(name = "permission_level")
 	private int permissionLevelId;
+	
+	@JsonManagedReference(value="userToSkill")
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany(mappedBy = "skillUser", cascade = CascadeType.PERSIST)
+	private List<Skill> userSkills;
 
-	@JsonManagedReference
-	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@JsonManagedReference(value="userToJob")
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
 	List<Job> jobs;
 
 	// GETS AND SETS
@@ -130,6 +137,16 @@ public class User {
 
 	public void setJobs(List<Job> jobs) {
 		this.jobs = jobs;
+		
+		
+	}
+
+	public List<Skill> getUserSkills() {
+		return userSkills;
+	}
+
+	public void setUserSkills(List<Skill> userSkills) {
+		this.userSkills = userSkills;
 	}
 
 	// TOSTRING
