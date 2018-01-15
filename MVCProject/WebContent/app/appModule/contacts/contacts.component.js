@@ -12,10 +12,10 @@ angular.module('appModule')
 			vm.orderByTypes = [
 				'company',
 				'lastName',
-				'firstName'
+				'firstName',
 			];
 			
-			vm.sortType = 'company';  //default sort type
+			vm.sortType = 'lastName';  //default sort type
 			
 			var reloadContacts = function() {
 				contactsService.index().then(function(response) {
