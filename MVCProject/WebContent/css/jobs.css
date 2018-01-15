@@ -101,3 +101,11 @@ ul.topnav li.btnright {
     margin-right: -50%;
     transform: translate(-50%, -50%)
 }
+
+#ctcHeader {
+	background-color:#778899;
+}
+
+.sortTypeHeadings {
+	text-align: center;
+}
