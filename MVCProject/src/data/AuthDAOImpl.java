@@ -80,7 +80,9 @@ public class AuthDAOImpl implements AuthDAO {
 
 	@Override
 	public Boolean destroyUser(int userId) {
-		String query = "DELETE FROM User WHERE id = :userId";
+		String query = "DELETE FROM Job WHERE user.id = :userId";
+		em.createQuery(query).setParameter("userId", userId).executeUpdate();
+		query = "DELETE FROM User WHERE id = :userId";
 		em.createQuery(query).setParameter("userId", userId).executeUpdate();
 		return em.find(User.class, userId) == null;
 	}
