@@ -102,9 +102,8 @@ ul.topnav li.btnright {
     transform: translate(-50%, -50%)
 }
 
-<<<<<<< HEAD
 /* Job Page Styling */
-.jobAdd {
+.jobAddShow {
 	position: absolute;
 	top: 33%;
 	left: 50%;
@@ -112,9 +111,9 @@ ul.topnav li.btnright {
     transform: translate(-50%, -50%)
 }
 
-.jobAddButton{
+.jobAdd{
 	position: absolute;
-	top: 43%;
+	top: 40%;
 	left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%)	

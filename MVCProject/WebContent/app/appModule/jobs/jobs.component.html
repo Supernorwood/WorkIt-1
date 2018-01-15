@@ -11,8 +11,9 @@
 </div>
 
 <!-- INDEX LIST OF JOBS -->
-<div class="jobAddShow" style="overflow-x: auto;">
-	<table class="jobShow" ng-show="!vm.selected">
+<div class="jobShow" style="overflow-x: auto;">
+<span>
+	<table ng-show="!vm.selected">
 		<tr>
 			<th>Job Title</th>
 			<th>Company</th>
@@ -29,6 +30,7 @@
 			<td><button ng-click="vm.destroyJob(job.id)">x</button></td>
 		</tr>
 	</table>
+</span>
 </div>
 <!-- SHOW DETAIL VIEW -->
 
