@@ -1,66 +1,85 @@
 
-
-<h1 ng-show="!vm.selected">Show all Jobs</h1>
-
-<!-- ADD JOB FORM -->
-<form ng-show="!vm.selected">
-	<input type="text" ng-model="job.title" placeholder="Job Title"/><br>
-	<input type="text" ng-model="job.company" placeholder="Company"/><br>
-	<input type="submit" ng-click="vm.addJob(job); job = {}" value="Add Job"/><br>
-</form>
+<h1 ng-show="!vm.selected">Your Job Applications</h1>
+<div class="jobAdd">
+	<!-- ADD JOB FORM -->
+	<form ng-show="!vm.selected">
+		<input type="text" ng-model="job.title" placeholder="Job Title" /><br>
+		<input type="text" ng-model="job.company" placeholder="Company" /><br>
+		<input type="submit" ng-click="vm.addJob(job); job = {}"
+			value="Add Job" /><br>
+	</form>
+</div>
 
 <!-- INDEX LIST OF JOBS -->
-<div ng-show="!vm.selected">
-	<div>
-		<div class="title">Job Title</div>
-		<div class="company">Company</div>
-		<div class="applyDate">Date Applied</div>  <!-- Or does date updated make more sense? -->
-	</div>
-
-<div ng-repeat="job in vm.jobs | orderBy:'id'">
-	<div ng-click="vm.displayJob(job)">
-		<div>{{job.title}}</div>
-		<div>{{job.company}}</div>
-		<div>{{job.createdDate}}</div>		 	
-	</div>
-	<span> 
-		<input type="checkbox" ng-model="job.active" ng-change="vm.updateJob(job)" />
-		<button ng-click="vm.destroyJob(job.id)">x</button>
-	</span>
+<div class="jobAddShow" style="overflow-x: auto;">
+	<table class="jobShow" ng-show="!vm.selected">
+		<tr>
+			<th>Job Title</th>
+			<th>Company</th>
+			<th>Date</th>
+			<th>Active</th>
+			<th>Del</th>
+		</tr>
+		<tr ng-repeat="job in vm.jobs | orderBy:'id'">
+			<td ng-click="vm.displayJob(job)">{{job.title}}</td>
+			<td>{{job.company}}</td>
+			<td>{{job.createdDate}}</td>
+			<td><input type="checkbox" ng-model="job.active"
+				ng-change="vm.updateJob(job)" /></td>
+			<td><button ng-click="vm.destroyJob(job.id)">x</button></td>
+		</tr>
+	</table>
 </div>
-</div>
-
 <!-- SHOW DETAIL VIEW -->
 
-<div ng-show="vm.selected && !vm.editJob">
-<h1>Job Details</h1>
+<div class="jobDetails" ng-show="vm.selected && !vm.editJob">
+	<h1>Job Details</h1>
 
 	<table class="show-detail">
-		<tr><td>Job Title: {{vm.selected.title}}</td></tr>
-		<tr><td>Company: {{vm.selected.company}}</td></tr>
-		<tr><td>Job Posting URL: {{vm.selected.link}}</td></tr>
-		<tr><td>Address: {{vm.selected.address}}</td></tr>
-		<tr><td>Date Applied: {{vm.selected.createdDate}}</td></tr>
-		<tr><td>Last Updated: {{vm.selected.lastUpdate}}</td></tr>
-		
-		<tr><td><input type="submit" ng-click="vm.setEditJob()" value="Edit"/></td></tr>
+		<tr>
+			<td>Job Title: {{vm.selected.title}}</td>
+		</tr>
+		<tr>
+			<td>Company: {{vm.selected.company}}</td>
+		</tr>
+		<tr>
+			<td>Job Posting URL: {{vm.selected.link}}</td>
+		</tr>
+		<tr>
+			<td>Address: {{vm.selected.address}}</td>
+		</tr>
+		<tr>
+			<td>Date Applied: {{vm.selected.createdDate}}</td>
+		</tr>
+		<tr>
+			<td>Last Updated: {{vm.selected.lastUpdate}}</td>
+		</tr>
+
+		<tr>
+			<td><input type="submit" ng-click="vm.setEditJob()" value="Edit" /></td>
+		</tr>
 	</table>
-	<button type="button" ng-click="vm.displayAllJobs()">Back to Jobs</button>
+	<button type="button" ng-click="vm.displayAllJobs()">Back to
+		Jobs</button>
 </div>
 
 <!-- SHOW EDIT VIEW -->
 <h1 ng-show="vm.editJob">Edit Job Details</h1>
-<div ng-show="vm.editJob">
+<div class="jobEdit" ng-show="vm.editJob">
 	<form class="edit-form">
-		Job Title: <input type="text" ng-model="vm.editJob.title" placeholder="Job Title" /><br />
-		Company <input type="text" ng-model="vm.editJob.company" placeholder="Company"/><br />
-		Job Posting URL: <input type="text" ng-model="vm.editJob.link" placeholder="URL"/><br />
-		Address: <input type="text" ng-model="vm.editJob.address" placeholder="Address"/><br />
-		Date Applied: <input type="text" ng-model="vm.editJob.dueDate" placeholder="Date Applied"/><br />
-		Last Updated: <input type="text" ng-model="vm.editJob.lastUpdate" placeholder="Last Updated"/><br />
-		Active: <input type="checkbox" ng-model="vm.editJob.active"/>  
+		Job Title: <input type="text" ng-model="vm.editJob.title"
+			placeholder="Job Title" /><br /> Company <input type="text"
+			ng-model="vm.editJob.company" placeholder="Company" /><br /> Job
+		Posting URL: <input type="text" ng-model="vm.editJob.link"
+			placeholder="URL" /><br /> Address: <input type="text"
+			ng-model="vm.editJob.address" placeholder="Address" /><br /> Date
+		Applied: <input type="text" ng-model="vm.editJob.dueDate"
+			placeholder="Date Applied" /><br /> Last Updated: <input
+			type="text" ng-model="vm.editJob.lastUpdate"
+			placeholder="Last Updated" /><br /> Active: <input type="checkbox"
+			ng-model="vm.editJob.active" />
 	</form>
-	
+
 	<button type="button" ng-click="vm.updateJob(vm.editJob)">Save</button>
 	<button type="button" ng-click="vm.editJob=null">Cancel</button>
 </div>
