@@ -27,7 +27,7 @@ public class AddressController {
 	}
 	
 	//POST /address/{addressId}
-	@RequestMapping(path = "/address/", method = RequestMethod.POST)
+	@RequestMapping(path = "/address/{addressId}", method = RequestMethod.POST)
 	public Address createAddress(HttpServletRequest req, HttpServletResponse res, @RequestBody String addressJson) {
 		return addressDao.createAddress(addressJson);
 	}
@@ -36,7 +36,6 @@ public class AddressController {
 	@RequestMapping(path = "/address/{addressId}", method = RequestMethod.PUT)
 	public Address updateAddress(HttpServletRequest req, HttpServletResponse res, 
 			@PathVariable int addressId, @RequestBody String addressJson) {
-		System.out.println(addressJson);
 		return addressDao.updateAddress(addressId, addressJson);
 	}
 	

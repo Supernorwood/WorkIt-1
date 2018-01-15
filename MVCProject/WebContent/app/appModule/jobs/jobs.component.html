@@ -1,22 +1,18 @@
 
-<div class="newJob">
 <h1 ng-show="!vm.selected">Your Job Applications</h1>
 <div class="jobAdd">
 	<!-- ADD JOB FORM -->
 	<form ng-show="!vm.selected">
 		<input type="text" ng-model="job.title" placeholder="Job Title" /><br>
 		<input type="text" ng-model="job.company" placeholder="Company" /><br>
-		
-			<input type="submit" ng-click="vm.addJob(job); job = {}"
-				value="Add Job" /><br>
-		</div>
+		<input type="submit" ng-click="vm.addJob(job); job = {}"
+			value="Add Job" /><br>
 	</form>
 </div>
 
 <!-- INDEX LIST OF JOBS -->
 <div class="jobAddShow" style="overflow-x: auto;">
 	<table class="jobShow" ng-show="!vm.selected">
-
 		<tr>
 			<th>Job Title</th>
 			<th>Company</th>

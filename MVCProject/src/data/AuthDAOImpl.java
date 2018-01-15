@@ -69,7 +69,6 @@ public class AuthDAOImpl implements AuthDAO {
 			managedUser.setFirstName(updateUser.getFirstName());
 			managedUser.setLastName(updateUser.getLastName());
 			managedUser.setEmail(updateUser.getEmail());
-			managedUser.setPassword(encoder.encode(updateUser.getPassword()));
 			return managedUser;
 		}
 		catch (Exception e) {

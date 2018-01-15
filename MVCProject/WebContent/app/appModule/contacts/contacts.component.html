@@ -1,5 +1,7 @@
 <h1 ng-show="!vm.selectedContact">Contacts</h1>
 
+
+
 <!-- New contact form -->
 <form ng-show="!vm.selectedContact">
 	<input type="text" ng-model="contact.firstName" placeholder="First name"><br>
@@ -12,24 +14,53 @@
 </form>
 <br>
 
-<!-- Display list of contacts -->
+<!-- Sort functionality for contacts -->
 
-<div class="sortTypeHeadings">
+<div class="sortTypeHeadings" ng-show="!vm.selectedContact">
 	<span> 
-		<a ng-click="vm.sortType = 'company'"><strong>Sort Contacts By:</strong>  Company  |</a>
- 		<a ng-click="vm.sortType = 'lastName'">Last Name  |</a>
- 		<a ng-click="vm.sortType = 'firstName'">First Name  </a>
+		<a ng-click="vm.sortType = 'company'"> <strong>Company  |</strong></a>
+ 		<a ng-click="vm.sortType = 'lastName'"> <strong>Last Name  |</strong></a>
+ 		<a ng-click="vm.sortType = 'firstName'"> <strong>First Name  </strong></a>
 	</span>
 </div>
 <br>
 
-
-<div ng-repeat="contact in vm.contacts | orderBy: vm.sortType">
-	<div ng-click="vm.displayContact(contact)">
-		<div>Company: <strong>{{contact.company}}</strong> Name: <strong>{{contact.firstName}} {{contact.lastName}}</strong></div><br>
+<!-- Contacts Table -->
+	<div class="container" ng-show="!vm.selectedContact">
+		
+		<table class="table table-hover table-sm">
+		<thead id=ctcHeader>
+			<tr>
+				<th id="ctcTbl">Last Name </th>
+				<th id="ctcTbl">First Name </th>
+				<th id="ctcTbl">Company </th>
+				<th id="ctcTbl">Title </th>
+				<th id="ctcTbl">Email </th>
+				<th id="ctcTbl">Phone Number </th>
+				<th></th>
+			</tr>
+		</thead>	
+	
+			<tr ng-repeat="contact in vm.contacts | orderBy: vm.sortType" ng-click="vm.displayContact(contact)">
+				<td id="ctcData">{{contact.lastName}} </td>
+				<td id="ctcData">{{contact.firstName}} </td>
+				<td id="ctcData">{{contact.company}} </td>
+				<td id="ctcData">{{contact.title}} </td>
+				<td id="ctcData">{{contact.email}} </td>
+				<td id="ctcData">{{contact.phone}} </td>
+				<td><button ng-click="vm.destroyContact(contactId)">X</button></td>
+			</tr>
+		</table>
 	</div>
+	
+
+
+
+<!-- SHOW DETAILED VIEW -->
+<div ng-show=vm.selectedContact && !vm.editContact>
+<h2>Contact Details</h2>
+	
 <!-- 	<span> 
 		<input type="checkbox" ng-model="job.active" ng-change="vm.updateJob(job)" />
 		<button ng-click="vm.destroyJob(job.id)">x</button>
 	</span> -->
-</div>

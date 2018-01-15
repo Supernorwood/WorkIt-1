@@ -102,6 +102,7 @@ ul.topnav li.btnright {
     transform: translate(-50%, -50%)
 }
 
+<<<<<<< HEAD
 /* Job Page Styling */
 .jobAdd {
 	position: absolute;
@@ -116,15 +117,13 @@ ul.topnav li.btnright {
 	top: 43%;
 	left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%)
-	
+    transform: translate(-50%, -50%)	
 }
 
 .jobShow {
 	position: absolute;
 	top: 50%;
 	width: 83%;
-	
 }
 
 tr:nth-child(even) {
@@ -135,4 +134,13 @@ table {
     border: 1px solid black;
     font-size: 12px;
     width: 100%;
+}
+
+/* Contact Page Styling */
+#ctcHeader {
+	background-color:#778899;
+}
+
+.sortTypeHeadings {
+	text-align: center;
 }

@@ -54,6 +54,8 @@ public class ContactController {
 	@RequestMapping(path = "/user/{userId}/contacts/{contactId}", method = RequestMethod.DELETE)
 	public Boolean destroyContact(HttpServletRequest req, HttpServletResponse res, @PathVariable int userId,
 			@PathVariable int contactId) {
-		return contactDao.destroyContact(userId, contactId);
+		Boolean result = contactDao.destroyContact(userId, contactId);
+		
+		return result;
 	}
 }

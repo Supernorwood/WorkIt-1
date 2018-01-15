@@ -1,8 +1,14 @@
-<h1>Your Profile</h1>
 
 <div class="container">
-	<div>{{user.firstname}} {{user.lastname}}</div>
-	<div>{{user.address}}</div>
+	<!-- <div>{{user.firstname}} {{user.lastname}}</div>
+	<div>{{user.address}}</div> -->
+	<h2>Your Info</h2>
+	<form>
+		<input type="text" placeholder="First name" ng-model="vm.currentUser.firstName"><br>
+		<input type="text" placeholder="Last name" ng-model="vm.currentUser.lastName"><br>
+		<input type="text" placeholder="Email" ng-model="vm.currentUser.email"><br>
+		<button type="button" ng-click="vm.updateUser()">Update Info</button>
+	</form>
 
-</div>
 <button type="button" ng-click="vm.deleteUser()">Delete User</button>
+</div>
