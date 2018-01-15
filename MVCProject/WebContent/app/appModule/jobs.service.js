@@ -83,10 +83,9 @@ angular.module('appModule')
 	}
 	
 	service.getQuote = function(quote) {
-		var randoQuote = quote[Math.floor(quote.length * Math.random())];
 		return $http({
 			  method : 'GET',
-			  url : 'rest/quotes/' + randoQuote
+			  url : 'rest/quotes/random' 
 		  });
 		
 	}

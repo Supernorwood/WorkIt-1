@@ -24,5 +24,12 @@ public class QuotesController {
 			@PathVariable int quoteId) {
 		return quotesDao.getQuoteById(quoteId);
 	}
+	
+	@RequestMapping(path = "/quotes/random", method = RequestMethod.GET)
+	public Quotes getRandomQuote(HttpServletRequest req, HttpServletResponse res) {
+		int quoteIdRandom = (int) Math.floor(22 * Math.random());
+		return quotesDao.getQuoteById(quoteIdRandom);
+	
+	}
 
 }
