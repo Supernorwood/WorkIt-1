@@ -12,8 +12,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import entities.Address;
 import entities.Job;
+import entities.Skill;
 import entities.User;
 
 public class UserTest {
@@ -53,20 +53,27 @@ public class UserTest {
 	@Test
 	public void user_to_job() {
 		//need to use SELECT j from Job WHERE User user.id = 1
-		User u = em.find(User.class, 151);
+		User u = em.find(User.class, 1);
 		List<Job> jobs = u.getJobs();
-		assertEquals("no", jobs.get(0).getTitle());
+		assertEquals("Programmer Analyst IV", jobs.get(0).getTitle());
 	
 	}
 	
+//	@Test
+//	public void user_to_address() {
+//		//need to use SELECT a from Address WHERE User user.id = 1
+//		User u = em.find(User.class, 151);
+//		Address a = u.getAddress();
+//		assertEquals(null, a);
+//		u = em.find(User.class, 15);
+//		a = u.getAddress();
+//		assertEquals("Chevy Chase", a.getCity());
+//	}
+
 	@Test
-	public void user_to_address() {
-		//need to use SELECT a from Address WHERE User user.id = 1
-		User u = em.find(User.class, 151);
-		Address a = u.getAddress();
-		assertEquals(null, a);
-		u = em.find(User.class, 15);
-		a = u.getAddress();
-		assertEquals("Chevy Chase", a.getCity());
+	public void user_to_skills() {
+		User u = em.find(User.class, 1);
+		List<Skill> skills = u.getUserSkills();
+		assertEquals("Diagnostic Ultrasound", skills.get(0).getSkill());
 	}
 }
