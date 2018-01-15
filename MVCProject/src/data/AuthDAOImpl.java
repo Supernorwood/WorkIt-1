@@ -66,10 +66,11 @@ public class AuthDAOImpl implements AuthDAO {
 		
 		try {
 			updateUser = mapper.readValue(userJson, User.class);
+			System.out.println(updateUser.getAddress());
 			managedUser.setFirstName(updateUser.getFirstName());
 			managedUser.setLastName(updateUser.getLastName());
 			managedUser.setEmail(updateUser.getEmail());
-			managedUser.setPassword(encoder.encode(updateUser.getPassword()));
+			managedUser.setAddress(updateUser.getAddress());;
 			return managedUser;
 		}
 		catch (Exception e) {

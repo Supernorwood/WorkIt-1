@@ -36,7 +36,6 @@ public class AddressController {
 	@RequestMapping(path = "/address/{addressId}", method = RequestMethod.PUT)
 	public Address updateAddress(HttpServletRequest req, HttpServletResponse res, 
 			@PathVariable int addressId, @RequestBody String addressJson) {
-		System.out.println(addressJson);
 		return addressDao.updateAddress(addressId, addressJson);
 	}
 	
