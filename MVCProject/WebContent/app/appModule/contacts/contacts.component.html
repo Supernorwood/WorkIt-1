@@ -1,5 +1,7 @@
 <h1 ng-show="!vm.selectedContact">Contacts</h1>
 
+
+
 <!-- New contact form -->
 <form ng-show="!vm.selectedContact">
 	<input type="text" ng-model="contact.firstName" placeholder="First name"><br>
@@ -12,9 +14,9 @@
 </form>
 <br>
 
-<!-- Display list of contacts -->
+<!-- Sort functionality for contacts -->
 
-<div class="sortTypeHeadings">
+<div class="sortTypeHeadings" ng-show="!vm.selectedContact">
 	<span> 
 		<a ng-click="vm.sortType = 'company'"> <strong>Company  |</strong></a>
  		<a ng-click="vm.sortType = 'lastName'"> <strong>Last Name  |</strong></a>
@@ -23,8 +25,8 @@
 </div>
 <br>
 
-
-	<div class="container">
+<!-- Contacts Table -->
+	<div class="container" ng-show="!vm.selectedContact">
 		
 		<table class="table table-hover table-sm">
 		<thead id=ctcHeader>
@@ -35,26 +37,30 @@
 				<th id="ctcTbl">Title </th>
 				<th id="ctcTbl">Email </th>
 				<th id="ctcTbl">Phone Number </th>
+				<th></th>
 			</tr>
 		</thead>	
 	
-			<tr ng-repeat="contact in vm.contacts | orderBy: vm.sortType">
+			<tr ng-repeat="contact in vm.contacts | orderBy: vm.sortType" ng-click="vm.displayContact(contact)">
 				<td id="ctcData">{{contact.lastName}} </td>
 				<td id="ctcData">{{contact.firstName}} </td>
 				<td id="ctcData">{{contact.company}} </td>
 				<td id="ctcData">{{contact.title}} </td>
 				<td id="ctcData">{{contact.email}} </td>
 				<td id="ctcData">{{contact.phone}} </td>
+				<td><button ng-click="vm.destroyContact(contactId)">X</button></td>
 			</tr>
 		</table>
 	</div>
 	
-	<!-- <div>Name: <strong>{{contact.lastName}}, {{contact.firstName}} </strong>Company: <strong>{{contact.company}} </strong>
-			Title: <strong>{{contact.title}} </strong>Email: <strong>{{contact.email}} </strong> Phone: <strong>{{contact.phone}} </strong>
-		</div><br> -->
+
+
+
+<!-- SHOW DETAILED VIEW -->
+<div ng-show=vm.selectedContact && !vm.editContact>
+<h2>Contact Details</h2>
 	
 <!-- 	<span> 
 		<input type="checkbox" ng-model="job.active" ng-change="vm.updateJob(job)" />
 		<button ng-click="vm.destroyJob(job.id)">x</button>
 	</span> -->
-</div>
