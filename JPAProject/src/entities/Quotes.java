@@ -15,6 +15,8 @@ public class Quotes {
 		
 		private String quote;
 		private String author;
+		
+		
 		public int getId() {
 			return id;
 		}
