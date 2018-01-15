@@ -4,8 +4,8 @@ angular.module('appModule',['ngRoute', 'authModule'])
 		.when('/', {
 			template : '<home></home>'
 		})
-		.when ('/about', {
-			template : '<about></about>'
+		.when ('/profile', {
+			template : '<profile></profile>'
 		})
 		.when ('/register', {
 			template : '<register></register>'
