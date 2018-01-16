@@ -23,8 +23,8 @@
 		</tr>
 		<tr ng-repeat="job in vm.jobs | orderBy:'id'">
 			<td ng-click="vm.displayJob(job)">{{job.title}}</td>
-			<td>{{job.company}}</td>
-			<td>{{job.createdDate}}</td>
+			<td ng-click="vm.displayJob(job)">{{job.company}}</td>
+			<td ng-click="vm.displayJob(job)">{{job.createdDate}}</td>
 			<td><input type="checkbox" ng-model="job.active"
 				ng-change="vm.updateJob(job)" /></td>
 			<td><button ng-click="vm.destroyJob(job.id)">x</button></td>
@@ -45,7 +45,7 @@
 			<td>Company: {{vm.selected.company}}</td>
 		</tr>
 		<tr>
-			<td><a href="{{vm.selected.link}}">Job Posting URL: {{vm.selected.link}}</a></td>
+			<td>Job Posting URL: <a href ="{{vm.selected.link}}" target="_blank">{{vm.selected.link}}</a></td>
 		</tr>
 		<tr>
 			<td>Address: {{vm.selected.address}}</td>
@@ -74,7 +74,7 @@
 	<form class="edit-form">
 		Job Title: <input type="text" ng-model="vm.editJob.title" placeholder="Job Title" /><br />
 		Company <input type="text" ng-model="vm.editJob.company" placeholder="Company"/><br />
-		Job Posting URL: <input type="url" ng-model="vm.editJob.link" placeholder="URL"/><br />
+		Job Posting URL: <input type="text" ng-model="vm.editJob.link" placeholder="URL"/><br />
 		Address: <input type="text" ng-model="vm.editJob.address" placeholder="Address"/><br />
 		<!-- Date Applied: <input type="text" ng-model="vm.editJob.dueDate" placeholder="Date Applied"/><br />
 		Last Updated: <input type="text" ng-model="vm.editJob.lastUpdate" placeholder="Last Updated"/><br /> -->
