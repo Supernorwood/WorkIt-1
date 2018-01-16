@@ -73,6 +73,10 @@
 					$location.path('/error');
 				}) 
 			}
+			
+			vm.countJobs = function() {
+				return (vm.jobs).length;
+			}
 
 //			if (!vm.selected && parseInt($routeParams.id)) {
 //				  vm.selectedJob(parseInt($routeParams.id));
