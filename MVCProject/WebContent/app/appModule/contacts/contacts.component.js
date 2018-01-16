@@ -36,10 +36,11 @@ angular.module('appModule')
 			
 // *** MOVED functionality to setEditContact because we want to skip display and go straight to edit
 // *** WHY? because all the main info is included in main table display already
+			// *** Except now using it to show createDate and lastUpdateDate on edit page
 			
-//			vm.displayContact = function(contact) {
-//				return vm.selectedContact = contact; 
-//			}
+			vm.displayContact = function(contact) {
+				return vm.selectedContact = contact; 
+			}
 			
 			vm.displayAllContacts = function() {
 				vm.selectedContact = null;
