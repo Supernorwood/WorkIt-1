@@ -41,7 +41,7 @@ public class Job {
 
 	private String link;
 
-	@OneToOne
+	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name = "address_id")
 	private Address address;
 
