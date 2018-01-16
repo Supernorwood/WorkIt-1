@@ -1,14 +1,27 @@
+<!-- DISPLAY USER INFO -->
+
+
+
+<!-- EDIT USER INFO FORM -->
 
 <div class="container">
-	<!-- <div>{{user.firstname}} {{user.lastname}}</div>
-	<div>{{user.address}}</div> -->
-	<h2>Your Info</h2>
+	<h2>{{vm.currentUser.firstName}} {{vm.currentUser.lastName}}</h2><br>
+
+<!-- LIST OF SKILLS AS BUTTONS W/ ADD and DELETE -->
+<h3>Skills</h3><br>
+
+<h3>Update User Info</h3>
 	<form>
 		<input type="text" placeholder="First name" ng-model="vm.currentUser.firstName"><br>
 		<input type="text" placeholder="Last name" ng-model="vm.currentUser.lastName"><br>
 		<input type="text" placeholder="Email" ng-model="vm.currentUser.email"><br>
+
+<!-- CAN WE DO UPDATE PASSWORD? -->
+
 		<button type="button" ng-click="vm.updateUser()">Update Info</button>
 	</form>
 
 <button type="button" ng-click="vm.deleteUser()">Delete User</button>
 </div>
+
+
