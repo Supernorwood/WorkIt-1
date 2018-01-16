@@ -5,7 +5,7 @@
 	<form ng-show="!vm.selected" class="form-group">
 		<input class="form-control" type="text" ng-model="job.title" placeholder="Job Title" /><br>
 		<input class="form-control" type="text" ng-model="job.company" placeholder="Company" /><br>
-		<input class="form-control btn btn-primary" type="submit" ng-click="vm.addJob(job); job = {}"
+		<input class="form-control buttonSub" type="submit" ng-click="vm.addJob(job); job = {}"
 			value="Add Job" /><br>
 	</form>
 </div>
@@ -27,7 +27,7 @@
 			<td ng-click="vm.displayJob(job)">{{job.createdDate}}</td>
 			<td><input type="checkbox" ng-model="job.active"
 				ng-change="vm.updateJob(job)" /></td>
-			<td><button class="btn btn-danger" ng-click="vm.destroyJob(job.id)">x</button></td>
+			<td><button class="buttonDel" ng-click="vm.destroyJob(job.id)">x</button></td>
 		</tr>
 	</table>
 </span>
@@ -81,8 +81,8 @@
 		Active: <input type="checkbox" ng-model="vm.editJob.active"/>  
 	</form>
 
-	<button type="button" ng-click="vm.updateJob(vm.editJob)">Save</button>
-	<button type="button" ng-click="vm.editJob=null">Cancel</button>
+	<button type="button buttonSub" ng-click="vm.updateJob(vm.editJob)">Save</button>
+	<button type="button buttonDel" ng-click="vm.editJob=null">Cancel</button>
 </div>
 </div>
 
