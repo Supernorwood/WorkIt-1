@@ -111,26 +111,35 @@
 <div id=contactEdit ng-show="vm.editContact">
 
 	<form id="edit-contact-form">
-		First Name: <input type="text" ng-model="vm.editContact.firstName"
-			placeholder="First Name" /><br /> Last Name: <input type="text"
-			ng-model="vm.editContact.lastName" placeholder="Last Name" /><br />
-		Company: <input type="text" ng-model="vm.editContact.company"
-			placeholder="Company" /><br /> Title: <input type="text"
-			ng-model="vm.editContact.title" placeholder="Title" /><br /> Email:
-		<input type="text" ng-model="vm.editContact.email" placeholder="Email" /><br />
-		Phone: <input type="text" ng-model="vm.editContact.phone"
-			placeholder="Phone" /><br /> Last Contacted: <input type="text"
-			ng-model="vm.editContact.lastContactDate" placeholder="YYYY-MM-DD" /><br />
-		Last Updated: <input type="text" ng-model="vm.editContact.lastUpdate"
-			placeholder="YYYY-MM-DD" /><br /> Date Added: <input type="text"
-			ng-model="vm.editContact.createDate" placeholder="YYYY-MM-DD" /><br />
+
+		First Name: <input type="text" ng-model="vm.editContact.firstName" placeholder="First Name" /><br />
+		Last Name: <input type="text" ng-model="vm.editContact.lastName" placeholder="Last Name" /><br />
+		Company: <input type="text" ng-model="vm.editContact.company" placeholder="Company" /><br />
+		Title: <input type="text" ng-model="vm.editContact.title" placeholder="Title" /><br />
+		Email: <input type="text" ng-model="vm.editContact.email" placeholder="Email" /><br />
+		Phone: <input type="text" ng-model="vm.editContact.phone" placeholder="Phone" /><br />
+		Last Contacted: <input type="text" ng-model="vm.editContact.lastContactDate" placeholder="YYYY-MM-DD" /><br />
 	</form>
+		<a>Last Updated: {{vm.editContact.lastUpdate | date:'yyyy-MM-dd'}} </a> <br>
+		<a>Date Added: {{vm.editContact.createDate | date:'yyyy-MM-dd'}} </a> <br> <br>
+		
 
 	<button type="button" ng-click="vm.updateContact(vm.editContact)"
 		href="#/contacts">Save</button>
 	<button type="button" ng-click="vm.cancel()">Cancel</button>
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

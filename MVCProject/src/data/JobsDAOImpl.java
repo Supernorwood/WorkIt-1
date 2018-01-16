@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import entities.Contact;
 import entities.Job;
 import entities.User;
 
@@ -88,14 +89,18 @@ import entities.User;
 
 		@Override
 		public Boolean destroyJob(int uid, int jid) {
-			Job job = em.find(Job.class, jid);
-			try {
-				em.remove(job);
-				return true;
-			}
-			catch (Exception e) {
-				return false;
-			}
+			String query = "DELETE FROM Job WHERE id = :jid";
+			em.createQuery(query).setParameter("jid", jid).executeUpdate();
+			return !em.contains(em.find(Job.class, jid));
+			
+//			Job job = em.find(Job.class, jid);
+//			try {
+//				em.remove(job);
+//				return true;
+//			}
+//			catch (Exception e) {
+//				return false;
+//			}
 		}
 
 
