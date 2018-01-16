@@ -23,8 +23,8 @@
 		</tr>
 		<tr ng-repeat="job in vm.jobs | orderBy:'id'">
 			<td ng-click="vm.displayJob(job)">{{job.title}}</td>
-			<td>{{job.company}}</td>
-			<td>{{job.createdDate}}</td>
+			<td ng-click="vm.displayJob(job)">{{job.company}}</td>
+			<td ng-click="vm.displayJob(job)">{{job.createdDate}}</td>
 			<td><input type="checkbox" ng-model="job.active"
 				ng-change="vm.updateJob(job)" /></td>
 			<td><button ng-click="vm.destroyJob(job.id)">x</button></td>
