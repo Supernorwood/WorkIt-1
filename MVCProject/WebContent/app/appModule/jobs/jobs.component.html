@@ -1,19 +1,19 @@
 
-<h1 ng-show="!vm.selected">Your Job Applications</h1>
+<h1 class = "jobAppsHead" ng-show="!vm.selected">Your Job Applications</h1>
 <div class="jobAdd">
 	<!-- ADD JOB FORM -->
-	<form ng-show="!vm.selected">
-		<input type="text" ng-model="job.title" placeholder="Job Title" /><br>
-		<input type="text" ng-model="job.company" placeholder="Company" /><br>
-		<input type="submit" ng-click="vm.addJob(job); job = {}"
+	<form ng-show="!vm.selected" class="form-group">
+		<input class="form-control" type="text" ng-model="job.title" placeholder="Job Title" /><br>
+		<input class="form-control" type="text" ng-model="job.company" placeholder="Company" /><br>
+		<input class="form-control btn btn-primary" type="submit" ng-click="vm.addJob(job); job = {}"
 			value="Add Job" /><br>
 	</form>
 </div>
 
 <!-- INDEX LIST OF JOBS -->
-<div class="jobShow" style="overflow-x: auto;">
+<div class="jobShow tableDiv" >
 <span>
-	<table ng-show="!vm.selected">
+	<table class="table" ng-show="!vm.selected">
 		<tr>
 			<th>Job Title</th>
 			<th>Company</th>
@@ -27,7 +27,7 @@
 			<td ng-click="vm.displayJob(job)">{{job.createdDate}}</td>
 			<td><input type="checkbox" ng-model="job.active"
 				ng-change="vm.updateJob(job)" /></td>
-			<td><button ng-click="vm.destroyJob(job.id)">x</button></td>
+			<td><button class="btn btn-danger" ng-click="vm.destroyJob(job.id)">x</button></td>
 		</tr>
 	</table>
 </span>
