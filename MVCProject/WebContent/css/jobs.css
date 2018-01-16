@@ -34,7 +34,7 @@ ul.topnav li a, ul.nav li a:visited {
 }
 
 ul.topnav li a:hover, ul.nav li a:active {
-	color: gray !important;
+	color: white !important;
 }
 
 ul.topnav li.active a {
@@ -70,7 +70,6 @@ ul.topnav li.btnright {
 /* Home Page Styling */
 #homePageTitle {
 	color: #813370;
-    top: 20%;
     margin-left: auto;
     margin-right: auto;
     width: 75%;
@@ -78,17 +77,9 @@ ul.topnav li.btnright {
 
 #homeSubTitle {
 	color: #A9A9A9;
-    top: 30%;
     margin-left: auto;
     margin-right: auto;
     width: 30%;
-}
-
-.homeButtons {
-	top: 40%;
-	width: 30%;
-	margin-left: auto;
-    margin-right: auto;
 }
 
 #loginButton {
@@ -120,9 +111,6 @@ ul.topnav li.btnright {
 .jobAppsHead {
 	color: #813370;
     top: 20%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 75%;
 }
 
 .jobAdd{
@@ -143,6 +131,7 @@ tr:nth-child(even) {
 
 .tableDiv {
 	overflow-x: auto;
+	font-size: small;
 }
 
 /* table {
@@ -170,10 +159,15 @@ tr:nth-child(even) {
 
 .contactForm {
 	top: 40%;
-	width: 30%;
+	width: 100%;
 	margin-left: auto;
     margin-right: auto;
 }
+
+.newCtcBtn {
+	
+}
+
 #ctcHeader {
 	background-color:#778899;
 }
@@ -188,7 +182,7 @@ tr:nth-child(even) {
     top: 20%;
     margin-left: auto;
     margin-right: auto;
-    width: 30%;
+   	width: 100%
 }
 
 .updateFormHeader {

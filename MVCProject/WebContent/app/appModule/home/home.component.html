@@ -1,21 +1,19 @@
 
-<h1 id=homePageTitle>Welcome to Work It</h1>
-<h2 id=homeSubTitle>(money)</h2>
+<h1 class="row justify-content-center" id=homePageTitle>Welcome to Work It</h1>
+<h2 class="row justify-content-center" id=homeSubTitle>(money)</h2>
 
-<div class="homeButtons">
-	<div id=loginButton>
+	<div id=loginButton class="row justify-content-center">
 		<a ng-hide="vm.loggedIn()" href="#/login">
 			<button class="buttonSub" type="button" id=homeLogin>Login</button>
 		</a>
 	</div>
-
-	<div id=registerButton>
+<br>
+	<div id=registerButton class="row justify-content-center">
 		<br> <a ng-hide="vm.loggedIn()" href="#/register">
 			<button class="buttonSub" type="button" id=homeRegister>Register</button>
 		</a>
 
 	</div>
-</div>
-
+<br>
 <div class="motivation">{{vm.quoteOfTheDay.quote}}</div>
 

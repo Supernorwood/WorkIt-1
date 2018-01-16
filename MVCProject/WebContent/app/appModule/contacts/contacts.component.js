@@ -7,6 +7,7 @@ angular.module('appModule')
 			vm.contacts = [];
 			vm.selectedContact = null;
 			vm.editContact = null;
+			vm.newContact = null;
 			vm.showAllContacts = false;
 			
 			vm.orderByTypes = [
@@ -33,6 +34,9 @@ angular.module('appModule')
 				.catch(console.error)
 			}
 			
+			vm.newXtact = function() {
+				return vm.newContact = "bunnies";
+			}
 			
 // *** MOVED functionality to setEditContact because we want to skip display and go straight to edit
 // *** WHY? because all the main info is included in main table display already
