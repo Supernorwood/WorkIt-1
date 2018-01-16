@@ -2,21 +2,20 @@
 <h1 id=homePageTitle>Welcome to Work It</h1>
 <h2 id=homeSubTitle>(money)</h2>
 
-<div id=loginButton>
-	<a ng-hide="vm.loggedIn()" href="#/login">
-		<button type="button" id=homeLogin>Login</button>
-	</a>
+<div class="homeButtons">
+	<div id=loginButton>
+		<a ng-hide="vm.loggedIn()" href="#/login">
+			<button class="buttonSub" type="button" id=homeLogin>Login</button>
+		</a>
+	</div>
+
+	<div id=registerButton>
+		<br> <a ng-hide="vm.loggedIn()" href="#/register">
+			<button class="buttonSub" type="button" id=homeRegister>Register</button>
+		</a>
+
+	</div>
 </div>
 
-<div id=registerButton>
-	<br>
-	<a ng-hide="vm.loggedIn()" href="#/register">
-		<button type="button" id=homeRegister>Register</button>
-	</a>
-
-</div>
-
-<div class="motivation">
-	{{vm.quoteOfTheDay.quote}}
-</div>
+<div class="motivation">{{vm.quoteOfTheDay.quote}}</div>
 
