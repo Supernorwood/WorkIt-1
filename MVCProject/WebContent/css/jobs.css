@@ -149,7 +149,6 @@ tr:nth-child(even) {
     margin-left: auto;
     margin-right: auto;
     width: 30%;
-	
 }
 
 .contactForm {
@@ -164,4 +163,26 @@ tr:nth-child(even) {
 
 .sortTypeHeadings {
 	text-align: center;
+}
+
+/* Profile Page Styling */
+.profileHeader {
+	color: #813370;
+    top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 65%;
+}
+
+.updateFormHeader {
+	top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 55%;
+}
+.profileUpdateForm {
+	top: 40%;
+	width: 30%;
+	margin-left: auto;
+    margin-right: auto;
 }

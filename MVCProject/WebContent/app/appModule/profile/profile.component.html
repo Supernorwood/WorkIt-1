@@ -4,24 +4,23 @@
 
 <!-- EDIT USER INFO FORM -->
 
-<div class="container">
-	<h2>{{vm.currentUser.firstName}} {{vm.currentUser.lastName}}</h2><br>
+	<h1 class="profileHeader">{{vm.currentUser.firstName}} {{vm.currentUser.lastName}}</h1><br>
 
 <!-- LIST OF SKILLS AS BUTTONS W/ ADD and DELETE -->
 <h3>Skills</h3><br>
 
-<h3>Update User Info</h3>
+<h4 class="updateFormHeader">Need to Update Your Info?</h4>
+<div class="profileUpdateForm">
 	<form>
-		<input type="text" placeholder="First name" ng-model="vm.currentUser.firstName"><br>
-		<input type="text" placeholder="Last name" ng-model="vm.currentUser.lastName"><br>
-		<input type="text" placeholder="Email" ng-model="vm.currentUser.email"><br>
+		<input class="form-control" type="text" placeholder="First name" ng-model="vm.currentUser.firstName"><br>
+		<input class="form-control" type="text" placeholder="Last name" ng-model="vm.currentUser.lastName"><br>
+		<input class="form-control" type="text" placeholder="Email" ng-model="vm.currentUser.email"><br>
 
 <!-- CAN WE DO UPDATE PASSWORD? -->
 
-		<button type="button" ng-click="vm.updateUser()">Update Info</button>
+		<button class="form-control btn btn-primary" type="button" ng-click="vm.updateUser()">Update Info</button>
 	</form>
 
-<button type="button" ng-click="vm.deleteUser()">Delete User</button>
+<button class="form-control btn btn-danger" type="button" ng-click="vm.deleteUser()">Delete User</button>
 </div>
-
 
