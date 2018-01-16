@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Address {
 	
@@ -24,9 +26,11 @@ public class Address {
 	  	private String zip;
 	  	private String country;
 	  	
+	  	@JsonIgnore
 	    @OneToMany(mappedBy="address")
 	    private Set <User> user;
 
+		@JsonIgnore
 	    @OneToMany(mappedBy="address")
 	    private Set <Job> job;
 	  	

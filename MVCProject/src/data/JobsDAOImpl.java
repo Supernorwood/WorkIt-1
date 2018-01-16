@@ -40,6 +40,7 @@ import entities.User;
 
 		@Override
 		public Job addNewJob(int uid, String json) {
+			System.out.println(json);
 			ObjectMapper mapper = new ObjectMapper();
 			Job newJob = null;
 			try {
@@ -66,6 +67,16 @@ import entities.User;
 				ogJob = em.find(Job.class, jid);
 				ogJob.setTitle(job.getTitle());
 				ogJob.setCompany(job.getCompany());
+				if (ogJob.getAddress()!=null) {
+					ogJob.getAddress().setStreet(job.getAddress().getStreet());
+					ogJob.getAddress().setCity(job.getAddress().getCity());
+					ogJob.getAddress().setState(job.getAddress().getState());
+					ogJob.getAddress().setZip(job.getAddress().getZip());
+					ogJob.getAddress().setCountry(job.getAddress().getCountry());
+				}
+				else {
+					ogJob.setAddress(job.getAddress());
+				}
 				ogJob.setLink(job.getLink());
 				ogJob.setActive(job.getActive());
 			}

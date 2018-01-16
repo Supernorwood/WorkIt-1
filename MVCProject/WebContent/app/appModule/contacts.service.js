@@ -35,7 +35,6 @@ angular.module('appModule')
 		  var user = checkLogin();
 		  if (!user) return;
 		  contact.createDate = $filter('date')(Date.now(), 'yyyy-MM-dd');
-		  contact.user = user;
 		  return $http({
 				method : 'POST',
 				url : 'rest/user/' + user.id + '/contacts',
