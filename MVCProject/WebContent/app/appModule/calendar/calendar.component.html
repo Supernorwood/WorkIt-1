@@ -1,4 +1,27 @@
+<!-- The calendar itself -->
+<div ui-calendar="vm.uiConfig.calendar" class="span8 calendar" ng-model="vm.eventSources"></div>
+<br>
 
-<div ui-calendar="vm.uiConfig.calendar" class="span8 calendar" ng-model="vm.eventSources"> 
-	
-</div>
+<!-- Form to let the user update the calendar -->
+<!-- ng-show="vm.daySelected" -->
+<form class="form-group">
+	<!-- Will we need a db thing for this? It's not really a job...-->
+	<input class="form-control" type="text" ng-model="event.title" placeholder="Event title" />
+	<br>
+	<div class="row">
+	<!-- We'll need a click function to add the date from the calendar to the form -->
+		<div class="col-sm">
+			<input class="form-control"	type="text" ng-model="event.eventDate" placeholder="Date" />
+		</div>
+	<br>
+	<!-- Figure out the format for the time... maybe have a dropdown? -->
+		<div class="col-sm">
+			<input class="form-control" type="text" ng-model="event.eventTime" placeholder="Time" />
+		</div>
+	</div>
+	<br>
+	<input class="form-control buttonSub" type="submit" ng-click="vm.event(event); event = {}" value="Add Event" /><br>
+
+
+
+</form>

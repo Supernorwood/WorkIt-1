@@ -54,10 +54,15 @@ public class User {
 	@OneToMany(mappedBy = "skillUser", cascade = CascadeType.PERSIST)
 	private List<Skill> userSkills;
 
+	@JsonManagedReference(value="userToEvent")
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany(mappedBy = "eventUser", cascade = CascadeType.PERSIST)
+	private List<Event> events;
+	
 	@JsonManagedReference(value="userToJob")
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
-	List<Job> jobs;
+	private List<Job> jobs;
 
 	// GETS AND SETS
 	public int getId() {
@@ -148,17 +153,21 @@ public class User {
 		this.userSkills = userSkills;
 	}
 
+	public List<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
+
 	// TOSTRING
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", email=" + email + ", password=" + password + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", createdDate=" + createdDate + ", active="
-				+ active + ", permissionLevelId=" + permissionLevelId + ", getId()=" + getId() + ", getEmail()="
-				+ getEmail() + ", getPassword()=" + getPassword() + ", getFirstName()=" + getFirstName()
-				+ ", getLastName()=" + getLastName() + ", getCreatedDate()="
-				+ getCreatedDate() + ", getActive()=" + getActive() + ", getPermissionLevelId()="
-				+ getPermissionLevelId() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
+		return "User [id=" + id + ", email=" + email + ", firstName=" + firstName + "]";
 	}
+
+	
 
 }
