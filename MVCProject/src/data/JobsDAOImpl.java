@@ -69,7 +69,6 @@ import entities.User;
 				ogJob = em.find(Job.class, jid);
 				ogJob.setTitle(job.getTitle());
 				ogJob.setCompany(job.getCompany());
-<<<<<<< HEAD
 				
 				List<Skill> updateSkills = job.getJobSkills();
 				List<Skill> persistedUpdateSkills = new ArrayList<>();
@@ -95,9 +94,7 @@ import entities.User;
 				if (persistedUpdateSkills.size() > 0) {
 					ogJob.setJobSkills(persistedUpdateSkills);
 				}
-=======
 				ogJob.setNote(job.getNote());
->>>>>>> ae6d0f3e7710de79759bc069f1a144122543e1cb
 				if (ogJob.getAddress()!=null) {
 					ogJob.getAddress().setStreet(job.getAddress().getStreet());
 					ogJob.getAddress().setCity(job.getAddress().getCity());
