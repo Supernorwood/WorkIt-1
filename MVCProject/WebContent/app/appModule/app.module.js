@@ -1,4 +1,4 @@
-angular.module('appModule',['ngRoute', 'authModule'])
+angular.module('appModule',['ngRoute', 'authModule', 'ui.bootstrap', 'ui.calendar'])
 .config(function($routeProvider){
 	$routeProvider
 		.when('/', {
@@ -21,6 +21,9 @@ angular.module('appModule',['ngRoute', 'authModule'])
 		})
 		.when ('/contacts', {
 			template : '<contacts></contacts>'
+		})
+		.when ('/calendar', {
+			template : '<calendar></calendar>'
 		})
 		.when('/error', {
 			template: '<error></error>'

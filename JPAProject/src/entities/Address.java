@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Address {
 	
@@ -24,8 +26,13 @@ public class Address {
 	  	private String zip;
 	  	private String country;
 	  	
-//	    @OneToMany(mappedBy="address")
-//	    private Set <User> user;
+	  	@JsonIgnore
+	    @OneToMany(mappedBy="address")
+	    private Set <User> user;
+
+		@JsonIgnore
+	    @OneToMany(mappedBy="address")
+	    private Set <Job> job;
 	  	
 	  	
 	  	
@@ -74,12 +81,20 @@ public class Address {
 		}
 		
 		
-//		public Set<User> getUser() {
-//			return user;
-//		}
-//		public void setUser(Set<User> user) {
-//			this.user = user;
-//		}
+		public Set<User> getUser() {
+			return user;
+		}
+		public void setUser(Set<User> user) {
+			this.user = user;
+		}
+		
+		
+		public Set<Job> getJob() {
+			return job;
+		}
+		public void setJob(Set<Job> job) {
+			this.job = job;
+		}
 		
 		
 		//TOSTRING

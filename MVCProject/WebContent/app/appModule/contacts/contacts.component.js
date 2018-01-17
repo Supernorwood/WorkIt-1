@@ -7,6 +7,7 @@ angular.module('appModule')
 			vm.contacts = [];
 			vm.selectedContact = null;
 			vm.editContact = null;
+			vm.newContact = null;
 			vm.showAllContacts = false;
 			
 			vm.orderByTypes = [
@@ -33,6 +34,14 @@ angular.module('appModule')
 				.catch(console.error)
 			}
 			
+			vm.newXtact = function() {
+				return vm.newContact = "bunnies";
+			}
+			
+// *** MOVED functionality to setEditContact because we want to skip display and go straight to edit
+// *** WHY? because all the main info is included in main table display already
+			// *** Except now using it to show createDate and lastUpdateDate on edit page
+			
 			vm.displayContact = function(contact) {
 				return vm.selectedContact = contact; 
 			}
@@ -44,6 +53,8 @@ angular.module('appModule')
 			vm.updateContact = function(contact) {
 				contactsService.update(contact).then(function(response) {
 					reloadContacts();
+					vm.selectedContact = null;
+					vm.editContact = null;
 				})
 				.catch(console.error)
 			}
@@ -55,8 +66,14 @@ angular.module('appModule')
 				.catch(console.error)
 			}
 			
-			vm.setEditContact = function() {
+			vm.setEditContact = function(contact) {
+				vm.selectedContact = contact;
 				vm.editContact = angular.copy(vm.selectedContact);
+			}
+			
+			vm.cancel = function(){
+				vm.selectedContact = null;
+				vm.editContact = null
 			}
 			
 			

@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,24 +25,11 @@ public class QuotesController {
 		return quotesDao.getQuoteById(quoteId);
 	}
 	
-	//POST /quotes/{quoteId}
-	@RequestMapping(path = "/quotes/{quoteId}", method = RequestMethod.POST)
-	public Quotes addQuote(HttpServletRequest req, HttpServletResponse res,
-			@RequestBody String quoteJson) {
-		return quotesDao.addQuote(quoteJson);
-	}
+	@RequestMapping(path = "/quotes/random", method = RequestMethod.GET)
+	public Quotes getRandomQuote(HttpServletRequest req, HttpServletResponse res) {
+		int quoteIdRandom = (int) Math.floor(22 * Math.random());
+		return quotesDao.getQuoteById(quoteIdRandom);
 	
-	//PUT /quotes/{quoteId}
-	@RequestMapping(path = "/quotes/{quoteId}", method = RequestMethod.PUT)
-	public Quotes updateQuote(HttpServletRequest req, HttpServletResponse res,
-			@PathVariable int quoteId, @RequestBody String quoteJson) {
-		return quotesDao.updateQuote(quoteId, quoteJson);
 	}
-	
-	//DELETE /quotes/{quoteId}
-	@RequestMapping(path = "/quotes/{quoteId}", method = RequestMethod.DELETE)
-	public Boolean destroyQuote(HttpServletRequest req, HttpServletResponse res,
-			@PathVariable int quoteId) {
-	return quotesDao.destroyQuote(quoteId);
-	}
+
 }

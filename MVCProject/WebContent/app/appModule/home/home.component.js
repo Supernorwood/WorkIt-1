@@ -1,7 +1,9 @@
 angular.module('appModule').component('home', {
 	templateUrl : 'app/appModule/home/home.component.html',
-	controller : function(authService, $location) {
+	controller : function(authService, $location, jobsService) {
 		var vm = this;
+
+		vm.quoteOfTheDay = 'chill';
 
 		vm.loggedIn = function() {
 			if (authService.getToken().id) {
@@ -9,10 +11,15 @@ angular.module('appModule').component('home', {
 			}
 			return false;
 		}
-		
-		vm.showQuote = function(quoteId){
-			quoteId = Math.floor(Math.random()*25);
+
+		vm.showQuote = function() {
+			jobsService.getQuote().then(function(response) {
+				vm.quoteOfTheDay = response.data
+			})
 		}
+		vm.showQuote();
+		
+		
 	},
 
 	controllerAs : 'vm',

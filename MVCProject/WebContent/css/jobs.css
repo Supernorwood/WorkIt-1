@@ -3,6 +3,16 @@ body {
 	background-color: #f9f3e7;
 }
 
+.buttonSub {
+	background-color: #778899;
+	color: white;
+}
+
+.buttonDel {
+	background-color: #800020;
+	color: white;
+}
+
 /* Navigation Styling */
 .navdiv {
 	background-color: #778899;
@@ -24,7 +34,7 @@ ul.topnav li a, ul.nav li a:visited {
 }
 
 ul.topnav li a:hover, ul.nav li a:active {
-	color: gray !important;
+	color: white !important;
 }
 
 ul.topnav li.active a {
@@ -53,97 +63,111 @@ ul.topnav li.btnright {
 }
 
 .btn {
-	border-radius: 10%;
 	padding: 0px;
 	text-align: center;
 }
 
 /* Home Page Styling */
-#homePageTitle, h1 {
+#homePageTitle {
 	color: #813370;
-	position: absolute;
-    top: 20%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
 }
 
 #homeSubTitle {
 	color: #A9A9A9;
-	position: absolute;
-    top: 30%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
 }
 
 #loginButton {
-	position: absolute;
     top: 40%;
     left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
 } 
 
 #registerButton {
-	position: absolute;
     top: 45%;
     left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
+}
+
+.motivation {
+    top: 65%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Error Page Styling */
 .errorimg {
-	position: absolute;
 	top: 45%;
     left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
+    height: 150px;
 }
 
 /* Job Page Styling */
-.jobAddShow {
-	position: absolute;
-	top: 33%;
-	left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
+
+.jobAppsHead {
+	color: #813370;
+    top: 20%;
 }
 
 .jobAdd{
-	position: absolute;
 	top: 40%;
-	left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)	
+	width: 60%;
+	margin-left: auto;
+    margin-right: auto;
 }
 
 .jobShow {
-	position: absolute;
 	top: 50%;
-	width: 83%;
+	width: 100%;
 }
 
 tr:nth-child(even) {
     background-color: #f2f2f2
 }
 
-table {
-    border: 1px solid black;
-    font-size: 12px;
-    width: 100%;
+.tableDiv {
+	overflow-x: auto;
+	font-size: small;
 }
 
+/* table {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    
+} */
+
 .jobEdit, .jobDetails {
-	position: absolute;
 	top: 50%;
-	left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)	
+	width: 40%;
+	margin-left: auto;
+    margin-right: auto;
 }
 
 /* Contact Page Styling */
+.contactsHead {
+	color: #813370;
+    top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
+.contactForm {
+	top: 40%;
+	width: 100%;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.newCtcBtn {
+	
+}
+
 #ctcHeader {
 	background-color:#778899;
 }
@@ -151,3 +175,26 @@ table {
 .sortTypeHeadings {
 	text-align: center;
 }
+
+/* Profile Page Styling */
+.profileHeader {
+	color: #813370;
+    top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+   	width: 100%
+}
+
+.updateFormHeader {
+	top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+.profileUpdateForm {
+	top: 40%;
+	width: 30%;
+	margin-left: auto;
+    margin-right: auto;
+}
+

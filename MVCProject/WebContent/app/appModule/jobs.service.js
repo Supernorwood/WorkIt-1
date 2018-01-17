@@ -3,6 +3,8 @@ angular.module('appModule')
   var service = {};
 
   var jobs = [];
+  
+  var quote = [];
 
   var checkLogin = function(user) {
 	  var user = authService.getToken()
@@ -40,7 +42,6 @@ angular.module('appModule')
 	  job.createdDate = $filter('date')(Date.now(), 'yyyy-MM-dd');
 	  console.log(job.createdDate);
 	  job.active = 1;
-	  job.user = user;
 	  return $http({
 			method : 'POST',
 			url : 'rest/user/' + user.id + '/jobs',
@@ -78,6 +79,14 @@ angular.module('appModule')
 				
 			})
 		}
+	}
+	
+	service.getQuote = function(quote) {
+		return $http({
+			  method : 'GET',
+			  url : 'rest/quotes/random' 
+		  });
+		
 	}
   return service;
 })

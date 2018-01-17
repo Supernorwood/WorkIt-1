@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import entities.Contact;
 import entities.Job;
 import entities.User;
 
@@ -40,6 +41,7 @@ import entities.User;
 
 		@Override
 		public Job addNewJob(int uid, String json) {
+			System.out.println(json);
 			ObjectMapper mapper = new ObjectMapper();
 			Job newJob = null;
 			try {
@@ -66,6 +68,16 @@ import entities.User;
 				ogJob = em.find(Job.class, jid);
 				ogJob.setTitle(job.getTitle());
 				ogJob.setCompany(job.getCompany());
+				if (ogJob.getAddress()!=null) {
+					ogJob.getAddress().setStreet(job.getAddress().getStreet());
+					ogJob.getAddress().setCity(job.getAddress().getCity());
+					ogJob.getAddress().setState(job.getAddress().getState());
+					ogJob.getAddress().setZip(job.getAddress().getZip());
+					ogJob.getAddress().setCountry(job.getAddress().getCountry());
+				}
+				else {
+					ogJob.setAddress(job.getAddress());
+				}
 				ogJob.setLink(job.getLink());
 				ogJob.setActive(job.getActive());
 			}
@@ -77,14 +89,18 @@ import entities.User;
 
 		@Override
 		public Boolean destroyJob(int uid, int jid) {
-			Job job = em.find(Job.class, jid);
-			try {
-				em.remove(job);
-				return true;
-			}
-			catch (Exception e) {
-				return false;
-			}
+			String query = "DELETE FROM Job WHERE id = :jid";
+			em.createQuery(query).setParameter("jid", jid).executeUpdate();
+			return !em.contains(em.find(Job.class, jid));
+			
+//			Job job = em.find(Job.class, jid);
+//			try {
+//				em.remove(job);
+//				return true;
+//			}
+//			catch (Exception e) {
+//				return false;
+//			}
 		}
 
 

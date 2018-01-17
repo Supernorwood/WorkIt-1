@@ -1,15 +1,26 @@
+<!-- DISPLAY USER INFO -->
 
-<div class="container">
-	<!-- <div>{{user.firstname}} {{user.lastname}}</div>
-	<div>{{user.address}}</div> -->
-	<h2>Your Info</h2>
+
+
+<!-- EDIT USER INFO FORM -->
+
+	<h1 class="profileHeader row justify-content-center">{{vm.currentUser.firstName}} {{vm.currentUser.lastName}}</h1><br>
+
+<!-- LIST OF SKILLS AS BUTTONS W/ ADD and DELETE -->
+<h3>Skills</h3><br>
+
+<h4 class="updateFormHeader">Need to Update Your Info?</h4>
+<div class="profileUpdateForm">
 	<form>
-		<input type="text" placeholder="First name" ng-model="vm.currentUser.firstName"><br>
-		<input type="text" placeholder="Last name" ng-model="vm.currentUser.lastName"><br>
-		<input type="text" placeholder="Email" ng-model="vm.currentUser.email"><br>
-		<button type="button" ng-click="vm.updateUser()">Save Changes</button>
+		<input class="form-control" type="text" placeholder="First name" ng-model="vm.currentUser.firstName"><br>
+		<input class="form-control" type="text" placeholder="Last name" ng-model="vm.currentUser.lastName"><br>
+		<input class="form-control" type="text" placeholder="Email" ng-model="vm.currentUser.email"><br>
+
+<!-- CAN WE DO UPDATE PASSWORD? -->
+
+		<button class="form-control buttonSub" type="button" ng-click="vm.updateUser()">Update Info</button>
 	</form>
-	
+
 	<h2>Your Skills</h2>
 	<form>
 		<div ng-repeat="skill in vm.currentUserSkills">
@@ -19,5 +30,6 @@
 		<button type="button" ng-click="vm.updateUser()">Save Changes</button>
 	</form>
 
-	<button type="button" ng-click="vm.deleteUser()">Delete User</button>
 </div>
+<h6>Need to delete your account?</h6>
+<button class="form-control buttonDel" type="button" ng-click="vm.deleteUser()">Delete User</button>

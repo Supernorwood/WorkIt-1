@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.LazyCollection;
@@ -35,9 +37,9 @@ public class User {
 	@Column(name = "last_name")
 	private String lastName;
 
-//	@ManyToOne
-//	@JoinColumn(name = "address_id")
-//	private Address address;
+	@ManyToOne
+	@JoinColumn(name = "address_id")
+	private Address address;
 
 	@Column(name = "created_date")
 	private Date createdDate;
@@ -98,13 +100,13 @@ public class User {
 		this.lastName = lastName;
 	}
 
-//	public Address getAddress() {
-//		return address;
-//	}
-//
-//	public void setAddress(Address address) {
-//		this.address = address;
-//	}
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
 	public Date getCreatedDate() {
 		return createdDate;
