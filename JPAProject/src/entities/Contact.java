@@ -35,6 +35,8 @@ public class Contact {
 	private String phone;
 	
 	private String email;
+	
+	private String note;
 
 	@ManyToOne
 	@JoinColumn(name = "address_id")
@@ -52,8 +54,6 @@ public class Contact {
 	@Column(name = "last_update")
 	private Timestamp lastUpdate;
 	
-	private String note;
-
 	public int getId() {
 		return id;
 	}
@@ -117,6 +117,14 @@ public class Contact {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public String getNote() {
+		return note;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
+	}
 
 	public Address getAddress() {
 		return address;
@@ -158,15 +166,6 @@ public class Contact {
 		this.lastUpdate = lastUpdate;
 	}
 	
-	
-
-	public String getNote() {
-		return note;
-	}
-
-	public void setNote(String note) {
-		this.note = note;
-	}
 
 	@Override
 	public int hashCode() {
@@ -192,8 +191,10 @@ public class Contact {
 
 	@Override
 	public String toString() {
-		return "Contact [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", createDate="
-				+ createDate + ", lastUpdate=" + lastUpdate + "]";
+		return "Contact [id=" + id + ", user=" + user + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", title=" + title + ", company=" + company + ", phone=" + phone + ", email=" + email + ", note="
+				+ note + ", address=" + address + ", contactCount=" + contactCount + ", lastContactDate="
+				+ lastContactDate + ", createDate=" + createDate + ", lastUpdate=" + lastUpdate + "]";
 	}
 	
 }

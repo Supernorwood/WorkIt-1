@@ -40,6 +40,8 @@ public class Job {
 	private String title;
 
 	private String link;
+	
+	private String note;
 
 	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name = "address_id")
@@ -61,7 +63,6 @@ public class Job {
 	@OneToMany(mappedBy = "skillJob", cascade = CascadeType.PERSIST)
 	private List<Skill> jobSkills;
 	
-	private String note;
 	
 	// GETS AND SETS
 	public int getId() {
@@ -112,6 +113,14 @@ public class Job {
 		this.link = link;
 	}
 
+	public String getNote() {
+		return note;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
+	}
+
 	public Address getAddress() {
 		return address;
 	}
@@ -159,20 +168,17 @@ public class Job {
 	public void setJobSkills(List<Skill> jobSkills) {
 		this.jobSkills = jobSkills;
 	}
-	
-	public String getNote() {
-		return note;
-	}
-
-	public void setNote(String note) {
-		this.note = note;
-	}
 
 	@Override
 	public String toString() {
 		return "Job [id=" + id + ", user=" + user + ", active=" + active + ", company=" + company + ", title=" + title
-				+ ", link=" + link + ", address=" + address + ", salary=" + salary + ", closingDate=" + closingDate
-				+ ", createdDate=" + createdDate + ", lastUpdate=" + lastUpdate + "]";
+				+ ", link=" + link + ", notes=" + note + ", address=" + address + ", salary=" + salary
+				+ ", closingDate=" + closingDate + ", createdDate=" + createdDate + ", lastUpdate=" + lastUpdate
+				+ ", jobSkills=" + jobSkills + ", note=" + note + "]";
 	}
+
+
+
+
 
 }
