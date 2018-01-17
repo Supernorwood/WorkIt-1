@@ -61,6 +61,8 @@ public class Job {
 	@OneToMany(mappedBy = "skillJob", cascade = CascadeType.PERSIST)
 	private List<Skill> jobSkills;
 	
+	private String note;
+	
 	// GETS AND SETS
 	public int getId() {
 		return id;
@@ -156,6 +158,14 @@ public class Job {
 
 	public void setJobSkills(List<Skill> jobSkills) {
 		this.jobSkills = jobSkills;
+	}
+	
+	public String getNote() {
+		return note;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
 	}
 
 	@Override
