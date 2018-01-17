@@ -16,11 +16,11 @@
 		<input class="form-control" type="text" placeholder="First name" ng-model="vm.currentUser.firstName"><br>
 		<input class="form-control" type="text" placeholder="Last name" ng-model="vm.currentUser.lastName"><br>
 		<input class="form-control" type="text" placeholder="Email" ng-model="vm.currentUser.email"><br>
+		<button class="form-control buttonSub" type="button" ng-click="vm.updateUser(); vm.infoUpdated = true">Update Info</button>
+	</form>
 
 <!-- CAN WE DO UPDATE PASSWORD? -->
 
-		<button class="form-control buttonSub" type="button" ng-click="vm.updateUser(); vm.infoUpdated = true">Update Info</button>
-	</form>
 
 	<h2>Your Skills</h2>
 	<form>

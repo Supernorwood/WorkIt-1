@@ -26,7 +26,6 @@ angular.module('appModule')
 				vm.currentUser.userSkills = vm.currentUserSkills;
 				authService.update(vm.currentUser).then(function(response) {
 					reloadUser();
-					
 				})
 				.catch(console.error)
 			}
