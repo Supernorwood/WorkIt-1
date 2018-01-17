@@ -88,5 +88,14 @@ angular.module('appModule')
 		  });
 		
 	}
+	
+	service.getDateCreated = function(jobs) {
+		var user = checkLogin();
+		return $http({
+			method : 'GET',
+			url : 'rest/user/' + user.id + '/jobs/' + jobs
+		})
+	}
+	
   return service;
 })
