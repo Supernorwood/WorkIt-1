@@ -93,7 +93,8 @@ angular.module('appModule')
 		var user = checkLogin();
 		return $http({
 			method : 'GET',
-			url : 'rest/user/' + user.id + '/jobs/' + jobs
+			url : 'rest/user/' + user.id + '/jobs/' + jobs //getting a 404 bad request when 
+			//sending this to the server. It should work to make the page at least display something.
 		})
 	}
 	
