@@ -21,14 +21,14 @@ public class Skill {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	
 	private String skill;
 
 	@JsonBackReference(value="userToSkill")
 	@LazyCollection(LazyCollectionOption.FALSE)
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-	@JoinTable(name = "user_skills", joinColumns=@JoinColumn(name = "user_id"), inverseJoinColumns=@JoinColumn(name = "skill_id"))
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@JoinTable(name = "user_skills", joinColumns=@JoinColumn(name = "skill_id"), inverseJoinColumns=@JoinColumn(name = "user_id"))
 	private User skillUser;
 	
 	@JsonBackReference(value="jobToSkill")
@@ -41,7 +41,7 @@ public class Skill {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

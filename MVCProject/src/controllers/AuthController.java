@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import data.AuthDAO;
+import entities.Skill;
 import entities.User;
 
 @RestController
@@ -83,5 +86,15 @@ public class AuthController {
   @RequestMapping(path = "/auth/{userId}", method = RequestMethod.DELETE)
   public Boolean destroyUser(HttpSession session, HttpServletResponse res, @PathVariable int userId) {
 	  return authDAO.destroyUser(userId);
+  }
+  
+  @RequestMapping(path = "/auth/{userId}", method = RequestMethod.GET)
+  public User getUserById(HttpSession session, HttpServletResponse res, @PathVariable int userId) {
+	  return authDAO.getUserById(userId);
+  }
+  
+  @RequestMapping(path = "/auth/{userId}/skills", method = RequestMethod.GET)
+  public List<Skill> getUserSkills(HttpSession session, HttpServletResponse res, @PathVariable int userId) {
+	  return authDAO.getUserById(userId).getUserSkills();
   }
 }

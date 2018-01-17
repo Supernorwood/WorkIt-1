@@ -7,15 +7,23 @@ angular.module('appModule')
 			
 			vm.currentUser = null;
 			
+			vm.currentUserSkills = [];
+			
 			vm.infoUpdated = false;
 			
 			var reloadUser = function() {
-				vm.currentUser = authService.getToken();
+				authService.getUser().then(function(response) {
+					vm.currentUser = response.data;
+					authService.getUserSkills().then(function(response) {
+						vm.currentUserSkills = response.data;
+					});
+				});
 			}
 			
 			reloadUser();
 			
 			vm.updateUser = function() {
+				vm.currentUser.userSkills = vm.currentUserSkills;
 				authService.update(vm.currentUser).then(function(response) {
 					reloadUser();
 				})
@@ -27,6 +35,21 @@ angular.module('appModule')
 					
 				})
 				.catch(console.error)
+			}
+			
+			vm.addSkill = function() {
+				if (vm.currentUserSkills.length > 0) {
+					vm.currentUserSkills.push({
+						"skill": ""
+					});
+				}
+				else {
+					vm.currentUserSkills = [
+						{
+							"skill" : ""
+						}
+					];
+				}
 			}
 			
 			

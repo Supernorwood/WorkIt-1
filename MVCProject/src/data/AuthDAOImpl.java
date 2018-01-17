@@ -1,5 +1,6 @@
 package data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -13,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import entities.Skill;
 import entities.User;
 
 @Transactional
@@ -66,6 +68,30 @@ public class AuthDAOImpl implements AuthDAO {
 		
 		try {
 			updateUser = mapper.readValue(userJson, User.class);
+			List<Skill> updateSkills = updateUser.getUserSkills();
+			List<Skill> persistedUpdateSkills = new ArrayList<>();
+			
+			for (Skill updateSkill : updateSkills) {
+				int updateSkillId;
+				try {
+					updateSkillId = updateSkill.getId();
+				}
+				catch (NullPointerException npe) {
+					updateSkillId = 0;
+				}
+				if (updateSkillId == 0) {
+					Skill persistingSkill = new Skill();
+					persistingSkill.setSkill(updateSkill.getSkill());
+					em.persist(persistingSkill);
+					em.flush();
+					persistedUpdateSkills.add(persistingSkill);
+					String query = "INSERT INTO user_skills (user_id, skill_id) VALUES (:userId, :skillId)";
+					em.createNativeQuery(query).setParameter("userId", updateUser.getId()).setParameter("skillId", persistingSkill.getId()).executeUpdate();
+				}
+			}
+			if (persistedUpdateSkills.size() > 0) {
+				managedUser.setUserSkills(persistedUpdateSkills);
+			}
 			managedUser.setFirstName(updateUser.getFirstName());
 			managedUser.setLastName(updateUser.getLastName());
 			managedUser.setEmail(updateUser.getEmail());
@@ -84,6 +110,11 @@ public class AuthDAOImpl implements AuthDAO {
 		query = "DELETE FROM User WHERE id = :userId";
 		em.createQuery(query).setParameter("userId", userId).executeUpdate();
 		return em.find(User.class, userId) == null;
+	}
+
+	@Override
+	public User getUserById(int userId) {
+		return em.find(User.class, userId);
 	}
 	
 	
