@@ -15,9 +15,10 @@ angular.module('appModule')
 			
 			reloadUser();
 			
-			vm.updateUser = function() {
-				authService.update(vm.currentUser).then(function(response) {
+			vm.updateUser = function(user) {
+				authService.update(user).then(function(response) {
 					reloadUser();
+					
 				})
 				.catch(console.error)
 			}

@@ -2,6 +2,8 @@ angular.module('authModule')
 .factory('authService', function($http, $cookies, $location) {
     var service = {};
     
+// I commented out user.address as a cookie. I don't think we need to store / pass around address object as part of user authorization. Everthing is working still, but if we have issues, we can add it back in.    
+    
     service.getToken = function() {
         var user = {};
         user.id = $cookies.get('uid');
