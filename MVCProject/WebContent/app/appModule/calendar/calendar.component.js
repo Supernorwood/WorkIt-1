@@ -2,6 +2,8 @@ angular.module('appModule').component('calendar', {
 	templateUrl : 'app/appModule/calendar/calendar.component.html',
 	controller : function(authService, $location, jobsService, uiCalendarConfig) {
 		var vm = this;
+		
+		
 
 		vm.newEvent = null;
 		
@@ -17,12 +19,12 @@ angular.module('appModule').component('calendar', {
 			        }
 			      };
 		//^^This works and displays the calendar
-		vm.addEvent = function() {
-			jobsService.getDateCreated().then(function(response) {
-				vm.newEvent = response.data
-			})
-		}
-		vm.addEvent();
+//		vm.addEvent = function(job) {
+//			jobsService.getDateCreated(job.id).then(function(response) {
+//				vm.newEvent = response.data
+//			})
+//		}
+//		vm.addEvent();
 		//^^This does not work. We want it to display numbers on the calendar that represent the number
 		//of applications made that day. No luck in getting it to go.
 		
@@ -75,11 +77,14 @@ angular.module('appModule').component('calendar', {
 	    var y = date.getFullYear();
 		
 		vm.events = [
-		      {title: 'All Day Event',start: new Date(y, m, 1)},
+		      {title: '5',start: new Date(y, m, d)},
 		      {title: 'Long Event',start: new Date(y, m, d - 5),end: new Date(y, m, d - 2)},
 		      {id: 999,title: 'Repeating Event',start: new Date(y, m, d - 3, 16, 0),allDay: false},
 		      {id: 999,title: 'Repeating Event',start: new Date(y, m, d + 4, 16, 0),allDay: false},
 		    ];
+		
+	    vm.eventSources = [vm.events];
+
 	},
 
 	controllerAs : 'vm',
