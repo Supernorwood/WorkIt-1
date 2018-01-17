@@ -92,6 +92,21 @@
 				}
 				return results;
 			}
+			
+			vm.addJobSkill = function() {
+				if (vm.editJob.jobSkills.length > 0) {
+					vm.editJob.jobSkills.push({
+						"skill": ""
+					});
+				}
+				else {
+					vm.editJob.jobSkills = [
+						{
+							"skill" : ""
+						}
+					];
+				}
+			}
 
 //			if (!vm.selected && parseInt($routeParams.id)) {
 //				  vm.selectedJob(parseInt($routeParams.id));
