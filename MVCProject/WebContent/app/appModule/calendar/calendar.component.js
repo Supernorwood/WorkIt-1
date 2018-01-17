@@ -84,7 +84,7 @@ angular.module('appModule').component('calendar', {
 		    ];
 		
 	    vm.eventSources = [vm.events];
-
+	    //need the data to be formatted exactly like this -- convert from UTC
 	},
 
 	controllerAs : 'vm',

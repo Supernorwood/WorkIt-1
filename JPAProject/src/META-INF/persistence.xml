@@ -11,6 +11,8 @@
         <class>entities.User</class> 
         <class>entities.Contact</class> 
         <class>entities.Skill</class> 
+        <class>entities.Quotes</class> 
+        <class>entities.Event</class> 
 
         <properties>
         		<!-- Configure your connection to the database -->

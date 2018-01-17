@@ -1,56 +1,27 @@
 <h1 class="contactsHead row justify-content-center" ng-show="!vm.selectedContact">Contacts</h1>
 
 <div class="row justify-content-center">
-<button class="btn buttonSub" ng-click="vm.newXtact()">New Contact</button>
+	<button class="btn buttonSub" ng-click="vm.newXtact()">New Contact</button>
 </div>
 <br>
 
 <!-- New contact form -->
-<div class="wrapper container" ng-show="vm.newContact">
+<div class="row" ng-show="vm.newContact">
 	<form ng-show="!vm.selectedContact">
-		<div class="row">
 			<div class="col-sm">
-				<input class="form-control" type="text" ng-model="contact.firstName"
-					placeholder="First name"><br>
+				<input class="form-control" type="text" ng-model="contact.firstName" placeholder="First name">
+				<input class="form-control" type="text" ng-model="contact.lastName" placeholder="Last name">
+				<input class="form-control" type="text" ng-model="contact.title" placeholder="Title">
+				<input class="form-control" type="text" ng-model="contact.company" placeholder="Company">
+				<input class="form-control" type="text" ng-model="contact.phone" placeholder="Phone">
+				<input class="form-control" type="text" ng-model="contact.email" placeholder="Email">
+				<input class="form-control" type="text" ng-model="contact.note" placeholder="Notes">
+				<input class="form-control buttonSub" type="submit" ng-click="vm.addContact(contact); contact = {}; vm.newContact= null" value="Add Contact">
 			</div>
-			<div class="col-sm">
-				<input class="form-control" type="text" ng-model="contact.lastName"
-					placeholder="Last name"><br>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm">
-				<input class="form-control" type="text" ng-model="contact.title"
-					placeholder="Title"><br> 
-			</div>
-			<div class="col-sm">
-				<input class="form-control" type="text" ng-model="contact.company" 
-					placeholder="Company"><br>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm">
-				<input class="form-control" type="text" ng-model="contact.phone"
-					placeholder="Phone"><br> 
-			</div>
-			<div class="col-sm">
-				<input class="form-control" type="text" ng-model="contact.email" 
-					placeholder="Email"><br>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm"></div>
-			<div class="col-sm">
-				<input class="form-control buttonSub" type="submit"
-					ng-click="vm.addContact(contact); contact = {}; vm.newContact= null" value="Add Contact" /><br>
-			</div>
-			<div class="col-sm"></div>
-			
-		</div>
 	</form>
 	<div class="row justify-content-center">
-<button class="btn buttonSub" ng-click="vm.newContact= null">Cancel</button>
-</div>
+		<button class="btn buttonSub" ng-click="vm.newContact= null">Cancel</button>
+	</div>
 </div>
 <br>
 
@@ -112,20 +83,21 @@
 
 	<form id="edit-contact-form">
 
-		First Name: <input type="text" ng-model="vm.editContact.firstName" placeholder="First Name" /><br />
-		Last Name: <input type="text" ng-model="vm.editContact.lastName" placeholder="Last Name" /><br />
-		Company: <input type="text" ng-model="vm.editContact.company" placeholder="Company" /><br />
-		Title: <input type="text" ng-model="vm.editContact.title" placeholder="Title" /><br />
-		Email: <input type="text" ng-model="vm.editContact.email" placeholder="Email" /><br />
-		Phone: <input type="text" ng-model="vm.editContact.phone" placeholder="Phone" /><br />
-		Last Contacted: <input type="text" ng-model="vm.editContact.lastContactDate" placeholder="YYYY-MM-DD" /><br />
+		First Name: <input type="text" ng-model="vm.editContact.firstName" placeholder="First Name"><br> 
+		Last Name: <input type="text" ng-model="vm.editContact.lastName" placeholder="Last Name"><br> 
+		Company: <input type="text" ng-model="vm.editContact.company" placeholder="Company"><br> 
+		Title: <input type="text" ng-model="vm.editContact.title" placeholder="Title"><br> 
+		Email: <input type="text" ng-model="vm.editContact.email" placeholder="Email"><br>
+		Phone: <input type="text" ng-model="vm.editContact.phone" placeholder="Phone"><br> 
+		Notes: <input type="text" ng-model="vm.editContact.note" placeholder="Notes"><br>
+		Last Contacted: <input type="text" ng-model="vm.editContact.lastContactDate" placeholder="YYYY-MM-DD"><br>
 	</form>
-		<a>Last Updated: {{vm.editContact.lastUpdate | date:'yyyy-MM-dd'}} </a> <br>
-		<a>Date Added: {{vm.editContact.createDate | date:'yyyy-MM-dd'}} </a> <br> <br>
-		
+	<a>Last Updated: {{vm.editContact.lastUpdate | date:'yyyy-MM-dd'}}</a> <br> 
+	<a>Date Added: {{vm.editContact.createDate | date:'yyyy-MM-dd'}} </a> <br> 
+	<br>
 
-	<button type="button" ng-click="vm.updateContact(vm.editContact)"
-		href="#/contacts">Save</button>
+
+	<button type="button" ng-click="vm.updateContact(vm.editContact)" href="#/contacts">Save</button>
 	<button type="button" ng-click="vm.cancel()">Cancel</button>
 
 </div>
