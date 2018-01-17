@@ -65,7 +65,7 @@ public class ContactDAOImpl implements ContactDAO {
 			managedContact.setCompany(updateContact.getCompany());
 			managedContact.setEmail(updateContact.getEmail());
 			managedContact.setPhone(updateContact.getPhone());
-//			managedContact.setContactNotes(updateContact.getContactNotes());
+			managedContact.setNote(updateContact.getNote());
 			if (managedContact.getAddress()!=null) {
 				managedContact.getAddress().setStreet(updateContact.getAddress().getStreet());
 				managedContact.getAddress().setCity(updateContact.getAddress().getCity());
