@@ -12,6 +12,8 @@
 			
 			vm.showAllJobs = false;
 			
+			vm.editJobSkills = [];
+			
 			var reloadJobs = function() {
 				jobsService.index()
 				.then(function(response) {
@@ -59,6 +61,9 @@
 			
 			vm.setEditJob= function() {
                 vm.editJob = angular.copy(vm.selected);
+                jobsService.getJobSkills(vm.editJob.id).then(function(response) {
+                		vm.editJobSkills = response.data
+                })
 			}
 			
 			var incomplete = $filter('incompleteFilter')(vm.jobs);
@@ -86,6 +91,21 @@
  					}	
 				}
 				return results;
+			}
+			
+			vm.addJobSkill = function() {
+				if (vm.editJob.jobSkills.length > 0) {
+					vm.editJob.jobSkills.push({
+						"skill": ""
+					});
+				}
+				else {
+					vm.editJob.jobSkills = [
+						{
+							"skill" : ""
+						}
+					];
+				}
 			}
 
 //			if (!vm.selected && parseInt($routeParams.id)) {

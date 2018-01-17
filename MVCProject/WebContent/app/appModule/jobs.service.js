@@ -81,6 +81,15 @@ angular.module('appModule')
 		}
 	}
 	
+	service.getJobSkills = function(jobId) {
+		var user = checkLogin();
+		return $http({
+			method: 'GET',
+			url: 'rest/user/' + user.id + '/jobs/' + jobId + '/skills'
+		})
+		.catch(console.error)
+	}
+	
 	service.getQuote = function(quote) {
 		return $http({
 			  method : 'GET',

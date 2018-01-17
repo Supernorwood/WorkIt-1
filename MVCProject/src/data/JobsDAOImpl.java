@@ -1,5 +1,6 @@
 package data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -10,8 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import entities.Contact;
 import entities.Job;
+import entities.Skill;
 import entities.User;
 
 	@Transactional
@@ -68,6 +69,31 @@ import entities.User;
 				ogJob = em.find(Job.class, jid);
 				ogJob.setTitle(job.getTitle());
 				ogJob.setCompany(job.getCompany());
+				
+				List<Skill> updateSkills = job.getJobSkills();
+				List<Skill> persistedUpdateSkills = new ArrayList<>();
+				
+				for (Skill updateSkill : updateSkills) {
+					int updateSkillId;
+					try {
+						updateSkillId = updateSkill.getId();
+					}
+					catch (NullPointerException npe) {
+						updateSkillId = 0;
+					}
+					if (updateSkillId == 0) {
+						Skill persistingSkill = new Skill();
+						persistingSkill.setSkill(updateSkill.getSkill());
+						em.persist(persistingSkill);
+						em.flush();
+						persistedUpdateSkills.add(persistingSkill);
+						String query = "INSERT INTO job_skills (job_id, skill_id) VALUES (:jobId, :skillId)";
+						em.createNativeQuery(query).setParameter("jobId", job.getId()).setParameter("skillId", persistingSkill.getId()).executeUpdate();
+					}
+				}
+				if (persistedUpdateSkills.size() > 0) {
+					ogJob.setJobSkills(persistedUpdateSkills);
+				}
 				ogJob.setNote(job.getNote());
 				if (ogJob.getAddress()!=null) {
 					ogJob.getAddress().setStreet(job.getAddress().getStreet());
