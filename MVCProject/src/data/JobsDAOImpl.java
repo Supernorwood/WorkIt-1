@@ -68,6 +68,7 @@ import entities.User;
 				ogJob = em.find(Job.class, jid);
 				ogJob.setTitle(job.getTitle());
 				ogJob.setCompany(job.getCompany());
+//				ogJob.setNotes(job.getNotes());
 				if (ogJob.getAddress()!=null) {
 					ogJob.getAddress().setStreet(job.getAddress().getStreet());
 					ogJob.getAddress().setCity(job.getAddress().getCity());

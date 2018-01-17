@@ -77,6 +77,16 @@
 			vm.countJobs = function() {
 				return (vm.jobs).length;
 			}
+			
+			vm.jobsThisWeek = function(job) {
+				var results = [];
+				for (var i = 0; i < vm.jobs.length; i++) {
+					if (vm.jobs.createdDate < moment().startOf('week')._d) {
+	 					results.push(job);
+ 					}	
+				}
+				return results;
+			}
 
 //			if (!vm.selected && parseInt($routeParams.id)) {
 //				  vm.selectedJob(parseInt($routeParams.id));

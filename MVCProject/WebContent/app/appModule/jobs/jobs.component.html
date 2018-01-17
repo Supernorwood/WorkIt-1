@@ -13,7 +13,6 @@
 
 <!-- INDEX LIST OF JOBS -->
 <div class="jobShow tableDiv" >
-<span>
 	<table class="table" ng-show="!vm.selected">
 		<tr>
 			<th>Job Title</th>
@@ -31,8 +30,25 @@
 			<td><button class="buttonDel" ng-click="vm.destroyJob(job.id)">x</button></td>
 		</tr>
 	</table>
-</span>
 </div>
+
+
+<!-- LIST OF THIS WEEK'S JOBS APPLIED TO -->
+<h4 ng-show="!vm.selected">Applications Completed This Week</h4>
+<div class="thisWeek" ng-show="!vm.selected">
+
+	<table class="table">
+		<tr>
+			<th>Job Title</th>
+		</tr>
+		<tr ng-repeat="job in vm.jobs | orderBy:'id'">
+			<td ng-click="vm.jobsThisWeek(job)">{{job.title}}</td>
+		</tr>
+	</table>
+</div>
+
+
+
 <!-- SHOW DETAIL VIEW -->
 
 <div ng-show="vm.selected && !vm.editJob">

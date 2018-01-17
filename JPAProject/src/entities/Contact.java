@@ -35,6 +35,8 @@ public class Contact {
 	private String phone;
 	
 	private String email;
+	
+//	private String contactNotes;   ***need to re-do toString if used**
 
 	@ManyToOne
 	@JoinColumn(name = "address_id")
@@ -116,6 +118,14 @@ public class Contact {
 		this.email = email;
 	}
 
+//	public String getContactNotes() {
+//		return contactNotes;
+//	}
+//
+//	public void setContactNotes(String contactNotes) {
+//		this.contactNotes = contactNotes;
+//	}
+
 	public Address getAddress() {
 		return address;
 	}
@@ -180,8 +190,14 @@ public class Contact {
 
 	@Override
 	public String toString() {
-		return "Contact [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", createDate="
+		return "Contact [id=" + id + ", user=" + user + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", title=" + title + ", company=" + company + ", phone=" + phone + ", email=" + email + ", address="
+				+ address + ", contactCount=" + contactCount + ", lastContactDate=" + lastContactDate + ", createDate="
 				+ createDate + ", lastUpdate=" + lastUpdate + "]";
 	}
+
+
+
+
 	
 }

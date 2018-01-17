@@ -40,6 +40,8 @@ public class Job {
 	private String title;
 
 	private String link;
+	
+//	private String notes;
 
 	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name = "address_id")
@@ -110,6 +112,14 @@ public class Job {
 		this.link = link;
 	}
 
+//	public String getNotes() {
+//		return notes;
+//	}
+//
+//	public void setNotes(String notes) {
+//		this.notes = notes;
+//	}
+
 	public Address getAddress() {
 		return address;
 	}
@@ -162,7 +172,9 @@ public class Job {
 	public String toString() {
 		return "Job [id=" + id + ", user=" + user + ", active=" + active + ", company=" + company + ", title=" + title
 				+ ", link=" + link + ", address=" + address + ", salary=" + salary + ", closingDate=" + closingDate
-				+ ", createdDate=" + createdDate + ", lastUpdate=" + lastUpdate + "]";
+				+ ", createdDate=" + createdDate + ", lastUpdate=" + lastUpdate + ", jobSkills=" + jobSkills + "]";
 	}
+
+
 
 }
