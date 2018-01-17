@@ -56,7 +56,7 @@ angular.module('authModule')
     			data: user
     		})
     		.then(function(response){
-    			saveToken(response.data)
+    			saveToken(response.data);
     		})
     		.catch(console.error)
     }
@@ -82,9 +82,6 @@ angular.module('authModule')
     			},
     			data: user
     		})
-    		.then(function(response) {
-    			saveToken(response.data)
-    		})
     		.catch(console.error)
     }
     
@@ -97,6 +94,24 @@ angular.module('authModule')
     			service.logout();
     		})
     		.catch(console.error)
+    }
+    
+    service.getUser = function() {
+    		var userId = $cookies.get('uid');
+    		return $http({
+    			method: 'GET',
+    			url: 'rest/auth/' + userId
+    		})
+    		.catch(console.error)
+    }
+    
+    service.getUserSkills = function() {
+    		var userId = $cookies.get('uid');
+	    	return $http({
+	    		method: 'GET',
+	    		url: 'rest/auth/' + userId + "/skills"
+	    	})
+	    	.catch(console.error)
     }
     
     return service;

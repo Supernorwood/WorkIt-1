@@ -138,12 +138,10 @@ public class User {
 
 	public void setJobs(List<Job> jobs) {
 		this.jobs = jobs;
-		
-		
 	}
 
 	public List<Skill> getUserSkills() {
-		return userSkills;
+		return this.userSkills;
 	}
 
 	public void setUserSkills(List<Skill> userSkills) {

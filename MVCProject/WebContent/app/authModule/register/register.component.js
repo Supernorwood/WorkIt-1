@@ -6,10 +6,10 @@ angular.module('authModule')
 		var vm = this;
 		
 		vm.registerUser = function(user) {
-			console.log(user);
 			if (user.password === user.confirm) {
 				delete user.confirm;
 				user.active = 1;
+				user.userSkills = [];
 				authService.register(user)
 				.then(function(response){
 					$location.path('/jobs')

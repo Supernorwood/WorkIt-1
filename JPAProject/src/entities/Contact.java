@@ -53,6 +53,8 @@ public class Contact {
 	
 	@Column(name = "last_update")
 	private Timestamp lastUpdate;
+	
+	private String note;
 
 	public int getId() {
 		return id;
@@ -164,6 +166,16 @@ public class Contact {
 
 	public void setLastUpdate(Timestamp lastUpdate) {
 		this.lastUpdate = lastUpdate;
+	}
+	
+	
+
+	public String getNote() {
+		return note;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
 	}
 
 	@Override
