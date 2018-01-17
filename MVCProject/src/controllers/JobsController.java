@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import data.JobsDAO;
 import entities.Job;
+import entities.Skill;
 
 @RestController
 public class JobsController {
@@ -46,6 +47,11 @@ public class JobsController {
 			res.setStatus(404);
 		}
 		return j;
+	}
+	
+	@RequestMapping(path = "/user/{userId}/jobs/{jobId}/skills", method = RequestMethod.GET)
+	public List<Skill> getJobSkills(HttpServletRequest req, HttpServletResponse res, @PathVariable int userId, @PathVariable int jobId) {
+		return jobsdao.getJobById(userId, jobId).getJobSkills();
 	}
 	
 //  POST /user/{uid}/jobs
