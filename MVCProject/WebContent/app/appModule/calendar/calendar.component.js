@@ -1,6 +1,6 @@
 angular.module('appModule').component('calendar', {
 	templateUrl : 'app/appModule/calendar/calendar.component.html',
-	controller : function(authService, $location, jobsService) {
+	controller : function(authService, $location, jobsService, uiCalendarConfig) {
 		var vm = this;
 
 		vm.newEvent = null;
@@ -16,14 +16,18 @@ angular.module('appModule').component('calendar', {
 			          },
 			        }
 			      };
-
+		//^^This works and displays the calendar
 		vm.addEvent = function() {
 			jobsService.getDateCreated().then(function(response) {
 				vm.newEvent = response.data
 			})
 		}
-		
 		vm.addEvent();
+		//^^This does not work. We want it to display numbers on the calendar that represent the number
+		//of applications made that day. No luck in getting it to go.
+		
+		
+		//The below were copied from the Angular UI calendar page and appear to not be working either
 		
 		 /* add and removes an event source of choice */
 	    vm.addRemoveEventSource = function(sources,source) {
@@ -61,12 +65,7 @@ angular.module('appModule').component('calendar', {
 	        uiCalendarConfig.calendars[calendar].fullCalendar('render');
 	      }
 	    };
-	     /* Render Tooltip */
-	    vm.eventRender = function( event, element, view ) { 
-	        element.attr({'tooltip': event.title,
-	                     'tooltip-append-to-body': true});
-	        $compile(element)(vm.eventRender); //not sure on this one
-	    };
+	     
 	    
 
 // test data
