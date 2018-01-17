@@ -34,7 +34,7 @@ public class Skill {
 	@JsonBackReference(value="jobToSkill")
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	@LazyCollection(LazyCollectionOption.FALSE)
-	@JoinTable(name = "job_skills", joinColumns=@JoinColumn(name = "job_id"), inverseJoinColumns=@JoinColumn(name = "skill_id"))
+	@JoinTable(name = "job_skills", joinColumns=@JoinColumn(name = "skill_id"), inverseJoinColumns=@JoinColumn(name = "job_id"))
 	private Job skillJob;
 
 	public int getId() {
