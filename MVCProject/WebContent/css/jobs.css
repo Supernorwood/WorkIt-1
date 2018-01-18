@@ -3,14 +3,20 @@ body {
 	background-color: #f9f3e7;
 }
 
+#hand {
+	cursor: pointer;
+}
+
 .buttonSub {
 	background-color: #778899;
 	color: white;
+	cursor: pointer;
 }
 
 .buttonDel {
 	background-color: #800020;
 	color: white;
+	cursor: pointer;
 }
 
 /* Navigation Styling */
@@ -65,6 +71,11 @@ ul.topnav li.btnright {
 .btn {
 	padding: 0px;
 	text-align: center;
+	cursor: pointer;
+}
+
+logout {
+	cursor: pointer;
 }
 
 /* Home Page Styling */
@@ -85,11 +96,14 @@ ul.topnav li.btnright {
 #loginButton {
     top: 40%;
     left: 50%;
+    cursor: pointer;
+    
 } 
 
 #registerButton {
     top: 45%;
     left: 50%;
+    cursor: pointer;
 }
 
 .motivation {
@@ -183,6 +197,10 @@ tr:nth-child(even) {
     margin-left: auto;
     margin-right: auto;
    	width: 100%
+}
+
+#successBanner {
+	color: darkgreen;
 }
 
 .updateFormHeader {
