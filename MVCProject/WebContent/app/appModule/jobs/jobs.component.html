@@ -18,15 +18,14 @@
 			<th>Job Title</th>
 			<th>Company</th>
 			<th>Date</th>
-			<th>Active</th>
+			<th>Job Details</th>
 			<th>Del</th>
 		</tr>
 		<tr ng-repeat="job in vm.jobs | orderBy:'id'">
 			<td ng-click="vm.displayJob(job)">{{job.title}}</td>
 			<td ng-click="vm.displayJob(job)">{{job.company}}</td>
 			<td ng-click="vm.displayJob(job)">{{job.createdDate}}</td>
-			<td><input type="checkbox" ng-model="job.active"
-				ng-change="vm.updateJob(job)" /></td>
+			<td><button class="buttonSub" type="submit" value ="Details" ng-click="vm.displayJob(job)">Details</button></td>
 			<td><button class="buttonDel" ng-click="vm.destroyJob(job.id)">x</button></td>
 		</tr>
 	</table>
@@ -89,10 +88,10 @@
 			</td>
 		</tr>
 		<tr>
-			<td><input type="submit" ng-click="vm.setEditJob()" value="Edit" /></td>
+			<td><input class="buttonSub" type="submit" ng-click="vm.setEditJob()" value="Edit" /></td>
 		</tr>
 	</table>
-	<button type="button" ng-click="vm.displayAllJobs()">Back to
+	<button class="buttonSub" type="button" ng-click="vm.displayAllJobs()">Back to
 		Jobs</button>
 		</div>
 </div>
@@ -102,15 +101,31 @@
 <h1 ng-show="vm.editJob">Edit Job Details</h1>
 <div ng-show="vm.editJob">
 <div class="jobEdit">
-	<form class="edit-form">
-		Job Title: <input type="text" ng-model="vm.editJob.title" placeholder="Job Title" /><br />
-		Company <input type="text" ng-model="vm.editJob.company" placeholder="Company"/><br />
-		Job Posting URL: <input type="text" ng-model="vm.editJob.link" placeholder="'http://' needed"/><br />
-		Street: <input type="text" ng-model="vm.editJob.address.street" placeholder="Street"/><br />
-		City: <input type="text" ng-model="vm.editJob.address.city" placeholder="City"/><br />
-		State: <input type="text" ng-model="vm.editJob.address.state" placeholder="State"/><br />
-		Zip: <input type="text" ng-model="vm.editJob.address.zip" placeholder="Zip (ie. 80909)"/><br />
-		Country: <input type="text" ng-model="vm.editJob.address.country" placeholder="Country"/><br />
+	<form class="edit-form ">
+	
+	<div class="form-group row">
+ <label for="example-text-input" class="col-2 col-form-label col-form-label-sm">Text</label>
+ <div class="col-10">
+   <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
+ </div>
+</div>
+
+
+		<div class="form-group row">
+		<label class="col-3 col-form-label">Job Title</label> 
+		 <div class="col-9">
+		<input class="form-control" type="text" ng-model="vm.editJob.title" placeholder="Job Title" />
+		</div>
+		</div>
+		
+		
+		Company <input class="form-control" type="text" ng-model="vm.editJob.company" placeholder="Company"/><br />
+		Job Posting URL: <input class="form-control" type="text" ng-model="vm.editJob.link" placeholder="'http://' needed"/><br />
+		Street: <input class="form-control" type="text" ng-model="vm.editJob.address.street" placeholder="Street"/><br />
+		City: <input class="form-control" type="text" ng-model="vm.editJob.address.city" placeholder="City"/><br />
+		State: <input class="form-control" type="text" ng-model="vm.editJob.address.state" placeholder="State"/><br />
+		Zip: <input class="form-control" type="text" ng-model="vm.editJob.address.zip" placeholder="Zip (ie. 80909)"/><br />
+		Country: <input class="form-control" type="text" ng-model="vm.editJob.address.country" placeholder="Country"/><br />
 		Skills: <button type="button" ng-click="vm.addJobSkill()">+</button>
 		<div ng-repeat="skill in vm.editJob.jobSkills">
 			<input type="text" ng-model="skill.skill">
