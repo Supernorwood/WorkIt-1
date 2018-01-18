@@ -52,6 +52,16 @@ angular.module('appModule')
 				}
 			}
 			
+			vm.destroySkill = function(id) {
+				console.log(id);
+				authService.destroy(id)
+				.then(function(response){
+					reloadUser();
+				})
+				.catch(console.error)
+			}
+			
+			
 			
 		},
 		controllerAs : 'vm'

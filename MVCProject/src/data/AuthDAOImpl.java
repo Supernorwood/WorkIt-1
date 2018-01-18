@@ -111,6 +111,13 @@ public class AuthDAOImpl implements AuthDAO {
 		em.createQuery(query).setParameter("userId", userId).executeUpdate();
 		return em.find(User.class, userId) == null;
 	}
+	
+	@Override
+	public Boolean destroySkill(int skillId) {
+		String query = "DELETE FROM SkillUser WHERE skill.id = :skillId";
+		em.createQuery(query).setParameter("skillId", skillId).executeUpdate();
+		return em.find(Skill.class, skillId) == null;
+	}
 
 	@Override
 	public User getUserById(int userId) {

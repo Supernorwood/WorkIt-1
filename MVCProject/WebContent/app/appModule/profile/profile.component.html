@@ -5,7 +5,7 @@
 <!-- EDIT USER INFO FORM -->
 
 	<h1 class="profileHeader row justify-content-center">{{vm.currentUser.firstName}} {{vm.currentUser.lastName}}</h1><br>
-	<h1 ng-show="vm.infoUpdated">Successfully Updated</h1>
+	<h1 class="row justify-content-center" ng-show="vm.infoUpdated">Successfully Updated</h1>
 
 <!-- LIST OF SKILLS AS BUTTONS W/ ADD and DELETE -->
 <h3>Skills</h3><br>
@@ -25,7 +25,7 @@
 	<h2>Your Skills</h2>
 	<form>
 		<div ng-repeat="skill in vm.currentUserSkills">
-			<input type="text" ng-model="skill.skill">		
+			<span><input type="text" ng-model="skill.skill"><button type="button" ng-click="vm.destroySkill(skill.id)">X</button></span>	
 		</div>
 		<button type="button" ng-click="vm.addSkill()">Add New Skill</button>
 		<button type="button" ng-click="vm.updateUser()">Save Changes</button>
