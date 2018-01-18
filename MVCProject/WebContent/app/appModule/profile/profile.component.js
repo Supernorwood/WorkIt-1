@@ -2,7 +2,7 @@ angular.module('appModule')
 	.component('profile', {
 		templateUrl : 'app/appModule/profile/profile.component.html',
 		
-		controller : function(authService, addressesService, $filter, $routeParams, $location, $cookies){
+		controller : function(authService, jobsService, addressesService, $filter, $routeParams, $location, $cookies){
 			var vm = this;
 			
 			vm.currentUser = null;
@@ -54,7 +54,7 @@ angular.module('appModule')
 			
 			vm.destroySkill = function(id) {
 				console.log(id);
-				authService.destroy(id)
+				jobsService.destroySkill(id)
 				.then(function(response){
 					reloadUser();
 				})

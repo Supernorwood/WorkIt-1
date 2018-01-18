@@ -50,7 +50,7 @@
 				<th id="ctcTbl">Email</th>
 				<th id="ctcTbl">Phone Number</th>
 				<th id="ctcTbl">Last Contacted</th>
-				<th></th>
+				<th>Delete</th>
 			</tr>
 		</thead>
 
@@ -69,7 +69,7 @@
 			</td>
 			<td ng-click="vm.setEditContact(contact)" id="ctcData">{{contact.lastContactDate}}
 			</td>
-			<td><button ng-click="vm.destroyContact(contact.id)">X</button></td>
+			<td><button class="buttonDel" id="ctrDeleteOnCol" ng-click="vm.destroyContact(contact.id)">X</button></td>
 		</tr>
 	</table>
 </div>

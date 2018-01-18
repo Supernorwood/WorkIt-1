@@ -14,19 +14,21 @@
 <!-- INDEX LIST OF JOBS -->
 <div class="jobShow tableDiv" >
 	<table class="table" ng-show="!vm.selected">
+		<thead id="jobsHeader"> 
 		<tr>
 			<th>Job Title</th>
 			<th>Company</th>
-			<th>Date</th>
+			<th>Date Applied</th>
 			<th>Job Details</th>
-			<th>Del</th>
+			<th>Delete</th>
 		</tr>
+		</thead>
 		<tr ng-repeat="job in vm.jobs | orderBy:'id'">
 			<td id="hand" ng-click="vm.displayJob(job)">{{job.title}}</td>
 			<td id="hand" ng-click="vm.displayJob(job)">{{job.company}}</td>
 			<td id="hand" ng-click="vm.displayJob(job)">{{job.createdDate}}</td>
-			<td><button class="buttonSub" type="submit" value ="Details" ng-click="vm.displayJob(job)">Details</button></td>
-			<td><button class="buttonDel" ng-click="vm.destroyJob(job.id)">x</button></td>
+			<td><button class="buttonSub" id="ctrDetailsOnCol" type="submit" value ="Details" ng-click="vm.displayJob(job)">Details</button></td>
+			<td><button class="buttonDel" id="ctrDeleteOnCol" ng-click="vm.destroyJob(job.id)">x</button></td>
 		</tr>
 	</table>
 </div>
@@ -37,9 +39,11 @@
 <div class="thisWeek" ng-show="!vm.selected">
 
 	<table class="table">
+		<thead id="jobsHeader">
 		<tr>
 			<th>Job Title</th>
 		</tr>
+		</thead>
 		<tr ng-repeat="job in vm.jobs">
 			<td >{{vm.jobsThisWeek()}}{{job.title}}</td>
 		</tr>
