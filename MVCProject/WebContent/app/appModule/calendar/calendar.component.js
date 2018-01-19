@@ -86,15 +86,15 @@ angular.module('appModule').component('calendar', {
 	      }
 	    };
 	    
-	    /* add custom event*/
-	    vm.addEvent = function() {
-	      vm.events.push({
-	        title: 'Open Sesame',
-	        start: new Date(y, m, 28),
-	        end: new Date(y, m, 29),
-	        className: ['openSesame']
-	      });
-	    };
+//	    /* add custom event*/
+//	    vm.addEvent = function() {
+//	      vm.events.push({
+//	        title: '',
+//	        start: new Date(y, m, 28),
+//	        end: new Date(y, m, 29),
+//	        className: ['openSesame']
+//	      });
+//	    };
 	    
 	    /* need to add edit functionality as well*/
 	    
