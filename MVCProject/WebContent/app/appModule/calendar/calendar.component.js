@@ -93,6 +93,9 @@ angular.module('appModule').component('calendar', {
 	        className: ['openSesame']
 	      });
 	    };
+	    
+	    /* need to add edit functionality as well*/
+	    
 	    /* remove event */
 	    vm.remove = function(index) {
 	      vm.events.splice(index,1);

@@ -6,28 +6,30 @@
 	<form ng-show="!vm.selected" class="form-group">
 		<input class="form-control" type="text" ng-model="job.title" placeholder="Job Title" /><br>
 		<input class="form-control" type="text" ng-model="job.company" placeholder="Company" /><br>
-		<input class="form-control buttonSub" type="submit" ng-click="vm.addJob(job); job = {}"
-			value="Add Job" /><br>
+		<div id="addJobBtn">
+			<button class="buttonSub" type="submit" ng-click="vm.addJob(job); job = {}">Add Job</button><br>
+		</div>
 	</form>
 </div>
-
+<br>
 <!-- INDEX LIST OF JOBS -->
 <div class="jobShow tableDiv" >
 	<table class="table" ng-show="!vm.selected">
+		<thead id="jobsHeader"> 
 		<tr>
 			<th>Job Title</th>
 			<th>Company</th>
-			<th>Date</th>
-			<th>Active</th>
-			<th>Del</th>
+			<th>Date Applied</th>
+			<th>Job Details</th>
+			<th>Delete</th>
 		</tr>
+		</thead>
 		<tr ng-repeat="job in vm.jobs | orderBy:'id'">
-			<td ng-click="vm.displayJob(job)">{{job.title}}</td>
-			<td ng-click="vm.displayJob(job)">{{job.company}}</td>
-			<td ng-click="vm.displayJob(job)">{{job.createdDate}}</td>
-			<td><input type="checkbox" ng-model="job.active"
-				ng-change="vm.updateJob(job)" /></td>
-			<td><button class="buttonDel" ng-click="vm.destroyJob(job.id)">x</button></td>
+			<td id="hand" ng-click="vm.displayJob(job)">{{job.title}}</td>
+			<td id="hand" ng-click="vm.displayJob(job)">{{job.company}}</td>
+			<td id="hand" ng-click="vm.displayJob(job)">{{job.createdDate}}</td>
+			<td><button class="buttonSub" id="ctrDetailsOnCol" type="submit" value ="Details" ng-click="vm.displayJob(job)">Details</button></td>
+			<td><button class="buttonDel" id="ctrDeleteOnCol" ng-click="vm.destroyJob(job.id)">x</button></td>
 		</tr>
 	</table>
 </div>
@@ -38,11 +40,13 @@
 <div class="thisWeek" ng-show="!vm.selected">
 
 	<table class="table">
+		<thead id="jobsHeader">
 		<tr>
 			<th>Job Title</th>
 		</tr>
-		<tr ng-repeat="job in vm.jobs | orderBy:'id'">
-			<td ng-click="vm.jobsThisWeek(job)">{{job.title}}</td>
+		</thead>
+		<tr ng-repeat="job in vm.jobs">
+			<td >{{vm.jobsThisWeek()}}{{job.title}}</td>
 		</tr>
 	</table>
 </div>
@@ -89,10 +93,10 @@
 			</td>
 		</tr>
 		<tr>
-			<td><input type="submit" ng-click="vm.setEditJob()" value="Edit" /></td>
+			<td><input class="buttonSub" type="submit" ng-click="vm.setEditJob()" value="Edit" /></td>
 		</tr>
 	</table>
-	<button type="button" ng-click="vm.displayAllJobs()">Back to
+	<button class="buttonSub" type="button" ng-click="vm.displayAllJobs()">Back to
 		Jobs</button>
 		</div>
 </div>
@@ -102,16 +106,59 @@
 <h1 ng-show="vm.editJob">Edit Job Details</h1>
 <div ng-show="vm.editJob">
 <div class="jobEdit">
-	<form class="edit-form">
-		Job Title: <input type="text" ng-model="vm.editJob.title" placeholder="Job Title" /><br />
-		Company <input type="text" ng-model="vm.editJob.company" placeholder="Company"/><br />
-		Job Posting URL: <input type="text" ng-model="vm.editJob.link" placeholder="URL"/><br />
-		Street: <input type="text" ng-model="vm.editJob.address.street" placeholder="Address"/><br />
-		City: <input type="text" ng-model="vm.editJob.address.city" placeholder="Address"/><br />
-		State: <input type="text" ng-model="vm.editJob.address.state" placeholder="Address"/><br />
-		Zip: <input type="text" ng-model="vm.editJob.address.zip" placeholder="Address"/><br />
-		Country: <input type="text" ng-model="vm.editJob.address.country" placeholder="Address"/><br />
-		Skills: <button type="button" ng-click="vm.addJobSkill()">+</button>
+	<form class="edit-form ">
+	
+
+		<div class="form-group row">
+			<label class="col-3 col-form-label">Job Title: </label> 
+			 <div class="col-9">
+				<input class="form-control" type="text" ng-model="vm.editJob.title" placeholder="Job Title" />
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-3 col-form-label">Company: </label> 
+			 <div class="col-9">
+					<input class="form-control" type="text" ng-model="vm.editJob.company" placeholder="Company"/>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-3 col-form-label">Job Posting URL: </label> 
+			 <div class="col-9">
+				<input class="form-control" type="text" ng-model="vm.editJob.link" placeholder="'http://' needed"/>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-3 col-form-label">Street: </label> 
+			 <div class="col-9">
+				<input class="form-control" type="text" ng-model="vm.editJob.address.street" placeholder="Street"/>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-3 col-form-label">City: </label> 
+			 <div class="col-9">
+				<input class="form-control" type="text" ng-model="vm.editJob.address.city" placeholder="City"/>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-3 col-form-label">State: </label> 
+			 <div class="col-9">
+				<input class="form-control" type="text" ng-model="vm.editJob.address.state" placeholder="State"/>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-3 col-form-label">Zip: </label> 
+			 <div class="col-9">
+				<input class="form-control" type="text" ng-model="vm.editJob.address.zip" placeholder="Zip (ie. 80909)"/>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-3 col-form-label">Country: </label> 
+			 <div class="col-9">
+				<input class="form-control" type="text" ng-model="vm.editJob.address.country" placeholder="Country"/>
+			</div>
+		</div>
+	
+		Skills: <button class="buttonSub" type="button" ng-click="vm.addJobSkill()">+</button>
 		<div ng-repeat="skill in vm.editJob.jobSkills">
 			<input type="text" ng-model="skill.skill">
 		</div>
@@ -121,8 +168,8 @@
 		Active: <input type="checkbox" ng-model="vm.editJob.active"/>  
 	</form>
 
-	<button type="button buttonSub" ng-click="vm.updateJob(vm.editJob)">Save</button>
-	<button type="button buttonDel" ng-click="vm.editJob=null">Cancel</button>
+	<button type="button" class="buttonSub" ng-click="vm.updateJob(vm.editJob)">Save</button>
+	<button type="button" class="buttonDel" ng-click="vm.editJob=null">Cancel</button>
 </div>
 </div>
 

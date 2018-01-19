@@ -85,13 +85,28 @@
 			
 			vm.jobsThisWeek = function(job) {
 				var results = [];
-				for (var i = 0; i < vm.jobs.length; i++) {
-					if (vm.jobs.createdDate < moment().startOf('week')._d) {
-	 					results.push(job);
- 					}	
+				var sunday = moment().startOf('week')._d; // === Sun Jan 14 2018 00:00:00 GMT-0700 (MST)
+				
+				var sundayUTC = moment(sunday).valueOf(); // === 1515913200000
+				console.log(sundayUTC);
+				
+				Date.now(); // === 1516223576344
+			
+				console.log(Date.now());
+				
+				if (sundayUTC > Date.now()) {
+					
+					for (var i = 0; i < vm.jobs.length; i++) {
+						if (vm.jobs.createdDate < sudayUTC) {
+							results.push(job);
+						}	
+					}
+				
+					return results;
 				}
-				return results;
 			}
+				
+		
 			
 			vm.addJobSkill = function() {
 				if (vm.editJob.jobSkills.length > 0) {

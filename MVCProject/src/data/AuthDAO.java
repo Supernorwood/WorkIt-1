@@ -16,4 +16,6 @@ public interface AuthDAO {
 	public User updateUser(int userId, String userJson);
 	
 	public Boolean destroyUser(int userId);
+
+	public Boolean destroySkill(int skillId);
 }
