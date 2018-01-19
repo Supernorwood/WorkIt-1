@@ -13,12 +13,14 @@
 		</div>
 	<br>
 		<div class="col-sm">
-			<input class="form-control" type="text" ng-model="event.eventDate" placeholder="Date" />
+			<input class="form-control" type="date" ng-model="event.eventDate" placeholder="Date" />
 		</div>
 	</div>
 	<br>
 	<!-- <input class="form-control" type="textarea" ng-model="event.description" placeholder="Event Description" /> -->
-	<textarea class="form-control" placeholder = "Event description" ng-model="event.description"></textarea>
+	
+	<!-- <textarea class="form-control" placeholder = "Event description" ng-model="event.description"></textarea> -->
+	
 	<!-- ^^Not sure this works as an input field, need to test it when we can get the data to even go in. -RU -->
 	<br>
 	<input class="form-control buttonSub" type="submit" ng-click="vm.addEvent(event); event = {}" value="Add Event" /><br>

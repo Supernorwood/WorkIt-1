@@ -123,7 +123,6 @@ angular.module('appModule')
 	service.addEvent = function(event) {
 		var user = checkLogin();
 		if (!user) return;
-		console.log(event)
 		return $http({
 			method : 'POST',
 			url : 'rest/user/' + user.id + '/events',
