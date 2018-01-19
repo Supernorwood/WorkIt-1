@@ -97,4 +97,9 @@ public class AuthController {
   public List<Skill> getUserSkills(HttpSession session, HttpServletResponse res, @PathVariable int userId) {
 	  return authDAO.getUserById(userId).getUserSkills();
   }
+  
+  @RequestMapping(path = "/auth/{userId}/skills", method = RequestMethod.POST)
+  public Skill addUserSkill(HttpSession session, HttpServletResponse res, @PathVariable int userId, @RequestBody String skillJson) {
+	  return authDAO.addUserSkill(userId, skillJson);
+  }
 }

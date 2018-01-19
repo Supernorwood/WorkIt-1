@@ -114,5 +114,17 @@ angular.module('authModule')
 	    	.catch(console.error)
     }
     
+    service.addUserSkill = function(skillJson) {
+    		var userId = $cookies.get('uid');
+    		return $http({
+			method : 'POST',
+			url : 'rest/auth/' + userId + '/skills',
+			headers : {
+				'Content-Type' : 'application/json'
+			},
+			data : skillJson
+		})
+	}
+    
     return service;
 })

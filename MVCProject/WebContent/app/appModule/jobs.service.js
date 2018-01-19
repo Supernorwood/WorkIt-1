@@ -182,19 +182,6 @@ angular.module('appModule')
 		})
 	}
 	
-	service.addASkill = function(sid) {
-		var user = checkLogin();
-		if (!user) return;
-		console.log(skills)
-		return $http({
-			method : 'POST',
-			url : 'rest/user/' + user.id + '/skill',
-			headers : {
-				'Content-Type' : 'application/json'
-			},
-			data : skills
-		})
-	}
 	
   return service;
 })

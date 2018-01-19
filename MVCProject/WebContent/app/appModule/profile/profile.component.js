@@ -7,7 +7,11 @@ angular.module('appModule')
 			
 			vm.currentUser = null;
 			
-			vm.skill = [];
+			vm.currentUserSkills = [];
+			
+			vm.modelSkill = {
+					'skill': ''
+			};
 			
 			vm.infoUpdated = false;
 			
@@ -44,8 +48,8 @@ angular.module('appModule')
 				})
 			}
 			
-			vm.addSkill = function(skill) {
-				jobsService.addASkill(skill)
+			vm.addUserSkill = function(skill) {
+				authService.addUserSkill(skill)
 				.then(function(response){
 					reloadUser();
 				})
