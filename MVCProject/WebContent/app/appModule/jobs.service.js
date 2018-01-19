@@ -5,6 +5,8 @@ angular.module('appModule')
   var jobs = [];
   
   var quote = [];
+  
+  var event = [];
 
   var checkLogin = function(user) {
 	  var user = authService.getToken()
@@ -98,13 +100,60 @@ angular.module('appModule')
 		
 	}
 	
-	service.getDateCreated = function(id) {
+	service.getEvents = function(event) {
 		var user = checkLogin();
+		if (!user) return;
 		return $http({
 			method : 'GET',
-			url : 'rest/user/' + user.id + '/jobs/' + id //getting a 404 bad request when 
-			//sending this to the server. It should work to make the page at least display something.
+			url : 'rest/user/' + user.id + '/events/' 
 		})
+	}
+	
+	service.showEvent = function(event) {
+		var user = checkLogin();
+		if (!user) return;
+		return $http({
+			method : 'GET',
+			url : 'rest/user/' + user.id + '/events/' + id 
+		});
+	}
+	
+	service.addEvent = function(event) {
+		var user = checkLogin();
+		if (!user) return;
+		console.log(event)
+		return $http({
+			method : 'POST',
+			url : 'rest/user/' + user.id + '/events',
+			headers : {
+				'Content-Type' : 'application/json'
+			},
+			data : event
+		})
+	}
+	
+	service.updateEvent = function(event) {
+		var user = checkLogin();
+		if (user) {
+			console.log(event);
+			return $http({
+				method : 'PUT',
+				url : 'rest/user/' + user.id + '/events/' + events.id,
+				headers : {
+					'Content-Type' : 'application/json'
+				},
+				data : events
+			})
+		}
+	}
+	
+	service.destroyEvent = function(event) {
+		var user = checkLogin();
+		  if (!user) return;
+			return $http({
+				method : 'DELETE',
+				url : 'rest/user/' + user.id + '/event/' + event
+			});
 	}
 	
   return service;
