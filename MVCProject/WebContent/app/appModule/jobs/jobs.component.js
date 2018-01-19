@@ -90,20 +90,21 @@
 				var sundayUTC = moment(sunday).valueOf(); // === 1515913200000
 				console.log(sundayUTC);
 				
-				Date.now(); // === 1516223576344
-			
-				console.log(Date.now());
+//				Date.now(); // === 1516223576344
+//			
+//				console.log(Date.now());
 				
-				if (sundayUTC > Date.now()) {
+//				if (sundayUTC < Date.now()) {
 					
 					for (var i = 0; i < vm.jobs.length; i++) {
-						if (vm.jobs.createdDate < sudayUTC) {
-							results.push(job);
+							console.log(moment(vm.jobs[i].createdDate).valueOf())
+						if (moment(vm.jobs[i].createdDate).valueOf() > sundayUTC) {
+							results.push(vm.jobs[i]);
 						}	
 					}
-				
+				console.log(results);
 					return results;
-				}
+//				}
 			}
 				
 		

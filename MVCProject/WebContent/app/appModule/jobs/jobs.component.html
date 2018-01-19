@@ -1,5 +1,5 @@
 <h1 class = "jobAppsHead row justify-content-center" ng-show="!vm.selected">Your Job Applications</h1>
-<h3>{{vm.countJobs()}} jobs applied for this week. And counting!</h3>
+<h3>{{vm.jobsThisWeek().length}} jobs applied for this week. And counting!</h3>
 
 <div class="jobAdd">
 	<!-- ADD JOB FORM -->
@@ -45,8 +45,8 @@
 			<th>Job Title</th>
 		</tr>
 		</thead>
-		<tr ng-repeat="job in vm.jobs">
-			<td >{{vm.jobsThisWeek()}}{{job.title}}</td>
+		<tr ng-repeat="job in vm.jobsThisWeek()">
+			<td >{{job.title}}</td>
 		</tr>
 	</table>
 </div>
