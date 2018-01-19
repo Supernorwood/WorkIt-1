@@ -53,12 +53,14 @@
 
 
 
-<!-- SHOW DETAIL VIEW -->
+<!-- SHOW DETAIL VIEW -->	
 
 <div ng-show="vm.selected && !vm.editJob">
-	<h1>Job Details</h1>
+	<h1 class="jobAppsHead row justify-content-center">Job Details</h1>
 	<div class="jobDetails">
-	<table class="show-detail">
+	<table class="show-detail table-bordered row justify-content-center">
+	
+	
 		<tr>
 			<td>Job Title: {{vm.selected.title}}</td>
 		</tr>
@@ -91,13 +93,12 @@
 			<td>
 				Notes: {{vm.selected.note}}
 			</td>
-		</tr>
-		<tr>
-			<td><input class="buttonSub" type="submit" ng-click="vm.setEditJob()" value="Edit" /></td>
-		</tr>
-	</table>
+			
+			<tr><td><input class="buttonSub" type="submit" ng-click="vm.setEditJob()" value="Edit" />
 	<button class="buttonSub" type="button" ng-click="vm.displayAllJobs()">Back to
-		Jobs</button>
+		Jobs</button></td></tr>
+	</table>
+
 		</div>
 </div>
 
