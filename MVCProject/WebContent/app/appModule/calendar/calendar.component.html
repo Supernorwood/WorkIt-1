@@ -22,7 +22,12 @@
 	<!-- ^^Not sure this works as an input field, need to test it when we can get the data to even go in. -RU -->
 	<br>
 	<input class="form-control buttonSub" type="submit" ng-click="vm.addEvent(event); event = {}" value="Add Event" /><br>
-
-
-
 </form>
+
+<table>
+	<tr ng-repeat="event in vm.events">
+		<td>{{event.title}}</td>
+		<td>{{event.eventDate}}</td>
+		<td>{{event.description}}</td>
+	</tr>
+</table>
