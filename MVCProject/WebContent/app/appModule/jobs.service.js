@@ -115,5 +115,13 @@ angular.module('appModule')
 		})
 	}
 	
+	service.destroyJobSkill = function(sid) {
+		var user = checkLogin();
+		return $http({
+			method : 'DELETE',
+			url : 'rest/user/' + user.id + '/jobs/' + job.id + '/skill/' + sid
+		})
+	}
+	
   return service;
 })

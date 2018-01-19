@@ -123,6 +123,15 @@
 				}
 			}
 
+			vm.destroyJobSkill = function(id) {
+				console.log(id);
+				jobsService.destroySkill(id)
+				.then(function(response){
+					reloadUser();
+				})
+				.catch(console.error)
+			}
+			
 //			if (!vm.selected && parseInt($routeParams.id)) {
 //				  vm.selectedJob(parseInt($routeParams.id));
 //				  
