@@ -89,10 +89,10 @@ angular.module('appModule').component('calendar', {
 	    /* add custom event*/
 	    vm.addEvent = function() {
 	      vm.events.push({
-	        title: 'Open Sesame',
-	        start: new Date(y, m, 28),
-	        end: new Date(y, m, 29),
-	        className: ['openSesame']
+	        title: '',
+	        start: new Date(y, m, d),
+	        end: new Date(y, m, d),
+//	        className: ['openSesame']
 	      });
 	    };
 	    
