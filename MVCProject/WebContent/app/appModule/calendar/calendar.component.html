@@ -3,24 +3,25 @@
 <br>
 
 <!-- Form to let the user update the calendar -->
-<!-- ng-show="vm.daySelected" -->
+<!-- ng-show="vm.selected" -->
 <form class="form-group">
-	<!-- Will we need a db thing for this? It's not really a job...-->
-	<input class="form-control" type="text" ng-model="event.title" placeholder="Event title" />
 	<br>
 	<div class="row">
 	<!-- We'll need a click function to add the date from the calendar to the form -->
 		<div class="col-sm">
-			<input class="form-control"	type="text" ng-model="event.eventDate" placeholder="Date" />
+			<input class="form-control"	type="text" ng-model="event.title" placeholder="Job Event" />
 		</div>
 	<br>
-	<!-- Figure out the format for the time... maybe have a dropdown? -->
 		<div class="col-sm">
-			<input class="form-control" type="text" ng-model="event.eventTime" placeholder="Time" />
+			<input class="form-control" type="text" ng-model="event.eventDate" placeholder="Date" />
 		</div>
 	</div>
 	<br>
-	<input class="form-control buttonSub" type="submit" ng-click="vm.event(event); event = {}" value="Add Event" /><br>
+	<!-- <input class="form-control" type="textarea" ng-model="event.description" placeholder="Event Description" /> -->
+	<textarea class="form-control" placeholder = "Event description" ng-model="event.description"></textarea>
+	<!-- ^^Not sure this works as an input field, need to test it when we can get the data to even go in. -RU -->
+	<br>
+	<input class="form-control buttonSub" type="submit" ng-click="vm.addEvent(event); event = {}" value="Add Event" /><br>
 
 
 

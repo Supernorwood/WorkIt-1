@@ -3,10 +3,57 @@ angular.module('appModule').component('calendar', {
 	controller : function(authService, $location, jobsService, uiCalendarConfig) {
 		var vm = this;
 		
+		vm.selected = null; //this will be useful for the click event on the calendar itself
 		
+		
+		//Below is CRUD functionality for events. -RU
+		vm.events = [];
 
 		vm.newEvent = null;
 		
+		var reloadEvents = function() {
+			jobsService.getEvents()
+			.then(function(response){
+				vm.events = response.data
+			})
+			.catch(console.error)
+		}
+		
+		reloadEvents();
+		
+		vm.addEvent = function(event){
+			jobsService.create(event)
+			.then(function(response){
+				reloadEvents();
+			})
+			.catch(console.error)
+		}
+		
+		vm.displayEvent = function(event){
+			return vm.selected = event;
+		}
+		
+		vm.displayAllEvents = function() {
+			vm.selected = null;
+		}
+		
+		vm.updateEvent = function(editedEvent) {
+			jobsService.updateEvent(editedEvent)
+			.then(function(response){
+				reloadEvents();
+			})
+		}
+		
+		vm.destroyEvent = function(id) {
+			jobsService.destroy(id)
+			.then(function(response){
+				reloadEvents();
+			})
+			.catch(console.error)
+		}
+		
+		
+		//Below is calendar-specific functions. Notes show what it does, but I'm still mostly baffled -RU
 		vm.uiConfig = {
 			      calendar:{
 			          height: 450,
@@ -18,18 +65,11 @@ angular.module('appModule').component('calendar', {
 			          },
 			        }
 			      };
-		//^^This works and displays the calendar
-//		vm.addEvent = function(job) {
-//			jobsService.getDateCreated(job.id).then(function(response) {
-//				vm.newEvent = response.data
-//			})
-//		}
-//		vm.addEvent();
-		//^^This does not work. We want it to display numbers on the calendar that represent the number
-		//of applications made that day. No luck in getting it to go.
+		//^^This works and displays the calendar -RU
 		
 		
-		//The below were copied from the Angular UI calendar page and appear to not be working either
+		//The below were copied from the Angular UI calendar page and appear to not be working -RU
+		//It will be necessary to find a way to get them to integrate with the CRUD functionality -RU
 		
 		 /* add and removes an event source of choice */
 	    vm.addRemoveEventSource = function(sources,source) {
@@ -88,6 +128,7 @@ angular.module('appModule').component('calendar', {
 		
 	    vm.eventSources = [vm.events];
 	    //need the data to be formatted exactly like this -- convert from UTC
+	    //The data is formatted y-m-d in the database, so this might work unless it converts it when it's pulled out -RU
 	},
 
 	controllerAs : 'vm',
