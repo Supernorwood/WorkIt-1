@@ -22,6 +22,17 @@ angular.module('appModule').component('calendar', {
 		reloadEvents();
 		
 		vm.addEvent = function(event){
+			console.log(event.eventDate);
+	    			var modInputDate = event.eventDate.split('/');
+	    			console.log(modInputDate);
+	        var date = new Date();
+		    var d = modInputDate[1];
+		    var m = modInputeDate[0];
+		    var y = modInputDate[2];
+	      vm.events.push({
+	        title: event.title,
+	        start: (y, m, d)
+	      });
 			jobsService.create(event)
 			.then(function(response){
 				reloadEvents();
@@ -87,12 +98,10 @@ angular.module('appModule').component('calendar', {
 	    };
 	    
 	    /* add custom event*/
-	    vm.addEvent = function() {
+	    vm.newEvent = function() {
 	      vm.events.push({
-	        title: '',
-	        start: new Date(y, m, d),
-	        end: new Date(y, m, d),
-//	        className: ['openSesame']
+	        title: event.title,
+	        start: (y, m, d)
 	      });
 	    };
 	    
@@ -122,7 +131,7 @@ angular.module('appModule').component('calendar', {
 	    var y = date.getFullYear();
 		
 		vm.events = [
-		      {title: '5',start: new Date(y, m, d)},
+		      {title: '5',start: (2018, 01, 25)},
 		      {title: 'Long Event',start: new Date(y, m, d - 5),end: new Date(y, m, d - 2)},
 		      {id: 999,title: 'Repeating Event',start: new Date(y, m, d - 3, 16, 0),allDay: false},
 		      {id: 999,title: 'Repeating Event',start: new Date(y, m, d + 4, 16, 0),allDay: false},
