@@ -25,6 +25,7 @@ angular.module('appModule').component('calendar', {
 			jobsService.create(event)
 			.then(function(response){
 				reloadEvents();
+				
 			})
 			.catch(console.error)
 		}
@@ -84,6 +85,7 @@ angular.module('appModule').component('calendar', {
 	        sources.push(source);
 	      }
 	    };
+	    
 	    /* add custom event*/
 	    vm.addEvent = function() {
 	      vm.events.push({
