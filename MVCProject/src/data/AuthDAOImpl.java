@@ -123,6 +123,31 @@ public class AuthDAOImpl implements AuthDAO {
 	public User getUserById(int userId) {
 		return em.find(User.class, userId);
 	}
+
+	@Override
+	public Skill addUserSkill(int userId, String skillJson) {
+		ObjectMapper mapper = new ObjectMapper();
+		Skill newSkill = null;
+		User managedUser = em.find(User.class, userId);
+		List<Skill> existingUserSkills = managedUser.getUserSkills();
+		
+		try {
+			newSkill = mapper.readValue(skillJson, Skill.class);
+			em.persist(newSkill);
+			em.flush();
+			existingUserSkills.add(newSkill);
+			managedUser.setUserSkills(existingUserSkills);
+			String query = "INSERT INTO user_skills (user_id, skill_id) VALUES (:userId, :skillId)";
+			em.createNativeQuery(query).setParameter("userId", managedUser.getId()).setParameter("skillId", newSkill.getId()).executeUpdate();
+			return newSkill;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
 	
 	
 

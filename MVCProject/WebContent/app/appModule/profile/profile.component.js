@@ -9,6 +9,10 @@ angular.module('appModule')
 			
 			vm.currentUserSkills = [];
 			
+			vm.modelSkill = {
+					'skill': ''
+			};
+			
 			vm.infoUpdated = false;
 			
 			var reloadUser = function() {
@@ -37,19 +41,19 @@ angular.module('appModule')
 				.catch(console.error)
 			}
 			
-			vm.addSkill = function() {
-				if (vm.currentUserSkills.length > 0) {
-					vm.currentUserSkills.push({
-						"skill": ""
-					});
-				}
-				else {
-					vm.currentUserSkills = [
-						{
-							"skill" : ""
-						}
-					];
-				}
+			vm.seeSkills = function(skill) {
+				jobsService.getAllSkills(skill)
+				.then(function(response){
+					reloadUser();
+				})
+			}
+			
+			vm.addUserSkill = function(skill) {
+				authService.addUserSkill(skill)
+				.then(function(response){
+					reloadUser();
+				})
+				.catch(console.error)
 			}
 			
 			vm.destroySkill = function(id) {

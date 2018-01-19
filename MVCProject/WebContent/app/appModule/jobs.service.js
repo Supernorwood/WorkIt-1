@@ -7,6 +7,8 @@ angular.module('appModule')
   var quote = [];
   
   var event = [];
+  
+  var skills = [];
 
   var checkLogin = function(user) {
 	  var user = authService.getToken()
@@ -170,6 +172,15 @@ angular.module('appModule')
 			url : 'rest/user/' + user.id + '/jobs/' + job.id + '/skill/' + sid
 		})
 	}
+	
+	service.getAllSkills = function(sid) {
+		var user = checkLogin();
+		return $http({
+			method : 'GET',
+			url : 'rest/user/' + user.id + '/skill/' 
+		})
+	}
+	
 	
   return service;
 })
