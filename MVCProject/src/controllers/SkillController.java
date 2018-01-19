@@ -20,6 +20,7 @@ public class SkillController {
 	
 	@Autowired
 	private SkillDAO skillDAO;
+	
 
 	@RequestMapping(path="/user/{uid}/skill/{sid}", method=RequestMethod.DELETE)
 	public Boolean destroySkill(@PathVariable int uid, @PathVariable int sid) {
@@ -50,5 +51,9 @@ public class SkillController {
 		return skill;
 	}
 	
+	@RequestMapping(path="/user/{userId}/jobs/{jobId}/skill/{sid}", method=RequestMethod.DELETE)
+	public Boolean destroyJobSkill(@PathVariable int uid, @PathVariable int jid, @PathVariable int sid) {
+		return skillDAO.destroyJobSkill(uid, jid, sid);
+	}
 	
 }

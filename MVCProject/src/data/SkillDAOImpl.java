@@ -29,9 +29,9 @@ public class SkillDAOImpl implements SkillDAO {
 	}
 	
 	@Override
-	public Boolean destroyJobSkill(int jid, int sid) {
+	public Boolean destroyJobSkill(int uid, int jid, int sid) {
 		String query = "DELETE FROM job_skills WHERE job_id = :uid AND skill_id = :sid";
-		long numModified = em.createNativeQuery(query).setParameter("jid", jid).setParameter("sid", sid).executeUpdate();
+		long numModified = em.createNativeQuery(query).setParameter("jid", jid).setParameter("jid", jid).setParameter("sid", sid).executeUpdate();
 		return numModified > 0;
 	}
 

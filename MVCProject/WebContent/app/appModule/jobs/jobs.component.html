@@ -53,12 +53,14 @@
 
 
 
-<!-- SHOW DETAIL VIEW -->
+<!-- SHOW DETAIL VIEW -->	
 
 <div ng-show="vm.selected && !vm.editJob">
-	<h1>Job Details</h1>
+	<h1 class="jobAppsHead row justify-content-center">Job Details</h1>
 	<div class="jobDetails">
-	<table class="show-detail">
+	<table class="show-detail table-bordered row justify-content-center">
+	
+	
 		<tr>
 			<td>Job Title: {{vm.selected.title}}</td>
 		</tr>
@@ -91,19 +93,18 @@
 			<td>
 				Notes: {{vm.selected.note}}
 			</td>
-		</tr>
-		<tr>
-			<td><input class="buttonSub" type="submit" ng-click="vm.setEditJob()" value="Edit" /></td>
-		</tr>
-	</table>
+			
+			<tr><td><input class="buttonSub" type="submit" ng-click="vm.setEditJob()" value="Edit" />
 	<button class="buttonSub" type="button" ng-click="vm.displayAllJobs()">Back to
-		Jobs</button>
+		Jobs</button></td></tr>
+	</table>
+
 		</div>
 </div>
 
 <!-- SHOW EDIT VIEW -->
 
-<h1 ng-show="vm.editJob">Edit Job Details</h1>
+<h1 class="jobAppsHead row justify-content-center" ng-show="vm.editJob">Edit Job Details</h1>
 <div ng-show="vm.editJob">
 <div class="jobEdit">
 	<form class="edit-form ">
@@ -158,14 +159,26 @@
 			</div>
 		</div>
 	
-		Skills: <button class="buttonSub" type="button" ng-click="vm.addJobSkill()">+</button>
+			<div class="form-group row">	
+		<label class="col-3 col-form-label">Notes:</label> 
+		<div class="col-9">
+		<textarea rows="4" cols="50" class="form-control" type="text" ng-model="vm.editJob.note" placeholder="Notes"></textarea>
+		<!-- Date Applied: <input type="text" ng-model="vm.editJob.dueDate" placeholder="Date Applied"/><br />
+		Last Updated: <input type="text" ng-model="vm.editJob.lastUpdate" placeholder="Last Updated"/><br /> -->
+	<!-- 	Active: <input type="checkbox" ng-model="vm.editJob.active"/>  --> 
+			</div>
+		</div>
+	
+		<div class="form-group row">	
+		<label class="col-3 col-form-label">Skills:</label> 
+		 <div class="col-9">
+		 <button class="buttonSub" type="button" ng-click="vm.addJobSkill()">+</button>
 		<div ng-repeat="skill in vm.editJob.jobSkills">
 			<input type="text" ng-model="skill.skill">
 		</div>
-		Notes: <input type="text" ng-model="vm.editJob.note" placeholder="Notes">
-		<!-- Date Applied: <input type="text" ng-model="vm.editJob.dueDate" placeholder="Date Applied"/><br />
-		Last Updated: <input type="text" ng-model="vm.editJob.lastUpdate" placeholder="Last Updated"/><br /> -->
-		Active: <input type="checkbox" ng-model="vm.editJob.active"/>  
+			</div>
+		</div>
+
 	</form>
 
 	<button type="button" class="buttonSub" ng-click="vm.updateJob(vm.editJob)">Save</button>

@@ -125,7 +125,7 @@
 
 			vm.destroyJobSkill = function(id) {
 				console.log(id);
-				jobsService.destroySkill(id)
+				jobsService.destroyJobSkill(id)
 				.then(function(response){
 					reloadUser();
 				})
