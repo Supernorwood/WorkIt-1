@@ -32,18 +32,20 @@
 
 	<h4>Your Skills</h4>
 	<div>
-	 <form>
-		<div class="form-group row" ng-repeat="skill in vm.currentUserSkills">
-			<div class="col-11">
-				<input class="form-control" type="text" ng-model="skill.skill">
-			</div>
-			<div class="col-1">
-				<button class="buttonDel" type="button" ng-click="vm.destroySkill(skill.id)">X</button>
-			</div>
+	<table>
+		<tr ng-repeat="skill in vm.skill | orderBy:'id'">
+			<td>{{skill.skill}}</td>
+			<td><button class="buttonDel" type="button" ng-click="vm.destroySkill(skill.id)">X</button></td>
+		</tr>
+	</table>
+	
+	<form>
+		<div class="form-group row" >
+			<input class="form-control" type="text" ng-model="skill.skill">
 		</div>
 		
 		<br>
-		<button class="buttonSub" type="button" ng-click="vm.addSkill()">Add New Skill</button>
+		<button class="buttonSub" type="submit" ng-click="vm.addSkill(skill); skill = {}">Add New Skill</button>
 		<button class="buttonSub" type="button" ng-click="vm.updateUser()">Save Changes</button>
 	</form> 
 	</div>

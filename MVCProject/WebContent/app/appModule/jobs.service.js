@@ -7,6 +7,8 @@ angular.module('appModule')
   var quote = [];
   
   var event = [];
+  
+  var skills = [];
 
   var checkLogin = function(user) {
 	  var user = authService.getToken()
@@ -169,6 +171,28 @@ angular.module('appModule')
 		return $http({
 			method : 'DELETE',
 			url : 'rest/user/' + user.id + '/jobs/' + job.id + '/skill/' + sid
+		})
+	}
+	
+	service.getAllSkills = function(sid) {
+		var user = checkLogin();
+		return $http({
+			method : 'GET',
+			url : 'rest/user/' + user.id + '/skill/' 
+		})
+	}
+	
+	service.addASkill = function(sid) {
+		var user = checkLogin();
+		if (!user) return;
+		console.log(skills)
+		return $http({
+			method : 'POST',
+			url : 'rest/user/' + user.id + '/skill',
+			headers : {
+				'Content-Type' : 'application/json'
+			},
+			data : skills
 		})
 	}
 	
