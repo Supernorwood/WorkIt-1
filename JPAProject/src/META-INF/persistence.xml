@@ -37,4 +37,4 @@
             <property name="hibernate.c3p0.timeout" value="60" />
         </properties>
     </persistence-unit>
-</persistence>
+</persistence>mys
