@@ -78,9 +78,9 @@
 		<tr>
 			<td>Date Applied: {{vm.selected.createdDate}}</td>
 		</tr>
-		<tr>
+<!-- 		<tr>
 			<td>Last Updated: {{vm.selected.lastUpdate}}</td>
-		</tr>
+		</tr> -->
 		<tr>
 			<td>
 				Skills Required:
@@ -184,7 +184,7 @@
 	</form>
 
 	<button type="button" class="buttonSub" ng-click="vm.updateJob(vm.editJob)">Save</button>
-	<button type="button" class="buttonDel" ng-click="vm.editJob=null">Cancel</button>
+	<button type="button" class="buttonDel" id="cancelBtn" ng-click="vm.editJob=null">Cancel</button>
 </div>
 </div>
 

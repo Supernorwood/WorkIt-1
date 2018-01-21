@@ -162,6 +162,13 @@ tr:nth-child(even) {
 	background-color:#778899;
 }
 
+#cancelBtn {
+	background-color: #800020;
+	color: white;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
 /* table {
     width: 95%;
     margin-left: auto;
@@ -203,9 +210,6 @@ tr:nth-child(even) {
     margin-right: auto;
 }
 
-.newCtcBtn {
-	
-}
 
 #ctcHeader {
 	background-color:#778899;

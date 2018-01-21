@@ -90,13 +90,13 @@
 				Notes: <textarea rows="4" cols="50" class="form-control" type="text" ng-model="vm.editContact.note" placeholder="Notes"></textarea><br>
 				Last Contacted: <input  class="form-control" type="text" ng-model="vm.editContact.lastContactDate" placeholder="YYYY-MM-DD"><br>
 			</form>
-			<a>Last Updated: {{vm.editContact.lastUpdate | date:'yyyy-MM-dd'}}</a> <br> 
+			<!-- <a>Last Updated: {{vm.editContact.lastUpdate | date:'yyyy-MM-dd'}}</a> <br>  -->
 			<a>Date Added: {{vm.editContact.createDate | date:'yyyy-MM-dd'}} </a> <br> 
 			<br>
 		
 		
 			<button type="button" class="buttonSub" ng-click="vm.updateContact(vm.editContact)" href="#/contacts">Save</button>
-			<button type="button" class="buttonSub" ng-click="vm.cancel()">Cancel</button>
+			<button type="button" class="buttonDel" id="cancelBtn" ng-click="vm.cancel()">Cancel</button>
 		</div>
 		<div class="col-md"></div>
 	</div>
