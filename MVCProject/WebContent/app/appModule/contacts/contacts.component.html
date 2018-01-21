@@ -1,7 +1,7 @@
 <h1 class="contactsHead row justify-content-center" ng-show="!vm.selectedContact">Contacts</h1>
 
 <div class="row justify-content-center" ng-hide="vm.editContact">
-	<button class="btn buttonSub" ng-click="vm.newXtact()">New Contact</button>
+	<button class="btn buttonSub" ng-click="vm.newXtact()"> &nbsp New Contact &nbsp</button>
 </div>
 <br>
 
@@ -95,8 +95,8 @@
 			<br>
 		
 		
-			<button type="button" ng-click="vm.updateContact(vm.editContact)" href="#/contacts">Save</button>
-			<button type="button" ng-click="vm.cancel()">Cancel</button>
+			<button type="button" class="buttonSub" ng-click="vm.updateContact(vm.editContact)" href="#/contacts">Save</button>
+			<button type="button" class="buttonSub" ng-click="vm.cancel()">Cancel</button>
 		</div>
 		<div class="col-md"></div>
 	</div>

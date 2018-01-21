@@ -11,6 +11,7 @@ body {
 	background-color: #778899;
 	color: white;
 	cursor: pointer;
+	border-radius: 5px;
 }
 
 .buttonDel {
@@ -72,6 +73,7 @@ ul.topnav li.btnright {
 	padding: 0px;
 	text-align: center;
 	cursor: pointer;
+	border-radius: 5px;
 }
 
 logout {
@@ -97,6 +99,7 @@ logout {
     top: 40%;
     left: 50%;
     cursor: pointer;
+    border-radius: 5px;
     
 } 
 
@@ -104,6 +107,7 @@ logout {
     top: 45%;
     left: 50%;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .motivation {
@@ -137,6 +141,7 @@ logout {
 
 #addJobBtn {
 	text-align: center;
+	border-radius: 5px;
 }
 
 .jobShow {
@@ -167,6 +172,7 @@ tr:nth-child(even) {
 #ctrDetailsOnCol {
 	text-align: center;
 	margin-left: 8px;
+	border-radius: 5px;
 }
 
 #ctrDeleteOnCol {
@@ -234,7 +240,13 @@ tr:nth-child(even) {
     margin-right: auto;
 }
 
+#skillBtn {
+	border-radius: 5px;
+	
+}
+
 #delAcct {
 	text-align: center;
+	border-radius: 5px;
 }
 
