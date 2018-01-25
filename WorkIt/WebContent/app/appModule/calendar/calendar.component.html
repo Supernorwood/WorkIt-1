@@ -1,0 +1,35 @@
+<!-- The calendar itself -->
+<div ui-calendar="vm.uiConfig.calendar" class="span8 calendar" ng-model="vm.eventSources"></div>
+<br>
+
+<!-- Form to let the user update the calendar -->
+<!-- ng-show="vm.selected" -->
+<form class="form-group">
+	<br>
+	<div class="row">
+	<!-- We'll need a click function to add the date from the calendar to the form -->
+		<div class="col-sm">
+			<input class="form-control"	type="text" ng-model="event.title" placeholder="Job Event" />
+		</div>
+	<br>
+		<div class="col-sm">
+			<input class="form-control" type="date" ng-model="event.eventDate" placeholder="Date" />
+		</div>
+	</div>
+	<br>
+	<!-- <input class="form-control" type="textarea" ng-model="event.description" placeholder="Event Description" /> -->
+	
+	<!-- <textarea class="form-control" placeholder = "Event description" ng-model="event.description"></textarea> -->
+	
+	<!-- ^^Not sure this works as an input field, need to test it when we can get the data to even go in. -RU -->
+	<br>
+	<input class="form-control buttonSub" type="submit" ng-click="vm.addEvent(event); event = {}" value="Add Event" /><br>
+</form>
+
+<table>
+	<tr ng-repeat="event in vm.events">
+		<td>{{event.title}}</td>
+		<td>{{event.eventDate}}</td>
+		<td>{{event.description}}</td>
+	</tr>
+</table>

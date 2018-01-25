@@ -1,0 +1,31 @@
+<div id="container navContainer">
+	<div id="navRow" class="row mx-auto align-items-center">
+		<div class="col-3">
+			<a class="navLink" id="projectLogo" href="#/">
+				<div id="projectLogo">
+					WorkIt
+				</div>
+			</a>
+			
+		</div>
+		<div class="col-3"></div>
+		<div class="col" ng-show="vm.loggedIn()">
+			<a class="navLink mx-auto my-auto" href="#/jobs">Jobs</a>
+		</div>
+		<div class="col" ng-show="vm.loggedIn()">
+			<a class="navLink" href="#/contacts">Contacts</a>
+		</div>
+		<div class="col" ng-show="vm.loggedIn()">
+			<a class="navLink" href="#/profile">Profile</a>
+		</div>
+		<div class="col" ng-hide="vm.loggedIn()">
+			<a class="navLink" href="#/register">Register</a>
+		</div>
+		<div class="col" ng-hide="vm.loggedIn()">
+			<a class="navLink" href="#/login">Log In</a>
+		</div>
+		<div class="col" ng-show="vm.loggedIn()">
+			<logout id="hand">Logout</logout>
+		</div>
+	</div>
+</div>

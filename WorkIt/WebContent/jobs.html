@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html ng-app="appModule">
+
+<head>
+  <meta charset="utf-8">
+  <title>Hands On</title>
+  	<!-- Angular stuff -->
+	<script src= "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.min.js"></script>
+	<script src= "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-route.min.js"></script>
+	<script src= "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-cookies.min.js"></script>
+	<!-- Auth module stuff -->
+	<script src= "app/authModule/auth.module.js"></script>
+	<script src= "app/authModule/auth.service.js"></script>
+	<script src= "app/authModule/logout/logout.component.js"></script>
+	<!-- App module stuff -->
+	<script src= "app/appModule/app.module.js"></script>
+	<script src= "app/appModule/navigation.component.js"></script>
+	<script src= "app/appModule/jobs/jobs.component.js"></script>
+	<script src= "app/appModule/bio/bio.component.js"></script>
+	<script src= "app/appModule/incomplete.filter.js"></script>
+	<script src= "app/appModule/error.component.js"></script>
+	<script src= "app/appModule/jobs.service.js"></script>	
+	<link rel="stylesheet" href="jobs.css">
+</head>
+
+<body>
+  <navigation></navigation>
+  <h1>This is the Jobs interface</h1>
+  <ng-view></ng-view>
+  
+</body>
+</html>

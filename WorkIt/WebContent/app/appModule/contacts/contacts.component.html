@@ -1,0 +1,130 @@
+<div class="container contactsContainer">
+	<div class="row contactsTitleRow">
+		<div class="col contactsTitleCol">
+			<h1 class="contactsHead row justify-content-center" ng-show="!vm.selectedContact">Contacts</h1>
+		</div>
+	</div>
+	<div class="row contactsAddButtonRow" ng-hide="vm.editContact">
+		<div class="col contactsAddButtonCol">
+			<button type="submit" class="d-block mx-auto" ng-click="vm.newXtact()">New Contact</button>
+		</div>
+	</div>
+	<div class="row contactsAddFormRow w-75 mx-auto" ng-show="vm.newContact">
+		<div class="col contactsAddCol">
+			<form>
+				<input class="form-control" type="text" ng-model="contact.firstName" placeholder="First name">
+				<input class="form-control" type="text" ng-model="contact.lastName" placeholder="Last name">
+				<input class="form-control" type="text" ng-model="contact.title" placeholder="Title">
+				<input class="form-control" type="text" ng-model="contact.company" placeholder="Company">
+				<input class="form-control" type="text" ng-model="contact.phone" placeholder="Phone">
+				<input class="form-control" type="text" ng-model="contact.email" placeholder="Email">
+				<textarea rows="4" cols="50" class="form-control" type="text" ng-model="contact.note" placeholder="Notes">></textarea>
+				<input class="float-left mt-3" type="submit" ng-click="vm.addContact(contact); contact = {}; vm.newContact= null" value="Add Contact">
+				<input class="float-right mt-3" type="submit" ng-click="vm.newContact= null" value="Cancel">
+			</form>
+		</div>
+	</div>
+	<div class="row contactsSortRow" ng-show="!vm.selectedContact">
+		<div class="col contactsSortCol">
+			<span class="d-block text-center mt-3"> 
+				<strong>Sort By:</strong> 
+				<a ng-click="vm.sortType = 'company'"> 
+					<strong>Company |</strong>
+				</a> 
+				<a ng-click="vm.sortType = 'lastName'"> 
+					<strong>Last Name |</strong>
+				</a>
+				<a ng-click="vm.sortType = 'firstName'"> 
+					<strong>First Name </strong>
+				</a>
+			</span>
+		</div>
+	</div>
+	<div class="row contactsTableRow w-75 mx-auto" ng-show="!vm.selectedContact">
+		<div class="col contactsTableCol">
+			<table class="table table-sm mt-3">
+				<thead>
+					<tr>
+						<th id="">Last Name</th>
+						<th id="">First Name</th>
+						<th id="">Company</th>
+						<th id="">Title</th>
+						<th id="">Email</th>
+						<th id="">Phone Number</th>
+						<th id="">Last Contacted</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tr ng-repeat="contact in vm.contacts | orderBy: vm.sortType">
+					<td ng-click="vm.setEditContact(contact)" id="">
+						{{contact.lastName}}
+					</td>
+					<td ng-click="vm.setEditContact(contact)" id="">
+						{{contact.firstName}}
+					</td>
+					<td ng-click="vm.setEditContact(contact)" id="">
+						{{contact.company}}
+					</td>
+					<td ng-click="vm.setEditContact(contact)" id="">
+						{{contact.title}}
+					</td>
+					<td ng-click="vm.setEditContact(contact)" id="">
+						{{contact.email}}
+					</td>
+					<td ng-click="vm.setEditContact(contact)" id="">
+						{{contact.phone}}
+					</td>
+					<td ng-click="vm.setEditContact(contact)" id="">
+						{{contact.lastContactDate}}
+					</td>
+					<td>
+						<button class="buttonDel" id="ctrDeleteOnCol" ng-click="vm.destroyContact(contact.id)">
+							X
+						</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="row contactsEditRow w-75 mx-auto" ng-show="vm.editContact">
+		<div class="col contactsEditCol">
+			<h1 class="text-center">Edit Contact</h1>
+			<form id="edit-contact-form">
+				<label for="contactFirstName">
+					First Name:
+				</label>
+				<input id="contactFirstName" class="form-control" type="text" ng-model="vm.editContact.firstName" placeholder="First Name">
+				<label for="contactLastName">
+					Last Name:
+				</label>
+				<input id="contactLastName" class="form-control" type="text" ng-model="vm.editContact.lastName" placeholder="Last Name">
+				<label for="contactCompany">
+					Company:
+				</label>
+				<input id="contactCompany" class="form-control" type="text" ng-model="vm.editContact.company" placeholder="Company">
+				<label for="contactTitle">
+					Title:
+				</label>
+				<input id="contactTitle" class="form-control" ype="text" ng-model="vm.editContact.title" placeholder="Title">
+				<label for="contactEmail">
+					Email:
+				</label>
+				<input id="contactEmail" class="form-control" type="text" ng-model="vm.editContact.email" placeholder="Email">
+				<label for="contactPhone">
+					Phone:
+				</label>
+				<input id="contactPhone" class="form-control" type="text" ng-model="vm.editContact.phone" placeholder="Phone"> 
+				<label for="contactNotes">
+					Notes:
+				</label>
+				<textarea id="contactNotes" rows="4" cols="50" class="form-control" type="text" ng-model="vm.editContact.note" placeholder="Notes"></textarea>
+				<label for="contactLastContactDate">
+					Last Contacted:
+				</label>
+				<input id="contactLastContactDate" class="form-control" type="text" ng-model="vm.editContact.lastContactDate" placeholder="YYYY-MM-DD">
+			</form>
+			<button type="button" class="float-left mt-3" ng-click="vm.updateContact(vm.editContact)">Save</button>
+			<button type="button" class="float-right mt-3" id="" ng-click="vm.cancel()">Cancel</button>
+		</div>
+	</div>
+</div>

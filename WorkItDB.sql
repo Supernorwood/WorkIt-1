@@ -443,7 +443,7 @@ SET SQL_MODE = '';
 GRANT USAGE ON *.* TO workit@localhost;
  DROP USER workit@localhost;
 SET SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
-CREATE USER 'workit'@'localhost' IDENTIFIED BY 'password';
+CREATE USER 'workit'@'localhost' IDENTIFIED BY 'workit';
 
 GRANT SELECT ON TABLE * TO 'workit'@'localhost';
 GRANT SELECT, INSERT, TRIGGER ON TABLE * TO 'workit'@'localhost';
