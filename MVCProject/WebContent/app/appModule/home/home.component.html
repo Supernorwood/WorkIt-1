@@ -1,26 +1,17 @@
-
-<br>
-<br>
-<br>
-<br>
-
-<h1 class="row justify-content-center" id=homePageTitle><strong>Welcome to Work It</strong></h1>
-
-<h2 class="row justify-content-center" id=homeSubTitle>(money)</h2>
-<br>
-	<div id=loginButton class="row justify-content-center">
-		<a ng-hide="vm.loggedIn()" href="#/login">
-			<button class="buttonSub" type="button" id=homeLogin>Login</button>
-		</a>
+<div class="container mx-auto" id="homeContainer">
+	<div class="row" id="homeTitleRow">
+		<div class="col d-flex align-items-end" id="homeCol">
+			<h1 class="mx-auto" id="homeTitle">WorkIt</h1>
+		</div>
 	</div>
-<br>
-	<div id=registerButton class="row justify-content-center">
-		<br> <a ng-hide="vm.loggedIn()" href="#/register">
-			<button class="buttonSub" type="button" id=homeRegister>Register</button>
-		</a>
-
+	<div class="row" id="homeSubtitleRow">
+		<div class="col d-flex align-items-start" id="homeCol">
+			<h4 class="mx-auto" id="homeSubtitle">money.</h4>
+		</div>
 	</div>
-<br>
-<br>
-<br>
-<div class="motivation">{{vm.quoteOfTheDay.quote}}</div>
+	<div class="row" id="homeDescriptionRow">
+		<p class="mx-auto">
+			Organize your job search. Other text and stuff. Omg.
+		</p>
+	</div>
+</div>
