@@ -12,8 +12,3 @@ Upon submitting a job application, the user enters the pertinent job information
   - Company
   - Link To Job Posting
   - Skills Required
-
-TBD
-
-application's intended purpose
-technologies involved (decide on technologies)
