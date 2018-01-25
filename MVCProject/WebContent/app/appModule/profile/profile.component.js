@@ -57,7 +57,6 @@ angular.module('appModule')
 			}
 			
 			vm.destroySkill = function(id) {
-				console.log(id);
 				jobsService.destroySkill(id)
 				.then(function(response){
 					reloadUser();

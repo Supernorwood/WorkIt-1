@@ -18,7 +18,6 @@ public class ErrorController {
 		Map<String, String> response = new HashMap<>();
 		
 		int httpErrorCode = (Integer) req.getAttribute("javax.servlet.error.status_code");
-		System.out.println(httpErrorCode);
 		
 		switch (httpErrorCode) {
 			case 400 : {

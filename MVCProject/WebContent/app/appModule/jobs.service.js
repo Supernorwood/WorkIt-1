@@ -44,7 +44,6 @@ angular.module('appModule')
 	  var user = checkLogin();
 	  if (!user) return;
 	  job.createdDate = $filter('date')(Date.now(), 'yyyy-MM-dd');
-	  console.log(job.createdDate);
 	  job.active = 1;
 	  return $http({
 			method : 'POST',
@@ -58,7 +57,6 @@ angular.module('appModule')
 	
 	service.destroy = function(jobId) {
 		var user = checkLogin();
-		console.log(jobId);
 		  if (!user) return;
 			return $http({
 				method : 'DELETE',
@@ -72,7 +70,6 @@ angular.module('appModule')
 			if(jobs.active) {
 			jobs.lastUpdate = $filter('date')(Date.now(), 'yyyy-MM-dd');
 			}
-			console.log(jobs);
 			return $http({
 				method : 'PUT',
 				url : 'rest/user/' + user.id + '/jobs/' + jobs.id,
@@ -136,7 +133,6 @@ angular.module('appModule')
 	service.updateEvent = function(event) {
 		var user = checkLogin();
 		if (user) {
-			console.log(event);
 			return $http({
 				method : 'PUT',
 				url : 'rest/user/' + user.id + '/events/' + events.id,

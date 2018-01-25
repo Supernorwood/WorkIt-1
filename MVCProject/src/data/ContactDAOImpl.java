@@ -58,7 +58,6 @@ public class ContactDAOImpl implements ContactDAO {
 		Contact updateContact = null;
 		try {
 			updateContact = mapper.readValue(contactJson, Contact.class);
-			System.out.println(updateContact.getLastContactDate());
 			managedContact.setFirstName(updateContact.getFirstName());
 			managedContact.setLastName(updateContact.getLastName());
 			managedContact.setTitle(updateContact.getTitle());

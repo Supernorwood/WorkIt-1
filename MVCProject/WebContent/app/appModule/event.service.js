@@ -23,7 +23,6 @@ angular.module('appModule')
 		service.addEvent = function(event) {
 			var userId = $cookies.get('uid');
 			if (!user) return;
-			console.log(event)
 			return $http({
 				method : 'POST',
 				url : 'rest/user/' + userId + '/events',
@@ -37,7 +36,6 @@ angular.module('appModule')
 		service.updateEvent = function(event) {
 			var userId = $cookies.get('uid');
 			if (user) {
-				console.log(event);
 				return $http({
 					method : 'PUT',
 					url : 'rest/user/' + userIdd + '/events/' + events.id,

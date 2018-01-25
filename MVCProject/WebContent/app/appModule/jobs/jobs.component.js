@@ -51,7 +51,6 @@
 			}
 			
 			vm.destroyJob = function(id) {
-				console.log(id);
 				jobsService.destroy(id)
 				.then(function(response){
 					reloadJobs();
@@ -71,7 +70,6 @@
 			if (!vm.selected && parseInt($routeParams.jobId)){
 					jobsService.show($routeParams.jobId)
 						.then(function(response){
-							console.log(response)
 							vm.selected = response.data;
 				})
 				.catch(function(response){
@@ -88,15 +86,12 @@
 				var sunday = moment().startOf('week')._d; // === Sun Jan 14 2018 00:00:00 GMT-0700 (MST)
 				
 				var sundayUTC = moment(sunday).valueOf(); // === 1515913200000
-				console.log(sundayUTC);
 					
 					for (var i = 0; i < vm.jobs.length; i++) {
-							console.log(moment(vm.jobs[i].createdDate).valueOf())
 						if (moment(vm.jobs[i].createdDate).valueOf() > sundayUTC) {
 							results.push(vm.jobs[i]);
 						}	
 					}
-				console.log(results);
 					return results;
 			}
 				
@@ -118,7 +113,6 @@
 			}
 
 			vm.destroyJobSkill = function(id) {
-				console.log(id);
 				jobsService.destroyJobSkill(id)
 				.then(function(response){
 					reloadUser();

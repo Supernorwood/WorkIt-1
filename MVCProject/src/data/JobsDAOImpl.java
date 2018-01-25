@@ -42,7 +42,6 @@ import entities.User;
 
 		@Override
 		public Job addNewJob(int uid, String json) {
-			System.out.println(json);
 			ObjectMapper mapper = new ObjectMapper();
 			Job newJob = null;
 			try {
